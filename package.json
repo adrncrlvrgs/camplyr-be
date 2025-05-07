@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/adrncrlvrgs/camplyr-be#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "@types/node": "^22.15.14",
+    "express": "^5.1.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1"
   }
 }
