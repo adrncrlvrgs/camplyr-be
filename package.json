@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/adrncrlvrgs/camplyr-be#readme",
   "dependencies": {
+    "@prisma/client": "^6.7.0",
     "@types/node": "^22.15.14",
     "concurrently": "^9.1.2",
     "express": "^5.1.0",
