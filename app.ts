@@ -23,3 +23,9 @@ app.listen(port, () => {
   console.log(`Server is now running at ${port}`);
 });
 
+// todo: 
+// middleware
+// models
+// controllers
+// routes
+
