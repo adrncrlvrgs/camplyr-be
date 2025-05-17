@@ -1,5 +1,6 @@
 import prisma from "../prisma/client";
 import googleClient from "../config/google";
+import { signIn } from "../utils/jwt.utils";
 
 async function loginWithGoogle(credentials: string) {
   const ticket = await googleClient.verifyIdToken({
@@ -16,4 +17,10 @@ async function loginWithGoogle(credentials: string) {
     update: { name: payload.name ?? "" },
     create: { email: payload.email ?? "", name: payload.name ?? "" },
   });
+
+  const token = signIn({ userId: user.id });
+
+  return token;
 }
+
+export default { loginWithGoogle };
