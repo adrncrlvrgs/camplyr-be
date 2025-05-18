@@ -2,11 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "build": "rimraf dist && npx tsc",
-    "prerestart": "npm run build",
+    "prestart": "npm run build",
     "start": "node dist/server.js",
+    "poststart": "npm run build",
     "dev": "concurrently \"npx tsc -w\" \"nodemon dist/server.js\""
   },
   "repository": {

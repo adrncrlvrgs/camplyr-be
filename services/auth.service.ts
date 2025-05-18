@@ -1,4 +1,4 @@
-import prisma from "../prisma/client";
+import prisma from "../config/prisma";
 import googleClient from "../config/google";
 import { signIn } from "../utils/jwt.utils";
 
@@ -17,10 +17,17 @@ async function loginWithGoogle(credentials: string) {
     update: { name: payload.name ?? "" },
     create: { email: payload.email ?? "", name: payload.name ?? "" },
   });
+  
 
   const token = signIn({ userId: user.id });
 
   return token;
 }
 
-export default { loginWithGoogle };
+async function test() {
+  const users = await prisma.user.findMany();
+  console.log(users)
+  return users
+}
+
+export default { loginWithGoogle, test };
