@@ -20,8 +20,6 @@ app.use("/api/v1", routes);
 
 export default app;
 
-
-
 // async function main() {
 //   await prisma.user.create({
 //     data: {
