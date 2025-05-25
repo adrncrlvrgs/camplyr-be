@@ -8,6 +8,7 @@ app.listen(PORT, () => {
 
 
 // to do
+// create google login endpoint
 // connect be and fe
 // create initaial working login
 // landing page
