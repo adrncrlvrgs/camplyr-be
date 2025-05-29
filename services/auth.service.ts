@@ -17,17 +17,16 @@ async function loginWithGoogle(credentials: string) {
     update: { name: payload.name ?? "" },
     create: { email: payload.email ?? "", name: payload.name ?? "" },
   });
-  
 
   const token = signIn({ userId: user.id });
 
   return token;
 }
 
-async function test() {
-  const users = await prisma.user.findMany();
-  console.log(users)
-  return users
-}
+// async function test() {
+//   const users = await prisma.user.findMany();
+//   console.log(users);
+//   return users;
+// }
 
-export default { loginWithGoogle, test };
+export default { loginWithGoogle };

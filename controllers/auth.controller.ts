@@ -14,15 +14,15 @@ export const googleLogin = async (req: Request, res: Response) => {
   }
 };
 
-export const test = async (req: Request, res: Response) => {
-  // const { credentials } = req.body;
+// export const test = async (req: Request, res: Response) => {
+//   // const { credentials } = req.body;
 
-  // if (!credentials) res.status(400).json({ message: "No Credentials" });
+//   // if (!credentials) res.status(400).json({ message: "No Credentials" });
 
-  try {
-    const test = await authService.test();
-    res.json(test);
-  } catch (e) {
-    res.status(401).json({ message: "test failed" });
-  }
-};
+//   try {
+//     const test = await authService.test();
+//     res.json(test);
+//   } catch (e) {
+//     res.status(401).json({ message: "test failed" });
+//   }
+// };
