@@ -23,10 +23,4 @@ async function loginWithGoogle(credentials: string) {
   return token;
 }
 
-// async function test() {
-//   const users = await prisma.user.findMany();
-//   console.log(users);
-//   return users;
-// }
-
 export default { loginWithGoogle };
