@@ -1,6 +1,24 @@
 import prisma from "../config/prisma";
 import googleClient from "../config/google";
-import { signIn } from "../utils/jwt.utils";
+import bcrypt from "bcryptjs";
+import excludeKeys from "../utils/dataExclution.utils";
+import { signInToken, signRefreshToken } from "../utils/jwt.utils";
+
+
+
+async function login(userName: string, password: string) {
+  const user = await prisma.user.findUnique({ where: { userName } });
+  const isValid = await bcrypt.compare(password, user.passwordHash);
+
+  if (!user || !user.passwordHash) throw new Error("Invalid Credentials");
+  if (!isValid) throw new Error("Invalid Credentials");
+
+  const finalData = excludeKeys(user, ["passwordHash"])
+  const accesstoken = signInToken({ userData: finalData });
+  const refreshtoken = signRefreshToken({userData: finalData})
+
+  return {accesstoken, refreshtoken};
+}
 
 async function loginWithGoogle(credentials: string) {
   const ticket = await googleClient.verifyIdToken({
@@ -18,9 +36,11 @@ async function loginWithGoogle(credentials: string) {
     create: { email: payload.email ?? "", name: payload.name ?? "" },
   });
 
-  const token = signIn({ userId: user.id });
+  const { passwordHash: _, ...otherData } = user;
+  const accesstoken = signInToken({ userData: otherData });
 
-  return token;
+
+  return accesstoken;
 }
 
 export default { loginWithGoogle };
