@@ -34,7 +34,7 @@ model Profile {
 model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique
-  userName String? //tempt
+  userName String? @unique //tempt
   passwordHash String? //tempt
   name    String?
   posts   Post[]

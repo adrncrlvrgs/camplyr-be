@@ -4,8 +4,6 @@ import bcrypt from "bcryptjs";
 import excludeKeys from "../utils/dataExclution.utils";
 import { signInToken, signRefreshToken } from "../utils/jwt.utils";
 
-
-
 async function login(userName: string, password: string) {
   const user = await prisma.user.findUnique({ where: { userName } });
   const isValid = await bcrypt.compare(password, user.passwordHash);
@@ -13,11 +11,11 @@ async function login(userName: string, password: string) {
   if (!user || !user.passwordHash) throw new Error("Invalid Credentials");
   if (!isValid) throw new Error("Invalid Credentials");
 
-  const finalData = excludeKeys(user, ["passwordHash"])
-  const accesstoken = signInToken({ userData: finalData });
-  const refreshtoken = signRefreshToken({userData: finalData})
+  const finalData = excludeKeys(user, ["passwordHash"]);
+  const accessToken = signInToken({ userData: finalData });
+  const refreshToken = signRefreshToken({ userData: finalData });
 
-  return {accesstoken, refreshtoken};
+  return { accessToken, refreshToken };
 }
 
 async function loginWithGoogle(credentials: string) {
@@ -36,11 +34,11 @@ async function loginWithGoogle(credentials: string) {
     create: { email: payload.email ?? "", name: payload.name ?? "" },
   });
 
-  const { passwordHash: _, ...otherData } = user;
-  const accesstoken = signInToken({ userData: otherData });
+  const finalData = excludeKeys(user, ["passwordHash"]);
+  const accessToken = signInToken({ userData: finalData });
+  const refreshToken = signRefreshToken({ userData: finalData });
 
-
-  return accesstoken;
+  return { accessToken, refreshToken };
 }
 
-export default { loginWithGoogle };
+export default { login, loginWithGoogle };
