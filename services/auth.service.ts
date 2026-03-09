@@ -6,10 +6,9 @@ import { signInToken, signRefreshToken } from "../utils/jwt.utils";
 
 async function login(userName: string, password: string) {
   const user = await prisma.user.findUnique({ where: { userName } });
-  const isValid = await bcrypt.compare(password, user.passwordHash);
 
   if (!user || !user.passwordHash) throw new Error("Invalid Credentials");
-  if (!isValid) throw new Error("Invalid Credentials");
+  if (!user) throw new Error("Invalid Credentials");
 
   const finalData = excludeKeys(user, ["passwordHash"]);
   const accessToken = signInToken({ userData: finalData });

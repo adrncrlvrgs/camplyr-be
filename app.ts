@@ -18,6 +18,10 @@ app.use(
 
 app.use("/api/v1", routes);
 
+app.get('/api/v1/hello', (req, res) => {
+  res.send('Hello World!')
+})
+
 export default app;
 
 // async function main() {
