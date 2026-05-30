@@ -18,3 +18,6 @@ export const signRefreshToken = (payload: JwtPayload) =>
 
 export const verifyRefreshToken = (token: string) =>
   jwt.verify(token, JWT_SECRET) as JwtPayload;
+
+
+// maybe this is redundant
