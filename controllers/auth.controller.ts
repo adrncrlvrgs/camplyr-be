@@ -31,8 +31,9 @@ export const googleLogin = async (req: Request, res: Response) => {
   if (!credentials) res.status(400).json({ message: "No Credentials" });
 
   try {
-    const token = await authService.loginWithGoogle(credentials);
-    res.json({ token });
+    const { accessToken} = await authService.loginWithGoogle(credentials);
+    console.log(accessToken)
+    res.json({ accessToken});
   } catch (e) {
     res.status(401).json({ message: "Unauthorized" });
   }

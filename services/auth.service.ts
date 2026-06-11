@@ -20,45 +20,51 @@ import { signInToken, signRefreshToken } from "../utils/jwt.utils";
 //   return { accessToken, refreshToken };
 // }
 
-async function loginWithGoogle(credentials: string) {
-  console.log("Received credentials:", credentials); // Debugging log
+async function loginWithGoogle(credentials: any) {
+  //console.log("Received credentials:", credentials); // Debugging log
   const ticket = await googleClient.verifyIdToken({
     idToken: credentials,
     audience: process.env.GOOGLE_CLIENT_ID,
   });
 
   const payload = ticket.getPayload();
+  console.log(payload?.email);
 
   if (!payload || !payload.email) throw new Error(" Invalid Google payload");
 
-  // if existing user just login and get data. or else create new fresh
-  let userCredentials : any; // need specify the objects that needed
-  if(payload.email){
-      const findExistingUser = await prisma.user.findUnique({
-          where: { email: payload.email }
-      });
-      userCredentials = findExistingUser;
-  }else{
-      userCredentials = await prisma.user.create({
-          data: {
-              email: payload.email ?? "",
-              name: payload.name ?? ""
-          }
-      });
-  }
+//   let userCredentials : any; 
+//   console.log(userCredentials);
+//   if(payload?.email){
+//       const findExistingUser = await prisma.user.findUnique({
+//           where: { email: payload.email }
+//       });
+//       console.log(findExistingUser);
+//       userCredentials = findExistingUser;
+//       console.log(userCredentials);
+//   }else{
+//       userCredentials = await prisma.user.create({
+//           data: {
+//               email: payload.email ?? "",
+//               name: payload.name ?? ""
+//           }
+//       });
+//       console.log(userCredentials);
+//   }
+//   console.log(userCredentials);
 
 
-  // const user = await prisma.user.upsert({
-  //   where: { email: payload.email },
-  //   update: { name: payload.name ?? "" },
-  //   create: { email: payload.email ?? "", name: payload.name ?? "" }, // other credential
-  // });
+const data = {
+    email: "example@example.com",
+    name: "Example User"
+};
 
-  const finalData = excludeKeys(userCredentials, ["passwordHash"]);
-  const accessToken = signInToken({ userData: finalData });
-  const refreshToken = signRefreshToken({ userData: finalData });
+//   const finalData = excludeKeys(payload, ["passwordHash"]);
+  const accessToken = signInToken({ userData: data });
+  const refreshToken = signRefreshToken({ userData: data });
 
-  return { accessToken, refreshToken };
+  console.log(data);
+
+  return { accessToken, refreshToken};
 }
 
 export default { loginWithGoogle };

@@ -21,3 +21,4 @@ export const verifyRefreshToken = (token: string) =>
 
 
 // maybe this is redundant
+// fix via dotenv,not getting the JWT SECRET
