@@ -32,7 +32,6 @@ export const googleLogin = async (req: Request, res: Response) => {
 
   try {
     const { accessToken} = await authService.loginWithGoogle(credentials);
-    console.log(accessToken)
     res.json({ accessToken});
   } catch (e) {
     res.status(401).json({ message: "Unauthorized" });

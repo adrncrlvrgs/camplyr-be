@@ -62,7 +62,7 @@ const data = {
   const accessToken = signInToken({ userData: data });
   const refreshToken = signRefreshToken({ userData: data });
 
-  console.log(data);
+//   console.log(accessToken);
 
   return { accessToken, refreshToken};
 }

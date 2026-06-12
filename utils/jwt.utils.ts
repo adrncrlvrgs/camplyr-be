@@ -2,23 +2,27 @@ import jwt from "jsonwebtoken";
 
 const ACCESS_TOKEN_EXPIRES = "15m";
 const REFRESH_TOKEN_EXPIRES = "7d";
-const JWT_SECRET = process.env.JWT_SECRET!;
+
 interface JwtPayload {
   userData: object;
 }
 
-export const signInToken = (payload: JwtPayload) =>
-  jwt.sign(payload, JWT_SECRET, { expiresIn: ACCESS_TOKEN_EXPIRES });
+const getJwtSecret = (): string => {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error("JWT_SECRET must be set");
+  }
+  return secret;
+};
 
-export const verifyToken = (token: string) =>
-  jwt.verify(token, JWT_SECRET) as JwtPayload;
+export const signInToken = (payload: JwtPayload) => {
+  return jwt.sign(payload, getJwtSecret(), { expiresIn: ACCESS_TOKEN_EXPIRES });
+};
 
-export const signRefreshToken = (payload: JwtPayload) =>
-  jwt.sign(payload, JWT_SECRET, { expiresIn: REFRESH_TOKEN_EXPIRES });
+export const verifyToken = (token: string): JwtPayload => {
+  return jwt.verify(token, getJwtSecret()) as JwtPayload;
+};
 
-export const verifyRefreshToken = (token: string) =>
-  jwt.verify(token, JWT_SECRET) as JwtPayload;
-
-
-// maybe this is redundant
-// fix via dotenv,not getting the JWT SECRET
+export const signRefreshToken = (payload: JwtPayload) => {
+  return jwt.sign(payload, getJwtSecret(), { expiresIn: REFRESH_TOKEN_EXPIRES });
+};
