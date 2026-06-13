@@ -28,29 +28,28 @@ async function loginWithGoogle(credentials: any) {
   });
 
   const payload = ticket.getPayload();
-  console.log(payload?.email);
 
   if (!payload || !payload.email) throw new Error(" Invalid Google payload");
 
-//   let userCredentials : any; 
-//   console.log(userCredentials);
-//   if(payload?.email){
-//       const findExistingUser = await prisma.user.findUnique({
-//           where: { email: payload.email }
-//       });
-//       console.log(findExistingUser);
-//       userCredentials = findExistingUser;
-//       console.log(userCredentials);
-//   }else{
-//       userCredentials = await prisma.user.create({
-//           data: {
-//               email: payload.email ?? "",
-//               name: payload.name ?? ""
-//           }
-//       });
-//       console.log(userCredentials);
-//   }
-//   console.log(userCredentials);
+  let userCredentials : object | null; 
+ 
+  if(payload?.email){ // check if user exist
+      const findExistingUser = await prisma.user.findUnique({
+          where: { email: payload.email }
+      });
+      userCredentials = findExistingUser;
+  }else{
+      userCredentials = await prisma.user.create({
+          data: {
+              email: payload.email ?? "",
+              name: payload.name ?? ""
+          }
+      });
+ 
+  }
+
+  console.log(userCredentials);
+
 
 
 const data = {
