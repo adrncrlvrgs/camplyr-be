@@ -1,29 +1,29 @@
 import { Request, Response } from "express";
 import authService from "../services/auth.service";
 
-export const login = async (req: Request, res: Response) => {
-  try {
-    const { userName, password } = req.body;
-    const tokens = await authService.login(userName, password);
+// export const login = async (req: Request, res: Response) => {
+//   try {
+//     const { userName, password } = req.body;
+//     const tokens = await authService.login(userName, password);
 
-    res.cookie("token", tokens.accessToken, {
-      httpOnly: true,
-      // secure: true,
-      sameSite: "lax",
-    });
+//     res.cookie("token", tokens.accessToken, {
+//       httpOnly: true,
+//       // secure: true,
+//       sameSite: "lax",
+//     });
 
-    res.cookie("refreshToken", tokens.refreshToken, {
-      httpOnly: true,
-      // secure: true,
-      sameSite: "lax",
-      path: "/api/auth/refresh",
-    });
+//     res.cookie("refreshToken", tokens.refreshToken, {
+//       httpOnly: true,
+//       // secure: true,
+//       sameSite: "lax",
+//       path: "/api/auth/refresh",
+//     });
 
-    res.json({ message: "Log successfully " });
-  } catch (err) {
-    res.status(401).json({ error: "Invalid credentials" });
-  }
-};
+//     res.json({ message: "Log successfully " });
+//   } catch (err) {
+//     res.status(401).json({ error: "Invalid credentials" });
+//   }
+// };
 
 export const googleLogin = async (req: Request, res: Response) => {
   const { credentials } = req.body;
@@ -31,8 +31,13 @@ export const googleLogin = async (req: Request, res: Response) => {
   if (!credentials) res.status(400).json({ message: "No Credentials" });
 
   try {
-    const { accessToken} = await authService.loginWithGoogle(credentials);
-    res.json({ accessToken});
+    const { accessToken, user} = await authService.loginWithGoogle(credentials);
+    res.cookie("token", accessToken, {
+      httpOnly: true,
+      // secure: true,
+      sameSite: "lax",
+    });
+    res.json({ userData: user });
   } catch (e) {
     res.status(401).json({ message: "Unauthorized" });
   }
