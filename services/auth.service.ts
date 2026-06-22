@@ -1,11 +1,10 @@
 import prisma from "../config/prisma";
 import googleClient from "../config/google";
 import bcrypt from "bcryptjs";
-//import excludeKeys from "../utils/dataExclution.utils";
 import { signInToken, signRefreshToken } from "../utils/jwt.utils";
 
 async function loginWithGoogle(credentials: any) {
-  console.log("Received credentials:", credentials); // Debugging log
+  // console.log("Received credentials:", credentials); // Debugging log
   const ticket = await googleClient.verifyIdToken({
     idToken: credentials,
     audience: process.env.GOOGLE_CLIENT_ID,
@@ -54,7 +53,7 @@ async function loginWithGoogle(credentials: any) {
   const accessToken = signInToken({ userData: user });
   const refreshToken = signRefreshToken({ userData: user });
 
-  console.log(accessToken);
+  // console.log(accessToken);
 
   return { accessToken, refreshToken, user };
 }
