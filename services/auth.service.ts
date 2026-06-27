@@ -58,4 +58,16 @@ async function loginWithGoogle(credentials: any) {
   return { accessToken, refreshToken, user };
 }
 
+// async function getUser(params:type) {
+  
+// }
+
+// async function refreshAuth (params:type){
+
+// }
+
+// async function logout(){
+
+// }
+
 export default { loginWithGoogle };
