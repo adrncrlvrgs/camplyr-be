@@ -9,15 +9,15 @@ declare global {
     }
 }
 
-export const verifyIdToken = (
+export const requireAuth  = (
    req: Request,
    res: Response,
    next: NextFunction 
-)=>{
+): void => {
     const token = req.cookies?.token
 
     if(!token){
-        return res.status(401).json({
+         res.status(401).json({
             message: "No Access token"
         });
     }
@@ -29,6 +29,6 @@ export const verifyIdToken = (
         next();
 
     }catch(err){
-        return res.status(401).json({ error: "Invalid or expired token" });
+         res.status(401).json({ error: "Invalid or expired token" });
     }
 }

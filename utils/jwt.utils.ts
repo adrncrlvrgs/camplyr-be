@@ -8,7 +8,15 @@ interface JwtPayload {
 }
 
 const getJwtSecret = (): string => {
-  const secret = process.env.JWT_SECRET;
+  const secret = process.env.JWT_ACCESS_SECRET;
+  if (!secret) {
+    throw new Error("JWT_SECRET must be set");
+  }
+  return secret;
+};
+
+const getJwtRefreshSecret = (): string => {
+  const secret = process.env.JWT_REFRESH_SECRET;
   if (!secret) {
     throw new Error("JWT_SECRET must be set");
   }
@@ -24,5 +32,9 @@ export const verifyToken = (token: string): JwtPayload => {
 };
 
 export const signRefreshToken = (payload: JwtPayload) => {
-  return jwt.sign(payload, getJwtSecret(), { expiresIn: REFRESH_TOKEN_EXPIRES });
+  return jwt.sign(payload, getJwtRefreshSecret(), { expiresIn: REFRESH_TOKEN_EXPIRES });
+};
+
+export const verifyRefreshToken = (token: string): JwtPayload => {
+  return jwt.verify(token, getJwtRefreshSecret()) as JwtPayload;
 };

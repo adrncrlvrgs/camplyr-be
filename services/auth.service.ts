@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { signInToken, signRefreshToken } from "../utils/jwt.utils";
 
 async function loginWithGoogle(credentials: any) {
-  // console.log("Received credentials:", credentials); // Debugging log
+  //console.log("Received credentials:", credentials); // Debugging log
   const ticket = await googleClient.verifyIdToken({
     idToken: credentials,
     audience: process.env.GOOGLE_CLIENT_ID,
@@ -48,26 +48,14 @@ async function loginWithGoogle(credentials: any) {
     });
   }
 
-  // console.log(user);
+
 
   const accessToken = signInToken({ userData: user });
   const refreshToken = signRefreshToken({ userData: user });
+ 
 
-  // console.log(accessToken);
-
-  return { accessToken, refreshToken, user };
+  return { accessToken, refreshToken,user };
 }
 
-// async function getUser(params:type) {
-  
-// }
-
-// async function refreshAuth (params:type){
-
-// }
-
-// async function logout(){
-
-// }
 
 export default { loginWithGoogle };
