@@ -26,35 +26,60 @@ export const googleLogin = async (req: Request, res: Response) => {
       message: "Login successful",
       userData: user,
     });
+    return;
   } catch (e) {
     res.status(401).json({ message: "Unauthorized" });
+    return;
   }
 };
 
-export const getUser = async (req: Request, res: Response) =>{
-  res.status(200).json({userData: req.user})
+export const getUser = (req: Request, res: Response) =>{
+  res.status(200).json({userData: req.user});
+  return;
 };
 
-export const refresh = async (req: Request, res: Response) => {
+export const refresh = (req: Request, res: Response) => {
    const refreshToken = req.cookies?.refreshToken
 
-  if (!refreshToken) res.status(400).json({ message: "No Refresh tokem" });
+  if (!refreshToken) res.status(400).json({ message: "No Refresh token" });
 
   try{
     if(refreshToken){
       const decoded =  verifyRefreshToken(refreshToken);
-      const newToken = signInToken({ userData: decoded.userData} );
+      const newToken =  signInToken({ userData: decoded.userData} );
 
       res.cookie("token", newToken,{
       httpOnly: true,
       // secure: true,
       sameSite: "lax",
       maxAge: 15 * 50 * 1000, // 15 mins
-      })
+      });
+      return;
     }
   }catch (error) {
-    return res.status(401).json({
+     res.status(401).json({
       message: "Invalid or expired refresh token",
     });
+    return;
   }
+}
+
+export const logout = (req: Request, res: Response)=>{
+
+  res.clearCookie('token',{
+    httpOnly: true,
+      // secure: true,
+    sameSite: "lax",
+  })
+
+  res.clearCookie('refreshToken',{
+    httpOnly: true,
+      // secure: true,
+    sameSite: "lax",
+  })
+
+  res.status(200).json({
+    message: "Logout successful"
+  })
+  return;
 }
