@@ -1,6 +1,5 @@
 import prisma from "../config/prisma";
 import googleClient from "../config/google";
-import bcrypt from "bcryptjs";
 import { signInToken, signRefreshToken } from "../utils/jwt.utils";
 
 async function loginWithGoogle(credentials: any) {

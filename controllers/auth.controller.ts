@@ -19,7 +19,7 @@ export const googleLogin = async (req: Request, res: Response) => {
       httpOnly: true,
       // secure: true,
       sameSite: "lax",
-      // path: "/api/v1/auth/refresh",
+      path: "/api/v1/auth/refresh",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
     res.status(200).json({
