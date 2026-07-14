@@ -19,13 +19,13 @@ async function updateSeekerOnboarding(userId:string, data: SeekerOnboardingInput
                         headline : data.headline,
                         location: data.location,
                         bio: data.bio,
-                        skills :data.bio
+                        skills :data.skills
                     },
                     update : {
                         headline : data.headline,
                         location: data.location,
                         bio: data.bio,
-                        skills :data.bio
+                        skills :data.skills
                     },
                 },
             },

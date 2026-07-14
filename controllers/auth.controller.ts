@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import authService from "../services/auth.service";
-import { signInToken, verifyRefreshToken} from "../utils/jwt.utils";
+import { signInToken, verifyRefreshToken } from "../utils/jwt.utils";
 
 export const googleLogin = async (req: Request, res: Response) => {
   const { credentials } = req.body;
@@ -8,10 +8,12 @@ export const googleLogin = async (req: Request, res: Response) => {
   if (!credentials) res.status(400).json({ message: "No Credentials" });
 
   try {
-    const { accessToken, refreshToken, user } = await authService.loginWithGoogle(credentials);
+    const { accessToken, refreshToken, user } =
+      await authService.loginWithGoogle(credentials);
     res.cookie("token", accessToken, {
       httpOnly: true,
       // secure: true,
+
       sameSite: "lax",
       maxAge: 15 * 50 * 1000, // 15 mins
     });
@@ -33,53 +35,60 @@ export const googleLogin = async (req: Request, res: Response) => {
   }
 };
 
-export const getUser = (req: Request, res: Response) =>{
-  res.status(200).json({userData: req.user});
+export const getUser = (req: Request, res: Response) => {
+  res.status(200).json({ userData: req.user });
   return;
 };
 
 export const refresh = (req: Request, res: Response) => {
-   const refreshToken = req.cookies?.refreshToken
+  const refreshToken = req.cookies?.refreshToken;
+  // console.log("Refresh token",refreshToken);
 
   if (!refreshToken) res.status(400).json({ message: "No Refresh token" });
 
-  try{
-    if(refreshToken){
-      const decoded =  verifyRefreshToken(refreshToken);
-      const newToken =  signInToken({ userData: decoded.userData} );
+  try {
+    if (refreshToken) {
+      const decoded = verifyRefreshToken(refreshToken);
+      const newToken = signInToken({ userData: decoded.userData });
 
-      res.cookie("token", newToken,{
-      httpOnly: true,
-      // secure: true,
-      sameSite: "lax",
-      maxAge: 15 * 50 * 1000, // 15 mins
+      res.cookie("token", newToken, {
+        httpOnly: true,
+        // secure: true,
+        sameSite: "lax",
+        maxAge: 15 * 50 * 1000, // 15 mins
+        path: "/"
+      });
+      res.status(200).json({
+        message: "Token refreshed",
       });
       return;
     }
-  }catch (error) {
-     res.status(401).json({
+  } catch (error) {
+    res.status(401).json({
       message: "Invalid or expired refresh token",
     });
     return;
   }
-}
+  return;
+};
 
-export const logout = (req: Request, res: Response)=>{
-
-  res.clearCookie('token',{
+export const logout = (req: Request, res: Response) => {
+  res.clearCookie("token", {
     httpOnly: true,
-      // secure: true,
+    // secure: true,
     sameSite: "lax",
-  })
+    path: "/"
+  });
 
-  res.clearCookie('refreshToken',{
+  res.clearCookie("refreshToken", {
     httpOnly: true,
-      // secure: true,
+    // secure: true,
     sameSite: "lax",
-  })
+    path: "/api/v1/auth/refresh",
+  });
 
   res.status(200).json({
-    message: "Logout successful"
-  })
+    message: "Logout successful",
+  });
   return;
-}
+};
