@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { SeekerOnboardingInput } from "../utils/validation/schema.validation";
 import { onboardingService } from "../services/onboard.service";
 
-export async function updateOnboarding(req: Request, res: Response) {
+export async function seekerOnboarding(req: Request, res: Response) {
   try {
     const userId = req.user?.id;
 
