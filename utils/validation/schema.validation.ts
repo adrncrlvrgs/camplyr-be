@@ -22,3 +22,11 @@ export const recruiterOnboardSchema = z.object({
 });
 
 export type RecruiterOnboardingInput = z.infer<typeof recruiterOnboardSchema>;
+
+
+export const postSchema = z.object({
+  content: z.string().trim().min(1, "Post content is required").max(5000, "Post is too long"),
+  imageUrl: z.string().trim().url("Invalid image URL").optional().or(z.literal(""))
+})
+
+export type PostInput = z.infer<typeof postSchema>;
