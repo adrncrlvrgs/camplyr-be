@@ -20,6 +20,8 @@ async function createPost(authorId: string, data: PostInput) {
             }
         }
     })
+
+    return addPost;
 }
 
 

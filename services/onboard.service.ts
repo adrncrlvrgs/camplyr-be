@@ -1,4 +1,3 @@
-import { create } from "domain";
 import prisma from "../config/prisma";
 
 import { SeekerOnboardingInput,RecruiterOnboardingInput } from "../utils/validation/schema.validation";
