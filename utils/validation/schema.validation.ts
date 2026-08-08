@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { JobStatus } from "@prisma/client";
 
 export const seekerOnboardingSchema = z.object({
   role: z.literal("SEEKER"),
@@ -17,8 +18,8 @@ export const recruiterOnboardSchema = z.object({
   position: z.string().trim().min(2, "Position is required"),
   companyName: z.string().trim().min(2, "Company Name is required"),
   website: z.string().trim().min(2, "Website is required"),
-  location: z.string().trim().min(2, "Website is required"),
-  description: z.string().trim().min(2, "Website is required"),
+  location: z.string().trim().min(2, "Location is required"),
+  description: z.string().trim().min(2, "Description is required"),
 });
 
 export type RecruiterOnboardingInput = z.infer<typeof recruiterOnboardSchema>;
@@ -30,3 +31,14 @@ export const postSchema = z.object({
 })
 
 export type PostInput = z.infer<typeof postSchema>;
+
+export const createJob = z.object({
+  title: z.string().trim().min(2, "Company Name is required"),
+  location: z.string().trim().optional(),
+  description: z.string().trim().min(2, "Description is required"),
+  salaryMin: z.number().int().nonnegative().optional(),
+  salaryMax: z.number().int().nonnegative().optional(),
+  status: z.enum(JobStatus),
+});
+
+export type CreateJobInput = z.infer<typeof createJob>;
