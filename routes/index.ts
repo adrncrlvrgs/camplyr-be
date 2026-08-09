@@ -8,5 +8,6 @@ const router = express.Router();
 router.use("/auth", authRoutes);
 router.use("/onboard", onboardRoutes);
 router.use("/post", postRoutes)
+// router.use("/job")
 
 export default router;
