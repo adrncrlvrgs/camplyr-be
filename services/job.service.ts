@@ -1,22 +1,25 @@
 import prisma from "../config/prisma";
 import { CreateJobInput } from "../utils/validation/schema.validation";
 
-async function createJob(userId: string, data: CreateJobInput) {
+async function getRecruiterCompanyId(userId: string) {
   const recruiter = await prisma.recruiterProfile.findUnique({
-    where: {
-      id: userId,
-    },
-    select: {
-      companyId: true,
-    },
+    where: { userId },
+    select: { companyId: true },
   });
 
   if (!recruiter?.companyId) {
     throw new Error("Recruiter is not associated with a company");
   }
+
+  return recruiter.companyId;
+}
+
+async function createJob(userId: string, data: CreateJobInput) {
+  const companyId = await getRecruiterCompanyId(userId);
+
   return await prisma.job.create({
     data: {
-      companyId: recruiter.companyId,
+      companyId,
       title: data.title,
       description: data.description,
       location: data.location,
@@ -28,7 +31,7 @@ async function createJob(userId: string, data: CreateJobInput) {
 }
 
 async function getJobs() {
-  // get all
+  // get all open jobs
   return await prisma.job.findMany({
     where: {
       status: "OPEN",
@@ -44,7 +47,6 @@ async function getJobs() {
       salaryMin: true,
       salaryMax: true,
       createdAt: true,
-
       company: {
         select: {
           id: true,
@@ -59,28 +61,16 @@ async function getJobs() {
 }
 
 async function getCompanyJobs(userId: string) {
-  const recruiter = await prisma.recruiterProfile.findUnique({
+  const companyId = await getRecruiterCompanyId(userId);
+
+  return await prisma.job.findMany({
     where: {
-      id: userId,
+      companyId,
+    },
+    orderBy: {
+      createdAt: "desc",
     },
     select: {
-      companyId: true,
-    },
-  });
-
-  if (!recruiter?.companyId) {
-    throw new Error("Recruiter is not associated with a company");
-  }
-
-  
- return await prisma.job.findMany({
-    where:{
-        companyId: recruiter.companyId
-    },
-    orderBy:{
-        createdAt: 'desc'
-    },
-    select:{
       id: true,
       title: true,
       description: true,
@@ -89,13 +79,12 @@ async function getCompanyJobs(userId: string) {
       salaryMin: true,
       salaryMax: true,
       createdAt: true,
-    }
- })
-
+    },
+  });
 }
 
 export const jobService = {
   createJob,
   getJobs,
-  getCompanyJobs
+  getCompanyJobs,
 };
