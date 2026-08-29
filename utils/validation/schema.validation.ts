@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { JobStatus } from "@prisma/client";
+import { ApplicationStatus } from "@prisma/client";
 
 export const seekerOnboardingSchema = z.object({
   role: z.literal("SEEKER"),
@@ -42,3 +43,11 @@ export const createJob = z.object({
 });
 
 export type CreateJobInput = z.infer<typeof createJob>;
+
+
+export const createApplicationSchema = z.object({
+  coverLetter: z.string().optional(),
+  resumeUrl: z.string().url().optional()
+});
+
+export type CreateApplicationInput = z.infer<typeof createApplicationSchema>;
