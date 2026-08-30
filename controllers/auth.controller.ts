@@ -5,7 +5,10 @@ import { signInToken, verifyRefreshToken } from "../utils/jwt.utils";
 export const googleLogin = async (req: Request, res: Response) => {
   const { credentials } = req.body;
 
-  if (!credentials) res.status(400).json({ message: "No Credentials" });
+  if (!credentials) {
+  res.status(400).json({ message: "No Credentials" });
+  return;
+}
 
   try {
     const { accessToken, refreshToken, user } =
@@ -13,9 +16,9 @@ export const googleLogin = async (req: Request, res: Response) => {
     res.cookie("token", accessToken, {
       httpOnly: true,
       // secure: true,
-
+      path: "/",
       sameSite: "lax",
-      maxAge: 15 * 50 * 1000, // 15 mins
+      maxAge: 15 * 60 * 1000, // 15 mins
     });
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
