@@ -4,7 +4,7 @@ import { signInToken, verifyRefreshToken } from "../utils/jwt.utils";
 
 export const googleLogin = async (req: Request, res: Response) => {
   const { credentials } = req.body;
-
+  // console.log(credentials)
   if (!credentials) {
   res.status(400).json({ message: "No Credentials" });
   return;
