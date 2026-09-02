@@ -5,12 +5,12 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
 }
 
 enum UserRole {
@@ -50,7 +50,7 @@ model User {
   application       Application[]
 
   createdAt         DateTime @default(now())
-  updatedAr         DateTime @updatedAt
+  updatedAt         DateTime @updatedAt
 
   @@index([email])
   @@index([role])
@@ -84,7 +84,7 @@ model RecruiterProfile{
   position    String?
 
   createdAt   DateTime @default(now())
-  updatedAr   DateTime @updatedAt
+  updatedAt   DateTime @updatedAt
 
   @@index([companyId])
 
@@ -104,7 +104,7 @@ model Company {
   jobs        Job[]
 
   createdAt   DateTime @default(now())
-  updatedAr   DateTime @updatedAt
+  updatedAt   DateTime @updatedAt
 }
 
 model Post {
@@ -117,7 +117,7 @@ model Post {
   imageUrl    String?
 
   createdAt   DateTime @default(now())
-  updatedAr   DateTime @updatedAt
+  updatedAt   DateTime @updatedAt
 
   @@index([authorId])
 }
@@ -140,7 +140,7 @@ model Job {
   applications Application[]
 
   createdAt   DateTime @default(now())
-  updatedAr   DateTime @updatedAt
+  updatedAt   DateTime @updatedAt
 
   @@index([companyId])
   @@index([status])
@@ -162,7 +162,7 @@ model Application{
   resumeUrl String?
 
   createdAt   DateTime @default(now())
-  updatedAr   DateTime @updatedAt
+  updatedAt   DateTime @updatedAt
 
   @@unique([seekerId, jobId])
   @@index([seekerId])

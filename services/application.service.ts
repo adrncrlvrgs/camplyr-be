@@ -1,6 +1,5 @@
 import prisma from "../config/prisma";
 import { Prisma, ApplicationStatus } from "@prisma/client";
-//import create application Input validation schema
 import { CreateApplicationInput } from "../utils/validation/schema.validation";
 
 async function applyToJob(
