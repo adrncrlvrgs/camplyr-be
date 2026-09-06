@@ -35,7 +35,7 @@ async function loginWithGoogle(credentials: string) {
       },
       select: userSelect,
     });
-    console.log("User:", user)
+    // console.log("User:", user)
     if (!user) {
       user = await prisma.user.create({
         data: {
@@ -72,7 +72,18 @@ async function loginWithGoogle(credentials: string) {
   }
 }
 
+async function getUserById(userId:string) {
+  const user = await prisma.user.findUnique({
+    where:{id: userId},
+    select: userSelect
+  })
+
+  return user
+  
+}
+
 export default {
   loginWithGoogle,
+  getUserById
 };
 

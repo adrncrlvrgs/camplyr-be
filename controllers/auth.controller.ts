@@ -4,11 +4,10 @@ import { signInToken, verifyRefreshToken } from "../utils/jwt.utils";
 
 export const googleLogin = async (req: Request, res: Response) => {
   const { credentials } = req.body;
-  // console.log(credentials)
   if (!credentials) {
-  res.status(400).json({ message: "No Credentials" });
-  return;
-}
+    res.status(400).json({ message: "No Credentials" });
+    return;
+  }
 
   try {
     const { accessToken, refreshToken, user } =
@@ -38,9 +37,29 @@ export const googleLogin = async (req: Request, res: Response) => {
   }
 };
 
-export const getUser = (req: Request, res: Response) => {
-  res.status(200).json({ userData: req.user });
-  return;
+export const getUser = async (req: Request, res: Response) => {
+  try {
+    const userId = req.user?.id;
+    if (!userId) {
+      res.status(401).json({
+        message: "Unauthorized",
+      });
+
+      return;
+    }
+
+    const user = await authService.getUserById(userId);
+
+    if (!user) {
+      res.status(404).json({ message: "User not found" });
+      return;
+    }
+
+    res.status(200).json({ userData: user });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch user" });
+    return;
+  }
 };
 
 export const refresh = (req: Request, res: Response) => {
@@ -59,7 +78,7 @@ export const refresh = (req: Request, res: Response) => {
         // secure: true,
         sameSite: "lax",
         maxAge: 15 * 50 * 1000, // 15 mins
-        path: "/"
+        path: "/",
       });
       res.status(200).json({
         message: "Token refreshed",
@@ -80,7 +99,7 @@ export const logout = (req: Request, res: Response) => {
     httpOnly: true,
     // secure: true,
     sameSite: "lax",
-    path: "/"
+    path: "/",
   });
 
   res.clearCookie("refreshToken", {
@@ -96,5 +115,3 @@ export const logout = (req: Request, res: Response) => {
   return;
 };
 
-
-// this is a test
