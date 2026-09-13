@@ -9,25 +9,7 @@
 * 🟢 You can import this file directly.
 */
 
-export const UserRole = {
-  SEEKER: 'SEEKER',
-  RECRUITER: 'RECRUITER',
-  ADMIN: 'ADMIN'
-} as const
-
-export type UserRole = (typeof UserRole)[keyof typeof UserRole]
-
-
-export const JobStatus = {
-  DRAFT: 'DRAFT',
-  OPEN: 'OPEN',
-  CLOSED: 'CLOSED'
-} as const
-
-export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus]
-
-
-export const ApplicationStatus = {
+export const application_status = {
   PENDING: 'PENDING',
   REVIEW: 'REVIEW',
   SHORTLISTED: 'SHORTLISTED',
@@ -35,4 +17,33 @@ export const ApplicationStatus = {
   HIRED: 'HIRED'
 } as const
 
-export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus]
+export type application_status = (typeof application_status)[keyof typeof application_status]
+
+
+export const job_status = {
+  DRAFT: 'DRAFT',
+  OPEN: 'OPEN',
+  CLOSED: 'CLOSED'
+} as const
+
+export type job_status = (typeof job_status)[keyof typeof job_status]
+
+
+export const user_role = {
+  SEEKER: 'SEEKER',
+  RECRUITER: 'RECRUITER',
+  ADMIN: 'ADMIN'
+} as const
+
+export type user_role = (typeof user_role)[keyof typeof user_role]
+
+
+export const job_type = {
+  FULL_TIME: 'FULL_TIME',
+  PART_TIME: 'PART_TIME',
+  CONTRACT: 'CONTRACT',
+  INTERNSHIP: 'INTERNSHIP',
+  TEMPORARY: 'TEMPORARY'
+} as const
+
+export type job_type = (typeof job_type)[keyof typeof job_type]

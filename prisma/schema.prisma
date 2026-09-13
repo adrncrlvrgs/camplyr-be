@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -13,19 +7,116 @@ datasource db {
   provider = "mysql"
 }
 
-enum UserRole {
-  SEEKER
-  RECRUITER
-  ADMIN
+model application {
+  id          String             @id @default(cuid())
+  seekerId    String
+  jobId       String
+  status      application_status @default(PENDING)
+  coverLetter String?            @db.Text
+  resumeUrl   String?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @default(now()) @updatedAt
+  job         job                @relation(fields: [jobId], references: [id], onDelete: Cascade, map: "Application_jobId_fkey")
+  user        user               @relation(fields: [seekerId], references: [id], onDelete: Cascade, map: "Application_seekerId_fkey")
+
+  @@unique([seekerId, jobId], map: "Application_seekerId_jobId_key")
+  @@index([jobId], map: "Application_jobId_idx")
+  @@index([seekerId], map: "Application_seekerId_idx")
 }
 
-enum JobStatus {
-  DRAFT
-  OPEN
-  CLOSED
+model company {
+  id               String             @id @default(cuid())
+  name             String
+  slug             String             @unique(map: "Company_slug_key")
+  logoUrl          String?
+  website          String?
+  location         String?
+  description      String?            @db.Text
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @default(now()) @updatedAt
+  job              job[]
+  recruiterprofile recruiterprofile[]
 }
 
-enum ApplicationStatus{
+model job {
+  id           String        @id @default(cuid())
+  companyId    String
+  title        String
+  description  String        @db.Text
+  location     String?
+  salaryMin    Int?
+  salaryMax    Int?
+  status       job_status    @default(OPEN)
+  type         job_type      @default(FULL_TIME)
+  requirements Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @default(now()) @updatedAt
+  application  application[]
+  company      company       @relation(fields: [companyId], references: [id], onDelete: Cascade, map: "Job_companyId_fkey")
+
+  @@index([companyId], map: "Job_companyId_idx")
+  @@index([status], map: "Job_status_idx")
+}
+
+model post {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  content   String   @db.Text
+  authorId  String
+  imageUrl  String?
+  updatedAt DateTime @default(now()) @updatedAt
+  user      user     @relation(fields: [authorId], references: [id], onDelete: Cascade, map: "Post_authorId_fkey")
+
+  @@index([authorId], map: "Post_authorId_idx")
+}
+
+model recruiterprofile {
+  id        String   @id @default(cuid())
+  userId    String   @unique(map: "RecruiterProfile_userId_key")
+  companyId String?
+  position  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  company   company? @relation(fields: [companyId], references: [id], map: "RecruiterProfile_companyId_fkey")
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "RecruiterProfile_userId_fkey")
+
+  @@index([companyId], map: "RecruiterProfile_companyId_idx")
+}
+
+model seekerprofile {
+  id        String   @id @default(cuid())
+  userId    String   @unique(map: "SeekerProfile_userId_key")
+  headline  String?
+  bio       String?  @db.Text
+  location  String?
+  resumeUrl String?
+  skills    Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade, map: "SeekerProfile_userId_fkey")
+}
+
+model user {
+  id               String            @id @default(cuid())
+  email            String            @unique(map: "User_email_key")
+  name             String?
+  avatarUrl        String?
+  createdAt        DateTime          @default(now())
+  googleId         String            @unique(map: "User_googleId_key")
+  isOnboarded      Boolean           @default(false)
+  role             user_role?
+  username         String?           @unique(map: "User_username_key")
+  updatedAt        DateTime          @default(now()) @updatedAt
+  application      application[]
+  post             post[]
+  recruiterprofile recruiterprofile?
+  seekerprofile    seekerprofile?
+
+  @@index([email], map: "User_email_idx")
+  @@index([role], map: "User_role_idx")
+}
+
+enum application_status {
   PENDING
   REVIEW
   SHORTLISTED
@@ -33,139 +124,22 @@ enum ApplicationStatus{
   HIRED
 }
 
-model User {
-  id                String  @id @default(cuid())
-  email             String  @unique
-  googleId          String  @unique
-  username          String? @unique
-  name              String?
-  avatarUrl         String?
-  role              UserRole?
-  isOnboarded       Boolean @default (false)
-
-  seekerProfile     SeekerProfile?
-  recruiterProfile  RecruiterProfile?
-
-  posts             Post[]
-  application       Application[]
-
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-
-  @@index([email])
-  @@index([role])
-
+enum job_status {
+  DRAFT
+  OPEN
+  CLOSED
 }
 
-model SeekerProfile {
-  id          String   @id @default(cuid())
-  userId      String   @unique
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  headline    String?
-  bio         String?  @db.Text
-  location    String?
-  resumeUrl   String?
-  skills      Json?
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+enum user_role {
+  SEEKER
+  RECRUITER
+  ADMIN
 }
 
-
-model RecruiterProfile{
-  id          String  @id @default(cuid())
-  userId      String  @unique
-  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  companyId   String?
-  company     Company? @relation(fields: [companyId], references: [id])
-
-  position    String?
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([companyId])
-
-}
-
-model Company {
-  id          String  @id @default(cuid())
-  name        String
-  slug        String  @unique
-
-  logoUrl     String?
-  website     String?
-  location    String?
-  description String? @db.Text
-
-  recruiters  RecruiterProfile[]
-  jobs        Job[]
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model Post {
-  id          String @id @default(cuid())
-  authorId    String
-
-  author      User @relation(fields: [authorId], references: [id], onDelete: Cascade)
-
-  content     String @db.Text
-  imageUrl    String?
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([authorId])
-}
-
-model Job {
-  id            String @id @default(cuid())
-  companyId     String
-
-  company       Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
-
-  title         String
-  description   String  @db.Text
-  location      String?
-
-  salaryMin     Int?
-  salaryMax     Int?
-
-  status JobStatus @default(OPEN)
-
-  applications Application[]
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@index([companyId])
-  @@index([status])
-  
-}
-
-model Application{
-  id  String  @id @default(cuid())
-
-  seekerId  String
-  jobId     String
-  
-  seeker    User  @relation(fields: [seekerId], references:[id], onDelete: Cascade)
-  job       Job @relation(fields: [jobId], references: [id], onDelete: Cascade)
-
-  status    ApplicationStatus @default(PENDING)
-
-  coverLetter String? @db.Text
-  resumeUrl String?
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@unique([seekerId, jobId])
-  @@index([seekerId])
-  @@index([jobId])
-
+enum job_type {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  TEMPORARY
 }
