@@ -51,13 +51,13 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User',
-  SeekerProfile: 'SeekerProfile',
-  RecruiterProfile: 'RecruiterProfile',
-  Company: 'Company',
-  Post: 'Post',
-  Job: 'Job',
-  Application: 'Application'
+  application: 'application',
+  company: 'company',
+  job: 'job',
+  post: 'post',
+  recruiterprofile: 'recruiterprofile',
+  seekerprofile: 'seekerprofile',
+  user: 'user'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -76,47 +76,18 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const UserScalarFieldEnum = {
+export const ApplicationScalarFieldEnum = {
   id: 'id',
-  email: 'email',
-  googleId: 'googleId',
-  username: 'username',
-  name: 'name',
-  avatarUrl: 'avatarUrl',
-  role: 'role',
-  isOnboarded: 'isOnboarded',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
-
-
-export const SeekerProfileScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  headline: 'headline',
-  bio: 'bio',
-  location: 'location',
+  seekerId: 'seekerId',
+  jobId: 'jobId',
+  status: 'status',
+  coverLetter: 'coverLetter',
   resumeUrl: 'resumeUrl',
-  skills: 'skills',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type SeekerProfileScalarFieldEnum = (typeof SeekerProfileScalarFieldEnum)[keyof typeof SeekerProfileScalarFieldEnum]
-
-
-export const RecruiterProfileScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  companyId: 'companyId',
-  position: 'position',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type RecruiterProfileScalarFieldEnum = (typeof RecruiterProfileScalarFieldEnum)[keyof typeof RecruiterProfileScalarFieldEnum]
+export type ApplicationScalarFieldEnum = (typeof ApplicationScalarFieldEnum)[keyof typeof ApplicationScalarFieldEnum]
 
 
 export const CompanyScalarFieldEnum = {
@@ -134,18 +105,6 @@ export const CompanyScalarFieldEnum = {
 export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
 
 
-export const PostScalarFieldEnum = {
-  id: 'id',
-  authorId: 'authorId',
-  content: 'content',
-  imageUrl: 'imageUrl',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
-
-
 export const JobScalarFieldEnum = {
   id: 'id',
   companyId: 'companyId',
@@ -155,6 +114,8 @@ export const JobScalarFieldEnum = {
   salaryMin: 'salaryMin',
   salaryMax: 'salaryMax',
   status: 'status',
+  type: 'type',
+  requirements: 'requirements',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -162,18 +123,59 @@ export const JobScalarFieldEnum = {
 export type JobScalarFieldEnum = (typeof JobScalarFieldEnum)[keyof typeof JobScalarFieldEnum]
 
 
-export const ApplicationScalarFieldEnum = {
+export const PostScalarFieldEnum = {
   id: 'id',
-  seekerId: 'seekerId',
-  jobId: 'jobId',
-  status: 'status',
-  coverLetter: 'coverLetter',
-  resumeUrl: 'resumeUrl',
+  createdAt: 'createdAt',
+  content: 'content',
+  authorId: 'authorId',
+  imageUrl: 'imageUrl',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+
+
+export const RecruiterprofileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  companyId: 'companyId',
+  position: 'position',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type ApplicationScalarFieldEnum = (typeof ApplicationScalarFieldEnum)[keyof typeof ApplicationScalarFieldEnum]
+export type RecruiterprofileScalarFieldEnum = (typeof RecruiterprofileScalarFieldEnum)[keyof typeof RecruiterprofileScalarFieldEnum]
+
+
+export const SeekerprofileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  headline: 'headline',
+  bio: 'bio',
+  location: 'location',
+  resumeUrl: 'resumeUrl',
+  skills: 'skills',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SeekerprofileScalarFieldEnum = (typeof SeekerprofileScalarFieldEnum)[keyof typeof SeekerprofileScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  name: 'name',
+  avatarUrl: 'avatarUrl',
+  createdAt: 'createdAt',
+  googleId: 'googleId',
+  isOnboarded: 'isOnboarded',
+  role: 'role',
+  username: 'username',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -200,16 +202,28 @@ export const NullsOrder = {
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-export const UserOrderByRelevanceFieldEnum = {
+export const applicationOrderByRelevanceFieldEnum = {
   id: 'id',
-  email: 'email',
-  googleId: 'googleId',
-  username: 'username',
-  name: 'name',
-  avatarUrl: 'avatarUrl'
+  seekerId: 'seekerId',
+  jobId: 'jobId',
+  coverLetter: 'coverLetter',
+  resumeUrl: 'resumeUrl'
 } as const
 
-export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
+export type applicationOrderByRelevanceFieldEnum = (typeof applicationOrderByRelevanceFieldEnum)[keyof typeof applicationOrderByRelevanceFieldEnum]
+
+
+export const companyOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  logoUrl: 'logoUrl',
+  website: 'website',
+  location: 'location',
+  description: 'description'
+} as const
+
+export type companyOrderByRelevanceFieldEnum = (typeof companyOrderByRelevanceFieldEnum)[keyof typeof companyOrderByRelevanceFieldEnum]
 
 
 export const JsonNullValueFilter = {
@@ -229,7 +243,38 @@ export const QueryMode = {
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
-export const SeekerProfileOrderByRelevanceFieldEnum = {
+export const jobOrderByRelevanceFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  title: 'title',
+  description: 'description',
+  location: 'location'
+} as const
+
+export type jobOrderByRelevanceFieldEnum = (typeof jobOrderByRelevanceFieldEnum)[keyof typeof jobOrderByRelevanceFieldEnum]
+
+
+export const postOrderByRelevanceFieldEnum = {
+  id: 'id',
+  content: 'content',
+  authorId: 'authorId',
+  imageUrl: 'imageUrl'
+} as const
+
+export type postOrderByRelevanceFieldEnum = (typeof postOrderByRelevanceFieldEnum)[keyof typeof postOrderByRelevanceFieldEnum]
+
+
+export const recruiterprofileOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  companyId: 'companyId',
+  position: 'position'
+} as const
+
+export type recruiterprofileOrderByRelevanceFieldEnum = (typeof recruiterprofileOrderByRelevanceFieldEnum)[keyof typeof recruiterprofileOrderByRelevanceFieldEnum]
+
+
+export const seekerprofileOrderByRelevanceFieldEnum = {
   id: 'id',
   userId: 'userId',
   headline: 'headline',
@@ -238,60 +283,17 @@ export const SeekerProfileOrderByRelevanceFieldEnum = {
   resumeUrl: 'resumeUrl'
 } as const
 
-export type SeekerProfileOrderByRelevanceFieldEnum = (typeof SeekerProfileOrderByRelevanceFieldEnum)[keyof typeof SeekerProfileOrderByRelevanceFieldEnum]
+export type seekerprofileOrderByRelevanceFieldEnum = (typeof seekerprofileOrderByRelevanceFieldEnum)[keyof typeof seekerprofileOrderByRelevanceFieldEnum]
 
 
-export const RecruiterProfileOrderByRelevanceFieldEnum = {
+export const userOrderByRelevanceFieldEnum = {
   id: 'id',
-  userId: 'userId',
-  companyId: 'companyId',
-  position: 'position'
-} as const
-
-export type RecruiterProfileOrderByRelevanceFieldEnum = (typeof RecruiterProfileOrderByRelevanceFieldEnum)[keyof typeof RecruiterProfileOrderByRelevanceFieldEnum]
-
-
-export const CompanyOrderByRelevanceFieldEnum = {
-  id: 'id',
+  email: 'email',
   name: 'name',
-  slug: 'slug',
-  logoUrl: 'logoUrl',
-  website: 'website',
-  location: 'location',
-  description: 'description'
+  avatarUrl: 'avatarUrl',
+  googleId: 'googleId',
+  username: 'username'
 } as const
 
-export type CompanyOrderByRelevanceFieldEnum = (typeof CompanyOrderByRelevanceFieldEnum)[keyof typeof CompanyOrderByRelevanceFieldEnum]
-
-
-export const PostOrderByRelevanceFieldEnum = {
-  id: 'id',
-  authorId: 'authorId',
-  content: 'content',
-  imageUrl: 'imageUrl'
-} as const
-
-export type PostOrderByRelevanceFieldEnum = (typeof PostOrderByRelevanceFieldEnum)[keyof typeof PostOrderByRelevanceFieldEnum]
-
-
-export const JobOrderByRelevanceFieldEnum = {
-  id: 'id',
-  companyId: 'companyId',
-  title: 'title',
-  description: 'description',
-  location: 'location'
-} as const
-
-export type JobOrderByRelevanceFieldEnum = (typeof JobOrderByRelevanceFieldEnum)[keyof typeof JobOrderByRelevanceFieldEnum]
-
-
-export const ApplicationOrderByRelevanceFieldEnum = {
-  id: 'id',
-  seekerId: 'seekerId',
-  jobId: 'jobId',
-  coverLetter: 'coverLetter',
-  resumeUrl: 'resumeUrl'
-} as const
-
-export type ApplicationOrderByRelevanceFieldEnum = (typeof ApplicationOrderByRelevanceFieldEnum)[keyof typeof ApplicationOrderByRelevanceFieldEnum]
+export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
 

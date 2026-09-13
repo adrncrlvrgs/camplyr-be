@@ -28,3 +28,20 @@ export async function createJob(req: Request, res: Response) {
     return;
   }
 }
+
+
+export async function getAllJobs(req: Request, res: Response) {
+  try {
+    const jobs = await jobService.getAllJobs();
+    res.status(200).json({
+      message: "Jobs retrieved",
+      data: jobs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to get all job",
+    });
+
+    return;
+  }
+}

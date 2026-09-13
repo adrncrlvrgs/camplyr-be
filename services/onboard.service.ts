@@ -13,7 +13,7 @@ async function updateSeekerOnboarding(userId:string, data: SeekerOnboardingInput
             role: data.role,
             isOnboarded: true,
 
-            seekerProfile :{
+            seekerprofile :{
                 upsert: {
                     create: {
                         headline : data.headline,
@@ -37,7 +37,7 @@ async function updateSeekerOnboarding(userId:string, data: SeekerOnboardingInput
             avatarUrl: true,
             role: true,
             isOnboarded: true,
-            seekerProfile: true,
+            seekerprofile: true,
         },
     });
 
@@ -54,7 +54,7 @@ async function updateRecruitingOnboarding(userId:string, data: RecruiterOnboardi
             role: data.role,
             isOnboarded: true,
 
-            recruiterProfile:{
+            recruiterprofile:{
                 create: {
                     position: data.position,
 
@@ -77,7 +77,7 @@ async function updateRecruitingOnboarding(userId:string, data: RecruiterOnboardi
             avatarUrl: true,
             role: true,
             isOnboarded: true,
-            recruiterProfile: true,
+            recruiterprofile: true,
         }
     });
 

@@ -9,7 +9,7 @@ async function createPost(authorId: string, data: PostInput) {
             imageUrl: data.imageUrl
         },
         include:{
-            author:{
+            user:{
                 select:{
                     id: true,
                     name: true,

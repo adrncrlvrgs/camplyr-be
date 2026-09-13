@@ -83,7 +83,7 @@ async function getJobApplications(userId: string, jobId: string) {
   //get job
   //check job
 
-  const recruiter = await prisma.recruiterProfile.findUnique({
+  const recruiter = await prisma.recruiterprofile.findUnique({
     where: { userId },
     select: {
       companyId: true,
@@ -107,18 +107,19 @@ async function getJobApplications(userId: string, jobId: string) {
     where: { jobId },
     orderBy: { createdAt: "desc" },
     select: {
+      seekerId:true,
       id: true,
       status: true,
       coverLetter: true,
       resumeUrl: true,
       createdAt: true,
-      seeker: {
+      user: {
         select: {
           id: true,
           name: true,
           email: true,
           avatarUrl: true,
-          seekerProfile: {
+          seekerprofile: {
             select: {
               headline: true,
               location: true,
@@ -144,7 +145,7 @@ async function updateApplicationStatus(
   applicationId: string,
   status: ApplicationStatus,
 ) {
-  const recruiter = await prisma.recruiterProfile.findUnique({
+  const recruiter = await prisma.recruiterprofile.findUnique({
     where: { userId },
     select: {
       companyId: true,

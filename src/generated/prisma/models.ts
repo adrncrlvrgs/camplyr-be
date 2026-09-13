@@ -8,11 +8,11 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/User'
-export type * from './models/SeekerProfile'
-export type * from './models/RecruiterProfile'
-export type * from './models/Company'
-export type * from './models/Post'
-export type * from './models/Job'
-export type * from './models/Application'
+export type * from './models/application'
+export type * from './models/company'
+export type * from './models/job'
+export type * from './models/post'
+export type * from './models/recruiterprofile'
+export type * from './models/seekerprofile'
+export type * from './models/user'
 export type * from './commonInputTypes'

@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `SeekerProfile` model and its related types.
+ * This file exports the `seekerprofile` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,18 +13,18 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model SeekerProfile
+ * Model seekerprofile
  * 
  */
-export type SeekerProfileModel = runtime.Types.Result.DefaultSelection<Prisma.$SeekerProfilePayload>
+export type seekerprofileModel = runtime.Types.Result.DefaultSelection<Prisma.$seekerprofilePayload>
 
-export type AggregateSeekerProfile = {
-  _count: SeekerProfileCountAggregateOutputType | null
-  _min: SeekerProfileMinAggregateOutputType | null
-  _max: SeekerProfileMaxAggregateOutputType | null
+export type AggregateSeekerprofile = {
+  _count: SeekerprofileCountAggregateOutputType | null
+  _min: SeekerprofileMinAggregateOutputType | null
+  _max: SeekerprofileMaxAggregateOutputType | null
 }
 
-export type SeekerProfileMinAggregateOutputType = {
+export type SeekerprofileMinAggregateOutputType = {
   id: string | null
   userId: string | null
   headline: string | null
@@ -35,7 +35,7 @@ export type SeekerProfileMinAggregateOutputType = {
   updatedAt: Date | null
 }
 
-export type SeekerProfileMaxAggregateOutputType = {
+export type SeekerprofileMaxAggregateOutputType = {
   id: string | null
   userId: string | null
   headline: string | null
@@ -46,7 +46,7 @@ export type SeekerProfileMaxAggregateOutputType = {
   updatedAt: Date | null
 }
 
-export type SeekerProfileCountAggregateOutputType = {
+export type SeekerprofileCountAggregateOutputType = {
   id: number
   userId: number
   headline: number
@@ -60,7 +60,7 @@ export type SeekerProfileCountAggregateOutputType = {
 }
 
 
-export type SeekerProfileMinAggregateInputType = {
+export type SeekerprofileMinAggregateInputType = {
   id?: true
   userId?: true
   headline?: true
@@ -71,7 +71,7 @@ export type SeekerProfileMinAggregateInputType = {
   updatedAt?: true
 }
 
-export type SeekerProfileMaxAggregateInputType = {
+export type SeekerprofileMaxAggregateInputType = {
   id?: true
   userId?: true
   headline?: true
@@ -82,7 +82,7 @@ export type SeekerProfileMaxAggregateInputType = {
   updatedAt?: true
 }
 
-export type SeekerProfileCountAggregateInputType = {
+export type SeekerprofileCountAggregateInputType = {
   id?: true
   userId?: true
   headline?: true
@@ -95,79 +95,79 @@ export type SeekerProfileCountAggregateInputType = {
   _all?: true
 }
 
-export type SeekerProfileAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SeekerprofileAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which SeekerProfile to aggregate.
+   * Filter which seekerprofile to aggregate.
    */
-  where?: Prisma.SeekerProfileWhereInput
+  where?: Prisma.seekerprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SeekerProfiles to fetch.
+   * Determine the order of seekerprofiles to fetch.
    */
-  orderBy?: Prisma.SeekerProfileOrderByWithRelationInput | Prisma.SeekerProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.seekerprofileOrderByWithRelationInput | Prisma.seekerprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.SeekerProfileWhereUniqueInput
+  cursor?: Prisma.seekerprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SeekerProfiles from the position of the cursor.
+   * Take `±n` seekerprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SeekerProfiles.
+   * Skip the first `n` seekerprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned SeekerProfiles
+   * Count returned seekerprofiles
   **/
-  _count?: true | SeekerProfileCountAggregateInputType
+  _count?: true | SeekerprofileCountAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the minimum value
   **/
-  _min?: SeekerProfileMinAggregateInputType
+  _min?: SeekerprofileMinAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the maximum value
   **/
-  _max?: SeekerProfileMaxAggregateInputType
+  _max?: SeekerprofileMaxAggregateInputType
 }
 
-export type GetSeekerProfileAggregateType<T extends SeekerProfileAggregateArgs> = {
-      [P in keyof T & keyof AggregateSeekerProfile]: P extends '_count' | 'count'
+export type GetSeekerprofileAggregateType<T extends SeekerprofileAggregateArgs> = {
+      [P in keyof T & keyof AggregateSeekerprofile]: P extends '_count' | 'count'
     ? T[P] extends true
       ? number
-      : Prisma.GetScalarType<T[P], AggregateSeekerProfile[P]>
-    : Prisma.GetScalarType<T[P], AggregateSeekerProfile[P]>
+      : Prisma.GetScalarType<T[P], AggregateSeekerprofile[P]>
+    : Prisma.GetScalarType<T[P], AggregateSeekerprofile[P]>
 }
 
 
 
 
-export type SeekerProfileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.SeekerProfileWhereInput
-  orderBy?: Prisma.SeekerProfileOrderByWithAggregationInput | Prisma.SeekerProfileOrderByWithAggregationInput[]
-  by: Prisma.SeekerProfileScalarFieldEnum[] | Prisma.SeekerProfileScalarFieldEnum
-  having?: Prisma.SeekerProfileScalarWhereWithAggregatesInput
+export type seekerprofileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.seekerprofileWhereInput
+  orderBy?: Prisma.seekerprofileOrderByWithAggregationInput | Prisma.seekerprofileOrderByWithAggregationInput[]
+  by: Prisma.SeekerprofileScalarFieldEnum[] | Prisma.SeekerprofileScalarFieldEnum
+  having?: Prisma.seekerprofileScalarWhereWithAggregatesInput
   take?: number
   skip?: number
-  _count?: SeekerProfileCountAggregateInputType | true
-  _min?: SeekerProfileMinAggregateInputType
-  _max?: SeekerProfileMaxAggregateInputType
+  _count?: SeekerprofileCountAggregateInputType | true
+  _min?: SeekerprofileMinAggregateInputType
+  _max?: SeekerprofileMaxAggregateInputType
 }
 
-export type SeekerProfileGroupByOutputType = {
+export type SeekerprofileGroupByOutputType = {
   id: string
   userId: string
   headline: string | null
@@ -177,43 +177,43 @@ export type SeekerProfileGroupByOutputType = {
   skills: runtime.JsonValue | null
   createdAt: Date
   updatedAt: Date
-  _count: SeekerProfileCountAggregateOutputType | null
-  _min: SeekerProfileMinAggregateOutputType | null
-  _max: SeekerProfileMaxAggregateOutputType | null
+  _count: SeekerprofileCountAggregateOutputType | null
+  _min: SeekerprofileMinAggregateOutputType | null
+  _max: SeekerprofileMaxAggregateOutputType | null
 }
 
-export type GetSeekerProfileGroupByPayload<T extends SeekerProfileGroupByArgs> = Prisma.PrismaPromise<
+export type GetSeekerprofileGroupByPayload<T extends seekerprofileGroupByArgs> = Prisma.PrismaPromise<
   Array<
-    Prisma.PickEnumerable<SeekerProfileGroupByOutputType, T['by']> &
+    Prisma.PickEnumerable<SeekerprofileGroupByOutputType, T['by']> &
       {
-        [P in ((keyof T) & (keyof SeekerProfileGroupByOutputType))]: P extends '_count'
+        [P in ((keyof T) & (keyof SeekerprofileGroupByOutputType))]: P extends '_count'
           ? T[P] extends boolean
             ? number
-            : Prisma.GetScalarType<T[P], SeekerProfileGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], SeekerProfileGroupByOutputType[P]>
+            : Prisma.GetScalarType<T[P], SeekerprofileGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], SeekerprofileGroupByOutputType[P]>
       }
     >
   >
 
 
 
-export type SeekerProfileWhereInput = {
-  AND?: Prisma.SeekerProfileWhereInput | Prisma.SeekerProfileWhereInput[]
-  OR?: Prisma.SeekerProfileWhereInput[]
-  NOT?: Prisma.SeekerProfileWhereInput | Prisma.SeekerProfileWhereInput[]
-  id?: Prisma.StringFilter<"SeekerProfile"> | string
-  userId?: Prisma.StringFilter<"SeekerProfile"> | string
-  headline?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  bio?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  location?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  resumeUrl?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  skills?: Prisma.JsonNullableFilter<"SeekerProfile">
-  createdAt?: Prisma.DateTimeFilter<"SeekerProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"SeekerProfile"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+export type seekerprofileWhereInput = {
+  AND?: Prisma.seekerprofileWhereInput | Prisma.seekerprofileWhereInput[]
+  OR?: Prisma.seekerprofileWhereInput[]
+  NOT?: Prisma.seekerprofileWhereInput | Prisma.seekerprofileWhereInput[]
+  id?: Prisma.StringFilter<"seekerprofile"> | string
+  userId?: Prisma.StringFilter<"seekerprofile"> | string
+  headline?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  bio?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  location?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  resumeUrl?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  skills?: Prisma.JsonNullableFilter<"seekerprofile">
+  createdAt?: Prisma.DateTimeFilter<"seekerprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"seekerprofile"> | Date | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
 }
 
-export type SeekerProfileOrderByWithRelationInput = {
+export type seekerprofileOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   headline?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -223,27 +223,27 @@ export type SeekerProfileOrderByWithRelationInput = {
   skills?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
-  _relevance?: Prisma.SeekerProfileOrderByRelevanceInput
+  user?: Prisma.userOrderByWithRelationInput
+  _relevance?: Prisma.seekerprofileOrderByRelevanceInput
 }
 
-export type SeekerProfileWhereUniqueInput = Prisma.AtLeast<{
+export type seekerprofileWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   userId?: string
-  AND?: Prisma.SeekerProfileWhereInput | Prisma.SeekerProfileWhereInput[]
-  OR?: Prisma.SeekerProfileWhereInput[]
-  NOT?: Prisma.SeekerProfileWhereInput | Prisma.SeekerProfileWhereInput[]
-  headline?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  bio?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  location?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  resumeUrl?: Prisma.StringNullableFilter<"SeekerProfile"> | string | null
-  skills?: Prisma.JsonNullableFilter<"SeekerProfile">
-  createdAt?: Prisma.DateTimeFilter<"SeekerProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"SeekerProfile"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  AND?: Prisma.seekerprofileWhereInput | Prisma.seekerprofileWhereInput[]
+  OR?: Prisma.seekerprofileWhereInput[]
+  NOT?: Prisma.seekerprofileWhereInput | Prisma.seekerprofileWhereInput[]
+  headline?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  bio?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  location?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  resumeUrl?: Prisma.StringNullableFilter<"seekerprofile"> | string | null
+  skills?: Prisma.JsonNullableFilter<"seekerprofile">
+  createdAt?: Prisma.DateTimeFilter<"seekerprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"seekerprofile"> | Date | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
 }, "id" | "userId">
 
-export type SeekerProfileOrderByWithAggregationInput = {
+export type seekerprofileOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   headline?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -253,27 +253,27 @@ export type SeekerProfileOrderByWithAggregationInput = {
   skills?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  _count?: Prisma.SeekerProfileCountOrderByAggregateInput
-  _max?: Prisma.SeekerProfileMaxOrderByAggregateInput
-  _min?: Prisma.SeekerProfileMinOrderByAggregateInput
+  _count?: Prisma.seekerprofileCountOrderByAggregateInput
+  _max?: Prisma.seekerprofileMaxOrderByAggregateInput
+  _min?: Prisma.seekerprofileMinOrderByAggregateInput
 }
 
-export type SeekerProfileScalarWhereWithAggregatesInput = {
-  AND?: Prisma.SeekerProfileScalarWhereWithAggregatesInput | Prisma.SeekerProfileScalarWhereWithAggregatesInput[]
-  OR?: Prisma.SeekerProfileScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.SeekerProfileScalarWhereWithAggregatesInput | Prisma.SeekerProfileScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"SeekerProfile"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"SeekerProfile"> | string
-  headline?: Prisma.StringNullableWithAggregatesFilter<"SeekerProfile"> | string | null
-  bio?: Prisma.StringNullableWithAggregatesFilter<"SeekerProfile"> | string | null
-  location?: Prisma.StringNullableWithAggregatesFilter<"SeekerProfile"> | string | null
-  resumeUrl?: Prisma.StringNullableWithAggregatesFilter<"SeekerProfile"> | string | null
-  skills?: Prisma.JsonNullableWithAggregatesFilter<"SeekerProfile">
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"SeekerProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SeekerProfile"> | Date | string
+export type seekerprofileScalarWhereWithAggregatesInput = {
+  AND?: Prisma.seekerprofileScalarWhereWithAggregatesInput | Prisma.seekerprofileScalarWhereWithAggregatesInput[]
+  OR?: Prisma.seekerprofileScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.seekerprofileScalarWhereWithAggregatesInput | Prisma.seekerprofileScalarWhereWithAggregatesInput[]
+  id?: Prisma.StringWithAggregatesFilter<"seekerprofile"> | string
+  userId?: Prisma.StringWithAggregatesFilter<"seekerprofile"> | string
+  headline?: Prisma.StringNullableWithAggregatesFilter<"seekerprofile"> | string | null
+  bio?: Prisma.StringNullableWithAggregatesFilter<"seekerprofile"> | string | null
+  location?: Prisma.StringNullableWithAggregatesFilter<"seekerprofile"> | string | null
+  resumeUrl?: Prisma.StringNullableWithAggregatesFilter<"seekerprofile"> | string | null
+  skills?: Prisma.JsonNullableWithAggregatesFilter<"seekerprofile">
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"seekerprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"seekerprofile"> | Date | string
 }
 
-export type SeekerProfileCreateInput = {
+export type seekerprofileCreateInput = {
   id?: string
   headline?: string | null
   bio?: string | null
@@ -282,46 +282,10 @@ export type SeekerProfileCreateInput = {
   skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutSeekerProfileInput
+  user: Prisma.userCreateNestedOneWithoutSeekerprofileInput
 }
 
-export type SeekerProfileUncheckedCreateInput = {
-  id?: string
-  userId: string
-  headline?: string | null
-  bio?: string | null
-  location?: string | null
-  resumeUrl?: string | null
-  skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type SeekerProfileUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutSeekerProfileNestedInput
-}
-
-export type SeekerProfileUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type SeekerProfileCreateManyInput = {
+export type seekerprofileUncheckedCreateInput = {
   id?: string
   userId: string
   headline?: string | null
@@ -333,7 +297,7 @@ export type SeekerProfileCreateManyInput = {
   updatedAt?: Date | string
 }
 
-export type SeekerProfileUpdateManyMutationInput = {
+export type seekerprofileUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -342,9 +306,10 @@ export type SeekerProfileUpdateManyMutationInput = {
   skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.userUpdateOneRequiredWithoutSeekerprofileNestedInput
 }
 
-export type SeekerProfileUncheckedUpdateManyInput = {
+export type seekerprofileUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -356,18 +321,48 @@ export type SeekerProfileUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SeekerProfileNullableScalarRelationFilter = {
-  is?: Prisma.SeekerProfileWhereInput | null
-  isNot?: Prisma.SeekerProfileWhereInput | null
+export type seekerprofileCreateManyInput = {
+  id?: string
+  userId: string
+  headline?: string | null
+  bio?: string | null
+  location?: string | null
+  resumeUrl?: string | null
+  skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type SeekerProfileOrderByRelevanceInput = {
-  fields: Prisma.SeekerProfileOrderByRelevanceFieldEnum | Prisma.SeekerProfileOrderByRelevanceFieldEnum[]
+export type seekerprofileUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type seekerprofileUncheckedUpdateManyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  location?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  resumeUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  skills?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type seekerprofileOrderByRelevanceInput = {
+  fields: Prisma.seekerprofileOrderByRelevanceFieldEnum | Prisma.seekerprofileOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type SeekerProfileCountOrderByAggregateInput = {
+export type seekerprofileCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   headline?: Prisma.SortOrder
@@ -379,7 +374,7 @@ export type SeekerProfileCountOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type SeekerProfileMaxOrderByAggregateInput = {
+export type seekerprofileMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   headline?: Prisma.SortOrder
@@ -390,7 +385,7 @@ export type SeekerProfileMaxOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type SeekerProfileMinOrderByAggregateInput = {
+export type seekerprofileMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   headline?: Prisma.SortOrder
@@ -401,39 +396,44 @@ export type SeekerProfileMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type SeekerProfileCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.SeekerProfileCreateWithoutUserInput, Prisma.SeekerProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.SeekerProfileCreateOrConnectWithoutUserInput
-  connect?: Prisma.SeekerProfileWhereUniqueInput
+export type SeekerprofileNullableScalarRelationFilter = {
+  is?: Prisma.seekerprofileWhereInput | null
+  isNot?: Prisma.seekerprofileWhereInput | null
 }
 
-export type SeekerProfileUncheckedCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.SeekerProfileCreateWithoutUserInput, Prisma.SeekerProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.SeekerProfileCreateOrConnectWithoutUserInput
-  connect?: Prisma.SeekerProfileWhereUniqueInput
+export type seekerprofileCreateNestedOneWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.seekerprofileCreateWithoutUserInput, Prisma.seekerprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.seekerprofileCreateOrConnectWithoutUserInput
+  connect?: Prisma.seekerprofileWhereUniqueInput
 }
 
-export type SeekerProfileUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.SeekerProfileCreateWithoutUserInput, Prisma.SeekerProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.SeekerProfileCreateOrConnectWithoutUserInput
-  upsert?: Prisma.SeekerProfileUpsertWithoutUserInput
-  disconnect?: Prisma.SeekerProfileWhereInput | boolean
-  delete?: Prisma.SeekerProfileWhereInput | boolean
-  connect?: Prisma.SeekerProfileWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.SeekerProfileUpdateToOneWithWhereWithoutUserInput, Prisma.SeekerProfileUpdateWithoutUserInput>, Prisma.SeekerProfileUncheckedUpdateWithoutUserInput>
+export type seekerprofileUncheckedCreateNestedOneWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.seekerprofileCreateWithoutUserInput, Prisma.seekerprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.seekerprofileCreateOrConnectWithoutUserInput
+  connect?: Prisma.seekerprofileWhereUniqueInput
 }
 
-export type SeekerProfileUncheckedUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.SeekerProfileCreateWithoutUserInput, Prisma.SeekerProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.SeekerProfileCreateOrConnectWithoutUserInput
-  upsert?: Prisma.SeekerProfileUpsertWithoutUserInput
-  disconnect?: Prisma.SeekerProfileWhereInput | boolean
-  delete?: Prisma.SeekerProfileWhereInput | boolean
-  connect?: Prisma.SeekerProfileWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.SeekerProfileUpdateToOneWithWhereWithoutUserInput, Prisma.SeekerProfileUpdateWithoutUserInput>, Prisma.SeekerProfileUncheckedUpdateWithoutUserInput>
+export type seekerprofileUpdateOneWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.seekerprofileCreateWithoutUserInput, Prisma.seekerprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.seekerprofileCreateOrConnectWithoutUserInput
+  upsert?: Prisma.seekerprofileUpsertWithoutUserInput
+  disconnect?: Prisma.seekerprofileWhereInput | boolean
+  delete?: Prisma.seekerprofileWhereInput | boolean
+  connect?: Prisma.seekerprofileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.seekerprofileUpdateToOneWithWhereWithoutUserInput, Prisma.seekerprofileUpdateWithoutUserInput>, Prisma.seekerprofileUncheckedUpdateWithoutUserInput>
 }
 
-export type SeekerProfileCreateWithoutUserInput = {
+export type seekerprofileUncheckedUpdateOneWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.seekerprofileCreateWithoutUserInput, Prisma.seekerprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.seekerprofileCreateOrConnectWithoutUserInput
+  upsert?: Prisma.seekerprofileUpsertWithoutUserInput
+  disconnect?: Prisma.seekerprofileWhereInput | boolean
+  delete?: Prisma.seekerprofileWhereInput | boolean
+  connect?: Prisma.seekerprofileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.seekerprofileUpdateToOneWithWhereWithoutUserInput, Prisma.seekerprofileUpdateWithoutUserInput>, Prisma.seekerprofileUncheckedUpdateWithoutUserInput>
+}
+
+export type seekerprofileCreateWithoutUserInput = {
   id?: string
   headline?: string | null
   bio?: string | null
@@ -444,7 +444,7 @@ export type SeekerProfileCreateWithoutUserInput = {
   updatedAt?: Date | string
 }
 
-export type SeekerProfileUncheckedCreateWithoutUserInput = {
+export type seekerprofileUncheckedCreateWithoutUserInput = {
   id?: string
   headline?: string | null
   bio?: string | null
@@ -455,23 +455,23 @@ export type SeekerProfileUncheckedCreateWithoutUserInput = {
   updatedAt?: Date | string
 }
 
-export type SeekerProfileCreateOrConnectWithoutUserInput = {
-  where: Prisma.SeekerProfileWhereUniqueInput
-  create: Prisma.XOR<Prisma.SeekerProfileCreateWithoutUserInput, Prisma.SeekerProfileUncheckedCreateWithoutUserInput>
+export type seekerprofileCreateOrConnectWithoutUserInput = {
+  where: Prisma.seekerprofileWhereUniqueInput
+  create: Prisma.XOR<Prisma.seekerprofileCreateWithoutUserInput, Prisma.seekerprofileUncheckedCreateWithoutUserInput>
 }
 
-export type SeekerProfileUpsertWithoutUserInput = {
-  update: Prisma.XOR<Prisma.SeekerProfileUpdateWithoutUserInput, Prisma.SeekerProfileUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.SeekerProfileCreateWithoutUserInput, Prisma.SeekerProfileUncheckedCreateWithoutUserInput>
-  where?: Prisma.SeekerProfileWhereInput
+export type seekerprofileUpsertWithoutUserInput = {
+  update: Prisma.XOR<Prisma.seekerprofileUpdateWithoutUserInput, Prisma.seekerprofileUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.seekerprofileCreateWithoutUserInput, Prisma.seekerprofileUncheckedCreateWithoutUserInput>
+  where?: Prisma.seekerprofileWhereInput
 }
 
-export type SeekerProfileUpdateToOneWithWhereWithoutUserInput = {
-  where?: Prisma.SeekerProfileWhereInput
-  data: Prisma.XOR<Prisma.SeekerProfileUpdateWithoutUserInput, Prisma.SeekerProfileUncheckedUpdateWithoutUserInput>
+export type seekerprofileUpdateToOneWithWhereWithoutUserInput = {
+  where?: Prisma.seekerprofileWhereInput
+  data: Prisma.XOR<Prisma.seekerprofileUpdateWithoutUserInput, Prisma.seekerprofileUncheckedUpdateWithoutUserInput>
 }
 
-export type SeekerProfileUpdateWithoutUserInput = {
+export type seekerprofileUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -482,7 +482,7 @@ export type SeekerProfileUpdateWithoutUserInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SeekerProfileUncheckedUpdateWithoutUserInput = {
+export type seekerprofileUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   headline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -495,7 +495,7 @@ export type SeekerProfileUncheckedUpdateWithoutUserInput = {
 
 
 
-export type SeekerProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type seekerprofileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
   headline?: boolean
@@ -505,12 +505,12 @@ export type SeekerProfileSelect<ExtArgs extends runtime.Types.Extensions.Interna
   skills?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}, ExtArgs["result"]["seekerProfile"]>
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["seekerprofile"]>
 
 
 
-export type SeekerProfileSelectScalar = {
+export type seekerprofileSelectScalar = {
   id?: boolean
   userId?: boolean
   headline?: boolean
@@ -522,15 +522,15 @@ export type SeekerProfileSelectScalar = {
   updatedAt?: boolean
 }
 
-export type SeekerProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "headline" | "bio" | "location" | "resumeUrl" | "skills" | "createdAt" | "updatedAt", ExtArgs["result"]["seekerProfile"]>
-export type SeekerProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+export type seekerprofileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "headline" | "bio" | "location" | "resumeUrl" | "skills" | "createdAt" | "updatedAt", ExtArgs["result"]["seekerprofile"]>
+export type seekerprofileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
 }
 
-export type $SeekerProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "SeekerProfile"
+export type $seekerprofilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "seekerprofile"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
+    user: Prisma.$userPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -542,143 +542,143 @@ export type $SeekerProfilePayload<ExtArgs extends runtime.Types.Extensions.Inter
     skills: runtime.JsonValue | null
     createdAt: Date
     updatedAt: Date
-  }, ExtArgs["result"]["seekerProfile"]>
+  }, ExtArgs["result"]["seekerprofile"]>
   composites: {}
 }
 
-export type SeekerProfileGetPayload<S extends boolean | null | undefined | SeekerProfileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload, S>
+export type seekerprofileGetPayload<S extends boolean | null | undefined | seekerprofileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload, S>
 
-export type SeekerProfileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<SeekerProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-    select?: SeekerProfileCountAggregateInputType | true
+export type seekerprofileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<seekerprofileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: SeekerprofileCountAggregateInputType | true
   }
 
-export interface SeekerProfileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SeekerProfile'], meta: { name: 'SeekerProfile' } }
+export interface seekerprofileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['seekerprofile'], meta: { name: 'seekerprofile' } }
   /**
-   * Find zero or one SeekerProfile that matches the filter.
-   * @param {SeekerProfileFindUniqueArgs} args - Arguments to find a SeekerProfile
+   * Find zero or one Seekerprofile that matches the filter.
+   * @param {seekerprofileFindUniqueArgs} args - Arguments to find a Seekerprofile
    * @example
-   * // Get one SeekerProfile
-   * const seekerProfile = await prisma.seekerProfile.findUnique({
+   * // Get one Seekerprofile
+   * const seekerprofile = await prisma.seekerprofile.findUnique({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUnique<T extends SeekerProfileFindUniqueArgs>(args: Prisma.SelectSubset<T, SeekerProfileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends seekerprofileFindUniqueArgs>(args: Prisma.SelectSubset<T, seekerprofileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find one SeekerProfile that matches the filter or throw an error with `error.code='P2025'`
+   * Find one Seekerprofile that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {SeekerProfileFindUniqueOrThrowArgs} args - Arguments to find a SeekerProfile
+   * @param {seekerprofileFindUniqueOrThrowArgs} args - Arguments to find a Seekerprofile
    * @example
-   * // Get one SeekerProfile
-   * const seekerProfile = await prisma.seekerProfile.findUniqueOrThrow({
+   * // Get one Seekerprofile
+   * const seekerprofile = await prisma.seekerprofile.findUniqueOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUniqueOrThrow<T extends SeekerProfileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, SeekerProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends seekerprofileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, seekerprofileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first SeekerProfile that matches the filter.
+   * Find the first Seekerprofile that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileFindFirstArgs} args - Arguments to find a SeekerProfile
+   * @param {seekerprofileFindFirstArgs} args - Arguments to find a Seekerprofile
    * @example
-   * // Get one SeekerProfile
-   * const seekerProfile = await prisma.seekerProfile.findFirst({
+   * // Get one Seekerprofile
+   * const seekerprofile = await prisma.seekerprofile.findFirst({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirst<T extends SeekerProfileFindFirstArgs>(args?: Prisma.SelectSubset<T, SeekerProfileFindFirstArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends seekerprofileFindFirstArgs>(args?: Prisma.SelectSubset<T, seekerprofileFindFirstArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first SeekerProfile that matches the filter or
+   * Find the first Seekerprofile that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileFindFirstOrThrowArgs} args - Arguments to find a SeekerProfile
+   * @param {seekerprofileFindFirstOrThrowArgs} args - Arguments to find a Seekerprofile
    * @example
-   * // Get one SeekerProfile
-   * const seekerProfile = await prisma.seekerProfile.findFirstOrThrow({
+   * // Get one Seekerprofile
+   * const seekerprofile = await prisma.seekerprofile.findFirstOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirstOrThrow<T extends SeekerProfileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, SeekerProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends seekerprofileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, seekerprofileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find zero or more SeekerProfiles that matches the filter.
+   * Find zero or more Seekerprofiles that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {seekerprofileFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
-   * // Get all SeekerProfiles
-   * const seekerProfiles = await prisma.seekerProfile.findMany()
+   * // Get all Seekerprofiles
+   * const seekerprofiles = await prisma.seekerprofile.findMany()
    * 
-   * // Get first 10 SeekerProfiles
-   * const seekerProfiles = await prisma.seekerProfile.findMany({ take: 10 })
+   * // Get first 10 Seekerprofiles
+   * const seekerprofiles = await prisma.seekerprofile.findMany({ take: 10 })
    * 
    * // Only select the `id`
-   * const seekerProfileWithIdOnly = await prisma.seekerProfile.findMany({ select: { id: true } })
+   * const seekerprofileWithIdOnly = await prisma.seekerprofile.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends SeekerProfileFindManyArgs>(args?: Prisma.SelectSubset<T, SeekerProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends seekerprofileFindManyArgs>(args?: Prisma.SelectSubset<T, seekerprofileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
-   * Create a SeekerProfile.
-   * @param {SeekerProfileCreateArgs} args - Arguments to create a SeekerProfile.
+   * Create a Seekerprofile.
+   * @param {seekerprofileCreateArgs} args - Arguments to create a Seekerprofile.
    * @example
-   * // Create one SeekerProfile
-   * const SeekerProfile = await prisma.seekerProfile.create({
+   * // Create one Seekerprofile
+   * const Seekerprofile = await prisma.seekerprofile.create({
    *   data: {
-   *     // ... data to create a SeekerProfile
+   *     // ... data to create a Seekerprofile
    *   }
    * })
    * 
    */
-  create<T extends SeekerProfileCreateArgs>(args: Prisma.SelectSubset<T, SeekerProfileCreateArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends seekerprofileCreateArgs>(args: Prisma.SelectSubset<T, seekerprofileCreateArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Create many SeekerProfiles.
-   * @param {SeekerProfileCreateManyArgs} args - Arguments to create many SeekerProfiles.
+   * Create many Seekerprofiles.
+   * @param {seekerprofileCreateManyArgs} args - Arguments to create many Seekerprofiles.
    * @example
-   * // Create many SeekerProfiles
-   * const seekerProfile = await prisma.seekerProfile.createMany({
+   * // Create many Seekerprofiles
+   * const seekerprofile = await prisma.seekerprofile.createMany({
    *   data: [
    *     // ... provide data here
    *   ]
    * })
    *     
    */
-  createMany<T extends SeekerProfileCreateManyArgs>(args?: Prisma.SelectSubset<T, SeekerProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends seekerprofileCreateManyArgs>(args?: Prisma.SelectSubset<T, seekerprofileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Delete a SeekerProfile.
-   * @param {SeekerProfileDeleteArgs} args - Arguments to delete one SeekerProfile.
+   * Delete a Seekerprofile.
+   * @param {seekerprofileDeleteArgs} args - Arguments to delete one Seekerprofile.
    * @example
-   * // Delete one SeekerProfile
-   * const SeekerProfile = await prisma.seekerProfile.delete({
+   * // Delete one Seekerprofile
+   * const Seekerprofile = await prisma.seekerprofile.delete({
    *   where: {
-   *     // ... filter to delete one SeekerProfile
+   *     // ... filter to delete one Seekerprofile
    *   }
    * })
    * 
    */
-  delete<T extends SeekerProfileDeleteArgs>(args: Prisma.SelectSubset<T, SeekerProfileDeleteArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends seekerprofileDeleteArgs>(args: Prisma.SelectSubset<T, seekerprofileDeleteArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Update one SeekerProfile.
-   * @param {SeekerProfileUpdateArgs} args - Arguments to update one SeekerProfile.
+   * Update one Seekerprofile.
+   * @param {seekerprofileUpdateArgs} args - Arguments to update one Seekerprofile.
    * @example
-   * // Update one SeekerProfile
-   * const seekerProfile = await prisma.seekerProfile.update({
+   * // Update one Seekerprofile
+   * const seekerprofile = await prisma.seekerprofile.update({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -688,30 +688,30 @@ export interface SeekerProfileDelegate<ExtArgs extends runtime.Types.Extensions.
    * })
    * 
    */
-  update<T extends SeekerProfileUpdateArgs>(args: Prisma.SelectSubset<T, SeekerProfileUpdateArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends seekerprofileUpdateArgs>(args: Prisma.SelectSubset<T, seekerprofileUpdateArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Delete zero or more SeekerProfiles.
-   * @param {SeekerProfileDeleteManyArgs} args - Arguments to filter SeekerProfiles to delete.
+   * Delete zero or more Seekerprofiles.
+   * @param {seekerprofileDeleteManyArgs} args - Arguments to filter Seekerprofiles to delete.
    * @example
-   * // Delete a few SeekerProfiles
-   * const { count } = await prisma.seekerProfile.deleteMany({
+   * // Delete a few Seekerprofiles
+   * const { count } = await prisma.seekerprofile.deleteMany({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    * 
    */
-  deleteMany<T extends SeekerProfileDeleteManyArgs>(args?: Prisma.SelectSubset<T, SeekerProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends seekerprofileDeleteManyArgs>(args?: Prisma.SelectSubset<T, seekerprofileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Update zero or more SeekerProfiles.
+   * Update zero or more Seekerprofiles.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {seekerprofileUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
-   * // Update many SeekerProfiles
-   * const seekerProfile = await prisma.seekerProfile.updateMany({
+   * // Update many Seekerprofiles
+   * const seekerprofile = await prisma.seekerprofile.updateMany({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -721,56 +721,56 @@ export interface SeekerProfileDelegate<ExtArgs extends runtime.Types.Extensions.
    * })
    * 
    */
-  updateMany<T extends SeekerProfileUpdateManyArgs>(args: Prisma.SelectSubset<T, SeekerProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends seekerprofileUpdateManyArgs>(args: Prisma.SelectSubset<T, seekerprofileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Create or update one SeekerProfile.
-   * @param {SeekerProfileUpsertArgs} args - Arguments to update or create a SeekerProfile.
+   * Create or update one Seekerprofile.
+   * @param {seekerprofileUpsertArgs} args - Arguments to update or create a Seekerprofile.
    * @example
-   * // Update or create a SeekerProfile
-   * const seekerProfile = await prisma.seekerProfile.upsert({
+   * // Update or create a Seekerprofile
+   * const seekerprofile = await prisma.seekerprofile.upsert({
    *   create: {
-   *     // ... data to create a SeekerProfile
+   *     // ... data to create a Seekerprofile
    *   },
    *   update: {
    *     // ... in case it already exists, update
    *   },
    *   where: {
-   *     // ... the filter for the SeekerProfile we want to update
+   *     // ... the filter for the Seekerprofile we want to update
    *   }
    * })
    */
-  upsert<T extends SeekerProfileUpsertArgs>(args: Prisma.SelectSubset<T, SeekerProfileUpsertArgs<ExtArgs>>): Prisma.Prisma__SeekerProfileClient<runtime.Types.Result.GetResult<Prisma.$SeekerProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends seekerprofileUpsertArgs>(args: Prisma.SelectSubset<T, seekerprofileUpsertArgs<ExtArgs>>): Prisma.Prisma__seekerprofileClient<runtime.Types.Result.GetResult<Prisma.$seekerprofilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
-   * Count the number of SeekerProfiles.
+   * Count the number of Seekerprofiles.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileCountArgs} args - Arguments to filter SeekerProfiles to count.
+   * @param {seekerprofileCountArgs} args - Arguments to filter Seekerprofiles to count.
    * @example
-   * // Count the number of SeekerProfiles
-   * const count = await prisma.seekerProfile.count({
+   * // Count the number of Seekerprofiles
+   * const count = await prisma.seekerprofile.count({
    *   where: {
-   *     // ... the filter for the SeekerProfiles we want to count
+   *     // ... the filter for the Seekerprofiles we want to count
    *   }
    * })
   **/
-  count<T extends SeekerProfileCountArgs>(
-    args?: Prisma.Subset<T, SeekerProfileCountArgs>,
+  count<T extends seekerprofileCountArgs>(
+    args?: Prisma.Subset<T, seekerprofileCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], SeekerProfileCountAggregateOutputType>
+        : Prisma.GetScalarType<T['select'], SeekerprofileCountAggregateOutputType>
       : number
   >
 
   /**
-   * Allows you to perform aggregations operations on a SeekerProfile.
+   * Allows you to perform aggregations operations on a Seekerprofile.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @param {SeekerprofileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
    * @example
    * // Ordered by age ascending
    * // Where email contains prisma.io
@@ -790,13 +790,13 @@ export interface SeekerProfileDelegate<ExtArgs extends runtime.Types.Extensions.
    *   take: 10,
    * })
   **/
-  aggregate<T extends SeekerProfileAggregateArgs>(args: Prisma.Subset<T, SeekerProfileAggregateArgs>): Prisma.PrismaPromise<GetSeekerProfileAggregateType<T>>
+  aggregate<T extends SeekerprofileAggregateArgs>(args: Prisma.Subset<T, SeekerprofileAggregateArgs>): Prisma.PrismaPromise<GetSeekerprofileAggregateType<T>>
 
   /**
-   * Group by SeekerProfile.
+   * Group by Seekerprofile.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {SeekerProfileGroupByArgs} args - Group by arguments.
+   * @param {seekerprofileGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -811,14 +811,14 @@ export interface SeekerProfileDelegate<ExtArgs extends runtime.Types.Extensions.
    * 
   **/
   groupBy<
-    T extends SeekerProfileGroupByArgs,
+    T extends seekerprofileGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: SeekerProfileGroupByArgs['orderBy'] }
-      : { orderBy?: SeekerProfileGroupByArgs['orderBy'] },
+      ? { orderBy: seekerprofileGroupByArgs['orderBy'] }
+      : { orderBy?: seekerprofileGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -867,22 +867,22 @@ export interface SeekerProfileDelegate<ExtArgs extends runtime.Types.Extensions.
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, SeekerProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSeekerProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, seekerprofileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSeekerprofileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the SeekerProfile model
+ * Fields of the seekerprofile model
  */
-readonly fields: SeekerProfileFieldRefs;
+readonly fields: seekerprofileFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for SeekerProfile.
+ * The delegate class that acts as a "Promise-like" for seekerprofile.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__SeekerProfileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__seekerprofileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -909,379 +909,379 @@ export interface Prisma__SeekerProfileClient<T, Null = never, ExtArgs extends ru
 
 
 /**
- * Fields of the SeekerProfile model
+ * Fields of the seekerprofile model
  */
-export interface SeekerProfileFieldRefs {
-  readonly id: Prisma.FieldRef<"SeekerProfile", 'String'>
-  readonly userId: Prisma.FieldRef<"SeekerProfile", 'String'>
-  readonly headline: Prisma.FieldRef<"SeekerProfile", 'String'>
-  readonly bio: Prisma.FieldRef<"SeekerProfile", 'String'>
-  readonly location: Prisma.FieldRef<"SeekerProfile", 'String'>
-  readonly resumeUrl: Prisma.FieldRef<"SeekerProfile", 'String'>
-  readonly skills: Prisma.FieldRef<"SeekerProfile", 'Json'>
-  readonly createdAt: Prisma.FieldRef<"SeekerProfile", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"SeekerProfile", 'DateTime'>
+export interface seekerprofileFieldRefs {
+  readonly id: Prisma.FieldRef<"seekerprofile", 'String'>
+  readonly userId: Prisma.FieldRef<"seekerprofile", 'String'>
+  readonly headline: Prisma.FieldRef<"seekerprofile", 'String'>
+  readonly bio: Prisma.FieldRef<"seekerprofile", 'String'>
+  readonly location: Prisma.FieldRef<"seekerprofile", 'String'>
+  readonly resumeUrl: Prisma.FieldRef<"seekerprofile", 'String'>
+  readonly skills: Prisma.FieldRef<"seekerprofile", 'Json'>
+  readonly createdAt: Prisma.FieldRef<"seekerprofile", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"seekerprofile", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * SeekerProfile findUnique
+ * seekerprofile findUnique
  */
-export type SeekerProfileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * Filter, which SeekerProfile to fetch.
+   * Filter, which seekerprofile to fetch.
    */
-  where: Prisma.SeekerProfileWhereUniqueInput
+  where: Prisma.seekerprofileWhereUniqueInput
 }
 
 /**
- * SeekerProfile findUniqueOrThrow
+ * seekerprofile findUniqueOrThrow
  */
-export type SeekerProfileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * Filter, which SeekerProfile to fetch.
+   * Filter, which seekerprofile to fetch.
    */
-  where: Prisma.SeekerProfileWhereUniqueInput
+  where: Prisma.seekerprofileWhereUniqueInput
 }
 
 /**
- * SeekerProfile findFirst
+ * seekerprofile findFirst
  */
-export type SeekerProfileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * Filter, which SeekerProfile to fetch.
+   * Filter, which seekerprofile to fetch.
    */
-  where?: Prisma.SeekerProfileWhereInput
+  where?: Prisma.seekerprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SeekerProfiles to fetch.
+   * Determine the order of seekerprofiles to fetch.
    */
-  orderBy?: Prisma.SeekerProfileOrderByWithRelationInput | Prisma.SeekerProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.seekerprofileOrderByWithRelationInput | Prisma.seekerprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for SeekerProfiles.
+   * Sets the position for searching for seekerprofiles.
    */
-  cursor?: Prisma.SeekerProfileWhereUniqueInput
+  cursor?: Prisma.seekerprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SeekerProfiles from the position of the cursor.
+   * Take `±n` seekerprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SeekerProfiles.
+   * Skip the first `n` seekerprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of SeekerProfiles.
+   * Filter by unique combinations of seekerprofiles.
    */
-  distinct?: Prisma.SeekerProfileScalarFieldEnum | Prisma.SeekerProfileScalarFieldEnum[]
+  distinct?: Prisma.SeekerprofileScalarFieldEnum | Prisma.SeekerprofileScalarFieldEnum[]
 }
 
 /**
- * SeekerProfile findFirstOrThrow
+ * seekerprofile findFirstOrThrow
  */
-export type SeekerProfileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * Filter, which SeekerProfile to fetch.
+   * Filter, which seekerprofile to fetch.
    */
-  where?: Prisma.SeekerProfileWhereInput
+  where?: Prisma.seekerprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SeekerProfiles to fetch.
+   * Determine the order of seekerprofiles to fetch.
    */
-  orderBy?: Prisma.SeekerProfileOrderByWithRelationInput | Prisma.SeekerProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.seekerprofileOrderByWithRelationInput | Prisma.seekerprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for SeekerProfiles.
+   * Sets the position for searching for seekerprofiles.
    */
-  cursor?: Prisma.SeekerProfileWhereUniqueInput
+  cursor?: Prisma.seekerprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SeekerProfiles from the position of the cursor.
+   * Take `±n` seekerprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SeekerProfiles.
+   * Skip the first `n` seekerprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of SeekerProfiles.
+   * Filter by unique combinations of seekerprofiles.
    */
-  distinct?: Prisma.SeekerProfileScalarFieldEnum | Prisma.SeekerProfileScalarFieldEnum[]
+  distinct?: Prisma.SeekerprofileScalarFieldEnum | Prisma.SeekerprofileScalarFieldEnum[]
 }
 
 /**
- * SeekerProfile findMany
+ * seekerprofile findMany
  */
-export type SeekerProfileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * Filter, which SeekerProfiles to fetch.
+   * Filter, which seekerprofiles to fetch.
    */
-  where?: Prisma.SeekerProfileWhereInput
+  where?: Prisma.seekerprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of SeekerProfiles to fetch.
+   * Determine the order of seekerprofiles to fetch.
    */
-  orderBy?: Prisma.SeekerProfileOrderByWithRelationInput | Prisma.SeekerProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.seekerprofileOrderByWithRelationInput | Prisma.seekerprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing SeekerProfiles.
+   * Sets the position for listing seekerprofiles.
    */
-  cursor?: Prisma.SeekerProfileWhereUniqueInput
+  cursor?: Prisma.seekerprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` SeekerProfiles from the position of the cursor.
+   * Take `±n` seekerprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` SeekerProfiles.
+   * Skip the first `n` seekerprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of SeekerProfiles.
+   * Filter by unique combinations of seekerprofiles.
    */
-  distinct?: Prisma.SeekerProfileScalarFieldEnum | Prisma.SeekerProfileScalarFieldEnum[]
+  distinct?: Prisma.SeekerprofileScalarFieldEnum | Prisma.SeekerprofileScalarFieldEnum[]
 }
 
 /**
- * SeekerProfile create
+ * seekerprofile create
  */
-export type SeekerProfileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * The data needed to create a SeekerProfile.
+   * The data needed to create a seekerprofile.
    */
-  data: Prisma.XOR<Prisma.SeekerProfileCreateInput, Prisma.SeekerProfileUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.seekerprofileCreateInput, Prisma.seekerprofileUncheckedCreateInput>
 }
 
 /**
- * SeekerProfile createMany
+ * seekerprofile createMany
  */
-export type SeekerProfileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many SeekerProfiles.
+   * The data used to create many seekerprofiles.
    */
-  data: Prisma.SeekerProfileCreateManyInput | Prisma.SeekerProfileCreateManyInput[]
+  data: Prisma.seekerprofileCreateManyInput | Prisma.seekerprofileCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * SeekerProfile update
+ * seekerprofile update
  */
-export type SeekerProfileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * The data needed to update a SeekerProfile.
+   * The data needed to update a seekerprofile.
    */
-  data: Prisma.XOR<Prisma.SeekerProfileUpdateInput, Prisma.SeekerProfileUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.seekerprofileUpdateInput, Prisma.seekerprofileUncheckedUpdateInput>
   /**
-   * Choose, which SeekerProfile to update.
+   * Choose, which seekerprofile to update.
    */
-  where: Prisma.SeekerProfileWhereUniqueInput
+  where: Prisma.seekerprofileWhereUniqueInput
 }
 
 /**
- * SeekerProfile updateMany
+ * seekerprofile updateMany
  */
-export type SeekerProfileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update SeekerProfiles.
+   * The data used to update seekerprofiles.
    */
-  data: Prisma.XOR<Prisma.SeekerProfileUpdateManyMutationInput, Prisma.SeekerProfileUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.seekerprofileUpdateManyMutationInput, Prisma.seekerprofileUncheckedUpdateManyInput>
   /**
-   * Filter which SeekerProfiles to update
+   * Filter which seekerprofiles to update
    */
-  where?: Prisma.SeekerProfileWhereInput
+  where?: Prisma.seekerprofileWhereInput
   /**
-   * Limit how many SeekerProfiles to update.
+   * Limit how many seekerprofiles to update.
    */
   limit?: number
 }
 
 /**
- * SeekerProfile upsert
+ * seekerprofile upsert
  */
-export type SeekerProfileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * The filter to search for the SeekerProfile to update in case it exists.
+   * The filter to search for the seekerprofile to update in case it exists.
    */
-  where: Prisma.SeekerProfileWhereUniqueInput
+  where: Prisma.seekerprofileWhereUniqueInput
   /**
-   * In case the SeekerProfile found by the `where` argument doesn't exist, create a new SeekerProfile with this data.
+   * In case the seekerprofile found by the `where` argument doesn't exist, create a new seekerprofile with this data.
    */
-  create: Prisma.XOR<Prisma.SeekerProfileCreateInput, Prisma.SeekerProfileUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.seekerprofileCreateInput, Prisma.seekerprofileUncheckedCreateInput>
   /**
-   * In case the SeekerProfile was found with the provided `where` argument, update it with this data.
+   * In case the seekerprofile was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.SeekerProfileUpdateInput, Prisma.SeekerProfileUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.seekerprofileUpdateInput, Prisma.seekerprofileUncheckedUpdateInput>
 }
 
 /**
- * SeekerProfile delete
+ * seekerprofile delete
  */
-export type SeekerProfileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
   /**
-   * Filter which SeekerProfile to delete.
+   * Filter which seekerprofile to delete.
    */
-  where: Prisma.SeekerProfileWhereUniqueInput
+  where: Prisma.seekerprofileWhereUniqueInput
 }
 
 /**
- * SeekerProfile deleteMany
+ * seekerprofile deleteMany
  */
-export type SeekerProfileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which SeekerProfiles to delete
+   * Filter which seekerprofiles to delete
    */
-  where?: Prisma.SeekerProfileWhereInput
+  where?: Prisma.seekerprofileWhereInput
   /**
-   * Limit how many SeekerProfiles to delete.
+   * Limit how many seekerprofiles to delete.
    */
   limit?: number
 }
 
 /**
- * SeekerProfile without action
+ * seekerprofile without action
  */
-export type SeekerProfileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type seekerprofileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SeekerProfile
+   * Select specific fields to fetch from the seekerprofile
    */
-  select?: Prisma.SeekerProfileSelect<ExtArgs> | null
+  select?: Prisma.seekerprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SeekerProfile
+   * Omit specific fields from the seekerprofile
    */
-  omit?: Prisma.SeekerProfileOmit<ExtArgs> | null
+  omit?: Prisma.seekerprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SeekerProfileInclude<ExtArgs> | null
+  include?: Prisma.seekerprofileInclude<ExtArgs> | null
 }

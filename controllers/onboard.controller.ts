@@ -16,6 +16,8 @@ export async function seekerOnboarding(req: Request, res: Response) {
 
     const data = req.body as SeekerOnboardingInput;
 
+    // console.log(data)
+
     const updatedUser = await onboardingService.updateSeekerOnboarding(
       userId,
       data,

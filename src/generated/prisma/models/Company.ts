@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `Company` model and its related types.
+ * This file exports the `company` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model Company
+ * Model company
  * 
  */
-export type CompanyModel = runtime.Types.Result.DefaultSelection<Prisma.$CompanyPayload>
+export type companyModel = runtime.Types.Result.DefaultSelection<Prisma.$companyPayload>
 
 export type AggregateCompany = {
   _count: CompanyCountAggregateOutputType | null
@@ -101,37 +101,37 @@ export type CompanyCountAggregateInputType = {
 
 export type CompanyAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Company to aggregate.
+   * Filter which company to aggregate.
    */
-  where?: Prisma.CompanyWhereInput
+  where?: Prisma.companyWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Companies to fetch.
+   * Determine the order of companies to fetch.
    */
-  orderBy?: Prisma.CompanyOrderByWithRelationInput | Prisma.CompanyOrderByWithRelationInput[]
+  orderBy?: Prisma.companyOrderByWithRelationInput | Prisma.companyOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.CompanyWhereUniqueInput
+  cursor?: Prisma.companyWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Companies from the position of the cursor.
+   * Take `±n` companies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Companies.
+   * Skip the first `n` companies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned Companies
+   * Count returned companies
   **/
   _count?: true | CompanyCountAggregateInputType
   /**
@@ -159,11 +159,11 @@ export type GetCompanyAggregateType<T extends CompanyAggregateArgs> = {
 
 
 
-export type CompanyGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CompanyWhereInput
-  orderBy?: Prisma.CompanyOrderByWithAggregationInput | Prisma.CompanyOrderByWithAggregationInput[]
+export type companyGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.companyWhereInput
+  orderBy?: Prisma.companyOrderByWithAggregationInput | Prisma.companyOrderByWithAggregationInput[]
   by: Prisma.CompanyScalarFieldEnum[] | Prisma.CompanyScalarFieldEnum
-  having?: Prisma.CompanyScalarWhereWithAggregatesInput
+  having?: Prisma.companyScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: CompanyCountAggregateInputType | true
@@ -186,7 +186,7 @@ export type CompanyGroupByOutputType = {
   _max: CompanyMaxAggregateOutputType | null
 }
 
-export type GetCompanyGroupByPayload<T extends CompanyGroupByArgs> = Prisma.PrismaPromise<
+export type GetCompanyGroupByPayload<T extends companyGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<CompanyGroupByOutputType, T['by']> &
       {
@@ -201,24 +201,24 @@ export type GetCompanyGroupByPayload<T extends CompanyGroupByArgs> = Prisma.Pris
 
 
 
-export type CompanyWhereInput = {
-  AND?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
-  OR?: Prisma.CompanyWhereInput[]
-  NOT?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
-  id?: Prisma.StringFilter<"Company"> | string
-  name?: Prisma.StringFilter<"Company"> | string
-  slug?: Prisma.StringFilter<"Company"> | string
-  logoUrl?: Prisma.StringNullableFilter<"Company"> | string | null
-  website?: Prisma.StringNullableFilter<"Company"> | string | null
-  location?: Prisma.StringNullableFilter<"Company"> | string | null
-  description?: Prisma.StringNullableFilter<"Company"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"Company"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Company"> | Date | string
-  recruiters?: Prisma.RecruiterProfileListRelationFilter
-  jobs?: Prisma.JobListRelationFilter
+export type companyWhereInput = {
+  AND?: Prisma.companyWhereInput | Prisma.companyWhereInput[]
+  OR?: Prisma.companyWhereInput[]
+  NOT?: Prisma.companyWhereInput | Prisma.companyWhereInput[]
+  id?: Prisma.StringFilter<"company"> | string
+  name?: Prisma.StringFilter<"company"> | string
+  slug?: Prisma.StringFilter<"company"> | string
+  logoUrl?: Prisma.StringNullableFilter<"company"> | string | null
+  website?: Prisma.StringNullableFilter<"company"> | string | null
+  location?: Prisma.StringNullableFilter<"company"> | string | null
+  description?: Prisma.StringNullableFilter<"company"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"company"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"company"> | Date | string
+  job?: Prisma.JobListRelationFilter
+  recruiterprofile?: Prisma.RecruiterprofileListRelationFilter
 }
 
-export type CompanyOrderByWithRelationInput = {
+export type companyOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
@@ -228,29 +228,29 @@ export type CompanyOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  recruiters?: Prisma.RecruiterProfileOrderByRelationAggregateInput
-  jobs?: Prisma.JobOrderByRelationAggregateInput
-  _relevance?: Prisma.CompanyOrderByRelevanceInput
+  job?: Prisma.jobOrderByRelationAggregateInput
+  recruiterprofile?: Prisma.recruiterprofileOrderByRelationAggregateInput
+  _relevance?: Prisma.companyOrderByRelevanceInput
 }
 
-export type CompanyWhereUniqueInput = Prisma.AtLeast<{
+export type companyWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   slug?: string
-  AND?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
-  OR?: Prisma.CompanyWhereInput[]
-  NOT?: Prisma.CompanyWhereInput | Prisma.CompanyWhereInput[]
-  name?: Prisma.StringFilter<"Company"> | string
-  logoUrl?: Prisma.StringNullableFilter<"Company"> | string | null
-  website?: Prisma.StringNullableFilter<"Company"> | string | null
-  location?: Prisma.StringNullableFilter<"Company"> | string | null
-  description?: Prisma.StringNullableFilter<"Company"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"Company"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Company"> | Date | string
-  recruiters?: Prisma.RecruiterProfileListRelationFilter
-  jobs?: Prisma.JobListRelationFilter
+  AND?: Prisma.companyWhereInput | Prisma.companyWhereInput[]
+  OR?: Prisma.companyWhereInput[]
+  NOT?: Prisma.companyWhereInput | Prisma.companyWhereInput[]
+  name?: Prisma.StringFilter<"company"> | string
+  logoUrl?: Prisma.StringNullableFilter<"company"> | string | null
+  website?: Prisma.StringNullableFilter<"company"> | string | null
+  location?: Prisma.StringNullableFilter<"company"> | string | null
+  description?: Prisma.StringNullableFilter<"company"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"company"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"company"> | Date | string
+  job?: Prisma.JobListRelationFilter
+  recruiterprofile?: Prisma.RecruiterprofileListRelationFilter
 }, "id" | "slug">
 
-export type CompanyOrderByWithAggregationInput = {
+export type companyOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
@@ -260,27 +260,27 @@ export type CompanyOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  _count?: Prisma.CompanyCountOrderByAggregateInput
-  _max?: Prisma.CompanyMaxOrderByAggregateInput
-  _min?: Prisma.CompanyMinOrderByAggregateInput
+  _count?: Prisma.companyCountOrderByAggregateInput
+  _max?: Prisma.companyMaxOrderByAggregateInput
+  _min?: Prisma.companyMinOrderByAggregateInput
 }
 
-export type CompanyScalarWhereWithAggregatesInput = {
-  AND?: Prisma.CompanyScalarWhereWithAggregatesInput | Prisma.CompanyScalarWhereWithAggregatesInput[]
-  OR?: Prisma.CompanyScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.CompanyScalarWhereWithAggregatesInput | Prisma.CompanyScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"Company"> | string
-  name?: Prisma.StringWithAggregatesFilter<"Company"> | string
-  slug?: Prisma.StringWithAggregatesFilter<"Company"> | string
-  logoUrl?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
-  website?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
-  location?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
-  description?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Company"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Company"> | Date | string
+export type companyScalarWhereWithAggregatesInput = {
+  AND?: Prisma.companyScalarWhereWithAggregatesInput | Prisma.companyScalarWhereWithAggregatesInput[]
+  OR?: Prisma.companyScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.companyScalarWhereWithAggregatesInput | Prisma.companyScalarWhereWithAggregatesInput[]
+  id?: Prisma.StringWithAggregatesFilter<"company"> | string
+  name?: Prisma.StringWithAggregatesFilter<"company"> | string
+  slug?: Prisma.StringWithAggregatesFilter<"company"> | string
+  logoUrl?: Prisma.StringNullableWithAggregatesFilter<"company"> | string | null
+  website?: Prisma.StringNullableWithAggregatesFilter<"company"> | string | null
+  location?: Prisma.StringNullableWithAggregatesFilter<"company"> | string | null
+  description?: Prisma.StringNullableWithAggregatesFilter<"company"> | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"company"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"company"> | Date | string
 }
 
-export type CompanyCreateInput = {
+export type companyCreateInput = {
   id?: string
   name: string
   slug: string
@@ -290,11 +290,11 @@ export type CompanyCreateInput = {
   description?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  recruiters?: Prisma.RecruiterProfileCreateNestedManyWithoutCompanyInput
-  jobs?: Prisma.JobCreateNestedManyWithoutCompanyInput
+  job?: Prisma.jobCreateNestedManyWithoutCompanyInput
+  recruiterprofile?: Prisma.recruiterprofileCreateNestedManyWithoutCompanyInput
 }
 
-export type CompanyUncheckedCreateInput = {
+export type companyUncheckedCreateInput = {
   id?: string
   name: string
   slug: string
@@ -304,11 +304,11 @@ export type CompanyUncheckedCreateInput = {
   description?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  recruiters?: Prisma.RecruiterProfileUncheckedCreateNestedManyWithoutCompanyInput
-  jobs?: Prisma.JobUncheckedCreateNestedManyWithoutCompanyInput
+  job?: Prisma.jobUncheckedCreateNestedManyWithoutCompanyInput
+  recruiterprofile?: Prisma.recruiterprofileUncheckedCreateNestedManyWithoutCompanyInput
 }
 
-export type CompanyUpdateInput = {
+export type companyUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -318,11 +318,11 @@ export type CompanyUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  recruiters?: Prisma.RecruiterProfileUpdateManyWithoutCompanyNestedInput
-  jobs?: Prisma.JobUpdateManyWithoutCompanyNestedInput
+  job?: Prisma.jobUpdateManyWithoutCompanyNestedInput
+  recruiterprofile?: Prisma.recruiterprofileUpdateManyWithoutCompanyNestedInput
 }
 
-export type CompanyUncheckedUpdateInput = {
+export type companyUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -332,11 +332,11 @@ export type CompanyUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  recruiters?: Prisma.RecruiterProfileUncheckedUpdateManyWithoutCompanyNestedInput
-  jobs?: Prisma.JobUncheckedUpdateManyWithoutCompanyNestedInput
+  job?: Prisma.jobUncheckedUpdateManyWithoutCompanyNestedInput
+  recruiterprofile?: Prisma.recruiterprofileUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
-export type CompanyCreateManyInput = {
+export type companyCreateManyInput = {
   id?: string
   name: string
   slug: string
@@ -348,7 +348,7 @@ export type CompanyCreateManyInput = {
   updatedAt?: Date | string
 }
 
-export type CompanyUpdateManyMutationInput = {
+export type companyUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -360,7 +360,7 @@ export type CompanyUpdateManyMutationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CompanyUncheckedUpdateManyInput = {
+export type companyUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -372,18 +372,13 @@ export type CompanyUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CompanyNullableScalarRelationFilter = {
-  is?: Prisma.CompanyWhereInput | null
-  isNot?: Prisma.CompanyWhereInput | null
-}
-
-export type CompanyOrderByRelevanceInput = {
-  fields: Prisma.CompanyOrderByRelevanceFieldEnum | Prisma.CompanyOrderByRelevanceFieldEnum[]
+export type companyOrderByRelevanceInput = {
+  fields: Prisma.companyOrderByRelevanceFieldEnum | Prisma.companyOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type CompanyCountOrderByAggregateInput = {
+export type companyCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
@@ -395,7 +390,7 @@ export type CompanyCountOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type CompanyMaxOrderByAggregateInput = {
+export type companyMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
@@ -407,7 +402,7 @@ export type CompanyMaxOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type CompanyMinOrderByAggregateInput = {
+export type companyMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
@@ -420,41 +415,46 @@ export type CompanyMinOrderByAggregateInput = {
 }
 
 export type CompanyScalarRelationFilter = {
-  is?: Prisma.CompanyWhereInput
-  isNot?: Prisma.CompanyWhereInput
+  is?: Prisma.companyWhereInput
+  isNot?: Prisma.companyWhereInput
 }
 
-export type CompanyCreateNestedOneWithoutRecruitersInput = {
-  create?: Prisma.XOR<Prisma.CompanyCreateWithoutRecruitersInput, Prisma.CompanyUncheckedCreateWithoutRecruitersInput>
-  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutRecruitersInput
-  connect?: Prisma.CompanyWhereUniqueInput
+export type CompanyNullableScalarRelationFilter = {
+  is?: Prisma.companyWhereInput | null
+  isNot?: Prisma.companyWhereInput | null
 }
 
-export type CompanyUpdateOneWithoutRecruitersNestedInput = {
-  create?: Prisma.XOR<Prisma.CompanyCreateWithoutRecruitersInput, Prisma.CompanyUncheckedCreateWithoutRecruitersInput>
-  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutRecruitersInput
-  upsert?: Prisma.CompanyUpsertWithoutRecruitersInput
-  disconnect?: Prisma.CompanyWhereInput | boolean
-  delete?: Prisma.CompanyWhereInput | boolean
-  connect?: Prisma.CompanyWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutRecruitersInput, Prisma.CompanyUpdateWithoutRecruitersInput>, Prisma.CompanyUncheckedUpdateWithoutRecruitersInput>
+export type companyCreateNestedOneWithoutJobInput = {
+  create?: Prisma.XOR<Prisma.companyCreateWithoutJobInput, Prisma.companyUncheckedCreateWithoutJobInput>
+  connectOrCreate?: Prisma.companyCreateOrConnectWithoutJobInput
+  connect?: Prisma.companyWhereUniqueInput
 }
 
-export type CompanyCreateNestedOneWithoutJobsInput = {
-  create?: Prisma.XOR<Prisma.CompanyCreateWithoutJobsInput, Prisma.CompanyUncheckedCreateWithoutJobsInput>
-  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutJobsInput
-  connect?: Prisma.CompanyWhereUniqueInput
+export type companyUpdateOneRequiredWithoutJobNestedInput = {
+  create?: Prisma.XOR<Prisma.companyCreateWithoutJobInput, Prisma.companyUncheckedCreateWithoutJobInput>
+  connectOrCreate?: Prisma.companyCreateOrConnectWithoutJobInput
+  upsert?: Prisma.companyUpsertWithoutJobInput
+  connect?: Prisma.companyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.companyUpdateToOneWithWhereWithoutJobInput, Prisma.companyUpdateWithoutJobInput>, Prisma.companyUncheckedUpdateWithoutJobInput>
 }
 
-export type CompanyUpdateOneRequiredWithoutJobsNestedInput = {
-  create?: Prisma.XOR<Prisma.CompanyCreateWithoutJobsInput, Prisma.CompanyUncheckedCreateWithoutJobsInput>
-  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutJobsInput
-  upsert?: Prisma.CompanyUpsertWithoutJobsInput
-  connect?: Prisma.CompanyWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutJobsInput, Prisma.CompanyUpdateWithoutJobsInput>, Prisma.CompanyUncheckedUpdateWithoutJobsInput>
+export type companyCreateNestedOneWithoutRecruiterprofileInput = {
+  create?: Prisma.XOR<Prisma.companyCreateWithoutRecruiterprofileInput, Prisma.companyUncheckedCreateWithoutRecruiterprofileInput>
+  connectOrCreate?: Prisma.companyCreateOrConnectWithoutRecruiterprofileInput
+  connect?: Prisma.companyWhereUniqueInput
 }
 
-export type CompanyCreateWithoutRecruitersInput = {
+export type companyUpdateOneWithoutRecruiterprofileNestedInput = {
+  create?: Prisma.XOR<Prisma.companyCreateWithoutRecruiterprofileInput, Prisma.companyUncheckedCreateWithoutRecruiterprofileInput>
+  connectOrCreate?: Prisma.companyCreateOrConnectWithoutRecruiterprofileInput
+  upsert?: Prisma.companyUpsertWithoutRecruiterprofileInput
+  disconnect?: Prisma.companyWhereInput | boolean
+  delete?: Prisma.companyWhereInput | boolean
+  connect?: Prisma.companyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.companyUpdateToOneWithWhereWithoutRecruiterprofileInput, Prisma.companyUpdateWithoutRecruiterprofileInput>, Prisma.companyUncheckedUpdateWithoutRecruiterprofileInput>
+}
+
+export type companyCreateWithoutJobInput = {
   id?: string
   name: string
   slug: string
@@ -464,10 +464,10 @@ export type CompanyCreateWithoutRecruitersInput = {
   description?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  jobs?: Prisma.JobCreateNestedManyWithoutCompanyInput
+  recruiterprofile?: Prisma.recruiterprofileCreateNestedManyWithoutCompanyInput
 }
 
-export type CompanyUncheckedCreateWithoutRecruitersInput = {
+export type companyUncheckedCreateWithoutJobInput = {
   id?: string
   name: string
   slug: string
@@ -477,26 +477,26 @@ export type CompanyUncheckedCreateWithoutRecruitersInput = {
   description?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  jobs?: Prisma.JobUncheckedCreateNestedManyWithoutCompanyInput
+  recruiterprofile?: Prisma.recruiterprofileUncheckedCreateNestedManyWithoutCompanyInput
 }
 
-export type CompanyCreateOrConnectWithoutRecruitersInput = {
-  where: Prisma.CompanyWhereUniqueInput
-  create: Prisma.XOR<Prisma.CompanyCreateWithoutRecruitersInput, Prisma.CompanyUncheckedCreateWithoutRecruitersInput>
+export type companyCreateOrConnectWithoutJobInput = {
+  where: Prisma.companyWhereUniqueInput
+  create: Prisma.XOR<Prisma.companyCreateWithoutJobInput, Prisma.companyUncheckedCreateWithoutJobInput>
 }
 
-export type CompanyUpsertWithoutRecruitersInput = {
-  update: Prisma.XOR<Prisma.CompanyUpdateWithoutRecruitersInput, Prisma.CompanyUncheckedUpdateWithoutRecruitersInput>
-  create: Prisma.XOR<Prisma.CompanyCreateWithoutRecruitersInput, Prisma.CompanyUncheckedCreateWithoutRecruitersInput>
-  where?: Prisma.CompanyWhereInput
+export type companyUpsertWithoutJobInput = {
+  update: Prisma.XOR<Prisma.companyUpdateWithoutJobInput, Prisma.companyUncheckedUpdateWithoutJobInput>
+  create: Prisma.XOR<Prisma.companyCreateWithoutJobInput, Prisma.companyUncheckedCreateWithoutJobInput>
+  where?: Prisma.companyWhereInput
 }
 
-export type CompanyUpdateToOneWithWhereWithoutRecruitersInput = {
-  where?: Prisma.CompanyWhereInput
-  data: Prisma.XOR<Prisma.CompanyUpdateWithoutRecruitersInput, Prisma.CompanyUncheckedUpdateWithoutRecruitersInput>
+export type companyUpdateToOneWithWhereWithoutJobInput = {
+  where?: Prisma.companyWhereInput
+  data: Prisma.XOR<Prisma.companyUpdateWithoutJobInput, Prisma.companyUncheckedUpdateWithoutJobInput>
 }
 
-export type CompanyUpdateWithoutRecruitersInput = {
+export type companyUpdateWithoutJobInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -506,10 +506,10 @@ export type CompanyUpdateWithoutRecruitersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  jobs?: Prisma.JobUpdateManyWithoutCompanyNestedInput
+  recruiterprofile?: Prisma.recruiterprofileUpdateManyWithoutCompanyNestedInput
 }
 
-export type CompanyUncheckedUpdateWithoutRecruitersInput = {
+export type companyUncheckedUpdateWithoutJobInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -519,10 +519,10 @@ export type CompanyUncheckedUpdateWithoutRecruitersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  jobs?: Prisma.JobUncheckedUpdateManyWithoutCompanyNestedInput
+  recruiterprofile?: Prisma.recruiterprofileUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
-export type CompanyCreateWithoutJobsInput = {
+export type companyCreateWithoutRecruiterprofileInput = {
   id?: string
   name: string
   slug: string
@@ -532,10 +532,10 @@ export type CompanyCreateWithoutJobsInput = {
   description?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  recruiters?: Prisma.RecruiterProfileCreateNestedManyWithoutCompanyInput
+  job?: Prisma.jobCreateNestedManyWithoutCompanyInput
 }
 
-export type CompanyUncheckedCreateWithoutJobsInput = {
+export type companyUncheckedCreateWithoutRecruiterprofileInput = {
   id?: string
   name: string
   slug: string
@@ -545,26 +545,26 @@ export type CompanyUncheckedCreateWithoutJobsInput = {
   description?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  recruiters?: Prisma.RecruiterProfileUncheckedCreateNestedManyWithoutCompanyInput
+  job?: Prisma.jobUncheckedCreateNestedManyWithoutCompanyInput
 }
 
-export type CompanyCreateOrConnectWithoutJobsInput = {
-  where: Prisma.CompanyWhereUniqueInput
-  create: Prisma.XOR<Prisma.CompanyCreateWithoutJobsInput, Prisma.CompanyUncheckedCreateWithoutJobsInput>
+export type companyCreateOrConnectWithoutRecruiterprofileInput = {
+  where: Prisma.companyWhereUniqueInput
+  create: Prisma.XOR<Prisma.companyCreateWithoutRecruiterprofileInput, Prisma.companyUncheckedCreateWithoutRecruiterprofileInput>
 }
 
-export type CompanyUpsertWithoutJobsInput = {
-  update: Prisma.XOR<Prisma.CompanyUpdateWithoutJobsInput, Prisma.CompanyUncheckedUpdateWithoutJobsInput>
-  create: Prisma.XOR<Prisma.CompanyCreateWithoutJobsInput, Prisma.CompanyUncheckedCreateWithoutJobsInput>
-  where?: Prisma.CompanyWhereInput
+export type companyUpsertWithoutRecruiterprofileInput = {
+  update: Prisma.XOR<Prisma.companyUpdateWithoutRecruiterprofileInput, Prisma.companyUncheckedUpdateWithoutRecruiterprofileInput>
+  create: Prisma.XOR<Prisma.companyCreateWithoutRecruiterprofileInput, Prisma.companyUncheckedCreateWithoutRecruiterprofileInput>
+  where?: Prisma.companyWhereInput
 }
 
-export type CompanyUpdateToOneWithWhereWithoutJobsInput = {
-  where?: Prisma.CompanyWhereInput
-  data: Prisma.XOR<Prisma.CompanyUpdateWithoutJobsInput, Prisma.CompanyUncheckedUpdateWithoutJobsInput>
+export type companyUpdateToOneWithWhereWithoutRecruiterprofileInput = {
+  where?: Prisma.companyWhereInput
+  data: Prisma.XOR<Prisma.companyUpdateWithoutRecruiterprofileInput, Prisma.companyUncheckedUpdateWithoutRecruiterprofileInput>
 }
 
-export type CompanyUpdateWithoutJobsInput = {
+export type companyUpdateWithoutRecruiterprofileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -574,10 +574,10 @@ export type CompanyUpdateWithoutJobsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  recruiters?: Prisma.RecruiterProfileUpdateManyWithoutCompanyNestedInput
+  job?: Prisma.jobUpdateManyWithoutCompanyNestedInput
 }
 
-export type CompanyUncheckedUpdateWithoutJobsInput = {
+export type companyUncheckedUpdateWithoutRecruiterprofileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
@@ -587,7 +587,7 @@ export type CompanyUncheckedUpdateWithoutJobsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  recruiters?: Prisma.RecruiterProfileUncheckedUpdateManyWithoutCompanyNestedInput
+  job?: Prisma.jobUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 
@@ -596,13 +596,13 @@ export type CompanyUncheckedUpdateWithoutJobsInput = {
  */
 
 export type CompanyCountOutputType = {
-  recruiters: number
-  jobs: number
+  job: number
+  recruiterprofile: number
 }
 
 export type CompanyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  recruiters?: boolean | CompanyCountOutputTypeCountRecruitersArgs
-  jobs?: boolean | CompanyCountOutputTypeCountJobsArgs
+  job?: boolean | CompanyCountOutputTypeCountJobArgs
+  recruiterprofile?: boolean | CompanyCountOutputTypeCountRecruiterprofileArgs
 }
 
 /**
@@ -618,19 +618,19 @@ export type CompanyCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Exte
 /**
  * CompanyCountOutputType without action
  */
-export type CompanyCountOutputTypeCountRecruitersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RecruiterProfileWhereInput
+export type CompanyCountOutputTypeCountJobArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.jobWhereInput
 }
 
 /**
  * CompanyCountOutputType without action
  */
-export type CompanyCountOutputTypeCountJobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.JobWhereInput
+export type CompanyCountOutputTypeCountRecruiterprofileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recruiterprofileWhereInput
 }
 
 
-export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type companySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   slug?: boolean
@@ -640,14 +640,14 @@ export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   description?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  recruiters?: boolean | Prisma.Company$recruitersArgs<ExtArgs>
-  jobs?: boolean | Prisma.Company$jobsArgs<ExtArgs>
+  job?: boolean | Prisma.company$jobArgs<ExtArgs>
+  recruiterprofile?: boolean | Prisma.company$recruiterprofileArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["company"]>
 
 
 
-export type CompanySelectScalar = {
+export type companySelectScalar = {
   id?: boolean
   name?: boolean
   slug?: boolean
@@ -659,18 +659,18 @@ export type CompanySelectScalar = {
   updatedAt?: boolean
 }
 
-export type CompanyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "logoUrl" | "website" | "location" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["company"]>
-export type CompanyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  recruiters?: boolean | Prisma.Company$recruitersArgs<ExtArgs>
-  jobs?: boolean | Prisma.Company$jobsArgs<ExtArgs>
+export type companyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "logoUrl" | "website" | "location" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["company"]>
+export type companyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  job?: boolean | Prisma.company$jobArgs<ExtArgs>
+  recruiterprofile?: boolean | Prisma.company$recruiterprofileArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }
 
-export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "Company"
+export type $companyPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "company"
   objects: {
-    recruiters: Prisma.$RecruiterProfilePayload<ExtArgs>[]
-    jobs: Prisma.$JobPayload<ExtArgs>[]
+    job: Prisma.$jobPayload<ExtArgs>[]
+    recruiterprofile: Prisma.$recruiterprofilePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -686,18 +686,18 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   composites: {}
 }
 
-export type CompanyGetPayload<S extends boolean | null | undefined | CompanyDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$CompanyPayload, S>
+export type companyGetPayload<S extends boolean | null | undefined | companyDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$companyPayload, S>
 
-export type CompanyCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<CompanyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type companyCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<companyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: CompanyCountAggregateInputType | true
   }
 
-export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Company'], meta: { name: 'Company' } }
+export interface companyDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['company'], meta: { name: 'company' } }
   /**
    * Find zero or one Company that matches the filter.
-   * @param {CompanyFindUniqueArgs} args - Arguments to find a Company
+   * @param {companyFindUniqueArgs} args - Arguments to find a Company
    * @example
    * // Get one Company
    * const company = await prisma.company.findUnique({
@@ -706,12 +706,12 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUnique<T extends CompanyFindUniqueArgs>(args: Prisma.SelectSubset<T, CompanyFindUniqueArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends companyFindUniqueArgs>(args: Prisma.SelectSubset<T, companyFindUniqueArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Company that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {CompanyFindUniqueOrThrowArgs} args - Arguments to find a Company
+   * @param {companyFindUniqueOrThrowArgs} args - Arguments to find a Company
    * @example
    * // Get one Company
    * const company = await prisma.company.findUniqueOrThrow({
@@ -720,13 +720,13 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUniqueOrThrow<T extends CompanyFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, CompanyFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends companyFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, companyFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Company that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {CompanyFindFirstArgs} args - Arguments to find a Company
+   * @param {companyFindFirstArgs} args - Arguments to find a Company
    * @example
    * // Get one Company
    * const company = await prisma.company.findFirst({
@@ -735,14 +735,14 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirst<T extends CompanyFindFirstArgs>(args?: Prisma.SelectSubset<T, CompanyFindFirstArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends companyFindFirstArgs>(args?: Prisma.SelectSubset<T, companyFindFirstArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Company that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {CompanyFindFirstOrThrowArgs} args - Arguments to find a Company
+   * @param {companyFindFirstOrThrowArgs} args - Arguments to find a Company
    * @example
    * // Get one Company
    * const company = await prisma.company.findFirstOrThrow({
@@ -751,13 +751,13 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirstOrThrow<T extends CompanyFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, CompanyFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends companyFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, companyFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Companies that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {CompanyFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {companyFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Companies
    * const companies = await prisma.company.findMany()
@@ -769,11 +769,11 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * const companyWithIdOnly = await prisma.company.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends CompanyFindManyArgs>(args?: Prisma.SelectSubset<T, CompanyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends companyFindManyArgs>(args?: Prisma.SelectSubset<T, companyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Company.
-   * @param {CompanyCreateArgs} args - Arguments to create a Company.
+   * @param {companyCreateArgs} args - Arguments to create a Company.
    * @example
    * // Create one Company
    * const Company = await prisma.company.create({
@@ -783,11 +783,11 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  create<T extends CompanyCreateArgs>(args: Prisma.SelectSubset<T, CompanyCreateArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends companyCreateArgs>(args: Prisma.SelectSubset<T, companyCreateArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Companies.
-   * @param {CompanyCreateManyArgs} args - Arguments to create many Companies.
+   * @param {companyCreateManyArgs} args - Arguments to create many Companies.
    * @example
    * // Create many Companies
    * const company = await prisma.company.createMany({
@@ -797,11 +797,11 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    *     
    */
-  createMany<T extends CompanyCreateManyArgs>(args?: Prisma.SelectSubset<T, CompanyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends companyCreateManyArgs>(args?: Prisma.SelectSubset<T, companyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Delete a Company.
-   * @param {CompanyDeleteArgs} args - Arguments to delete one Company.
+   * @param {companyDeleteArgs} args - Arguments to delete one Company.
    * @example
    * // Delete one Company
    * const Company = await prisma.company.delete({
@@ -811,11 +811,11 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  delete<T extends CompanyDeleteArgs>(args: Prisma.SelectSubset<T, CompanyDeleteArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends companyDeleteArgs>(args: Prisma.SelectSubset<T, companyDeleteArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Company.
-   * @param {CompanyUpdateArgs} args - Arguments to update one Company.
+   * @param {companyUpdateArgs} args - Arguments to update one Company.
    * @example
    * // Update one Company
    * const company = await prisma.company.update({
@@ -828,11 +828,11 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  update<T extends CompanyUpdateArgs>(args: Prisma.SelectSubset<T, CompanyUpdateArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends companyUpdateArgs>(args: Prisma.SelectSubset<T, companyUpdateArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Companies.
-   * @param {CompanyDeleteManyArgs} args - Arguments to filter Companies to delete.
+   * @param {companyDeleteManyArgs} args - Arguments to filter Companies to delete.
    * @example
    * // Delete a few Companies
    * const { count } = await prisma.company.deleteMany({
@@ -842,13 +842,13 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  deleteMany<T extends CompanyDeleteManyArgs>(args?: Prisma.SelectSubset<T, CompanyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends companyDeleteManyArgs>(args?: Prisma.SelectSubset<T, companyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Companies.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {CompanyUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {companyUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Companies
    * const company = await prisma.company.updateMany({
@@ -861,11 +861,11 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  updateMany<T extends CompanyUpdateManyArgs>(args: Prisma.SelectSubset<T, CompanyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends companyUpdateManyArgs>(args: Prisma.SelectSubset<T, companyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create or update one Company.
-   * @param {CompanyUpsertArgs} args - Arguments to update or create a Company.
+   * @param {companyUpsertArgs} args - Arguments to update or create a Company.
    * @example
    * // Update or create a Company
    * const company = await prisma.company.upsert({
@@ -880,14 +880,14 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  upsert<T extends CompanyUpsertArgs>(args: Prisma.SelectSubset<T, CompanyUpsertArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends companyUpsertArgs>(args: Prisma.SelectSubset<T, companyUpsertArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Companies.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {CompanyCountArgs} args - Arguments to filter Companies to count.
+   * @param {companyCountArgs} args - Arguments to filter Companies to count.
    * @example
    * // Count the number of Companies
    * const count = await prisma.company.count({
@@ -896,8 +896,8 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
   **/
-  count<T extends CompanyCountArgs>(
-    args?: Prisma.Subset<T, CompanyCountArgs>,
+  count<T extends companyCountArgs>(
+    args?: Prisma.Subset<T, companyCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -936,7 +936,7 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Group by Company.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {CompanyGroupByArgs} args - Group by arguments.
+   * @param {companyGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -951,14 +951,14 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * 
   **/
   groupBy<
-    T extends CompanyGroupByArgs,
+    T extends companyGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: CompanyGroupByArgs['orderBy'] }
-      : { orderBy?: CompanyGroupByArgs['orderBy'] },
+      ? { orderBy: companyGroupByArgs['orderBy'] }
+      : { orderBy?: companyGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -1007,23 +1007,23 @@ export interface CompanyDelegate<ExtArgs extends runtime.Types.Extensions.Intern
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, CompanyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompanyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, companyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCompanyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the Company model
+ * Fields of the company model
  */
-readonly fields: CompanyFieldRefs;
+readonly fields: companyFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for Company.
+ * The delegate class that acts as a "Promise-like" for company.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__companyClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  recruiters<T extends Prisma.Company$recruitersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$recruitersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  jobs<T extends Prisma.Company$jobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$jobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$JobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  job<T extends Prisma.company$jobArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.company$jobArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$jobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recruiterprofile<T extends Prisma.company$recruiterprofileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.company$recruiterprofileArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1050,427 +1050,427 @@ export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends runtime.
 
 
 /**
- * Fields of the Company model
+ * Fields of the company model
  */
-export interface CompanyFieldRefs {
-  readonly id: Prisma.FieldRef<"Company", 'String'>
-  readonly name: Prisma.FieldRef<"Company", 'String'>
-  readonly slug: Prisma.FieldRef<"Company", 'String'>
-  readonly logoUrl: Prisma.FieldRef<"Company", 'String'>
-  readonly website: Prisma.FieldRef<"Company", 'String'>
-  readonly location: Prisma.FieldRef<"Company", 'String'>
-  readonly description: Prisma.FieldRef<"Company", 'String'>
-  readonly createdAt: Prisma.FieldRef<"Company", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"Company", 'DateTime'>
+export interface companyFieldRefs {
+  readonly id: Prisma.FieldRef<"company", 'String'>
+  readonly name: Prisma.FieldRef<"company", 'String'>
+  readonly slug: Prisma.FieldRef<"company", 'String'>
+  readonly logoUrl: Prisma.FieldRef<"company", 'String'>
+  readonly website: Prisma.FieldRef<"company", 'String'>
+  readonly location: Prisma.FieldRef<"company", 'String'>
+  readonly description: Prisma.FieldRef<"company", 'String'>
+  readonly createdAt: Prisma.FieldRef<"company", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"company", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * Company findUnique
+ * company findUnique
  */
-export type CompanyFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * Filter, which Company to fetch.
+   * Filter, which company to fetch.
    */
-  where: Prisma.CompanyWhereUniqueInput
+  where: Prisma.companyWhereUniqueInput
 }
 
 /**
- * Company findUniqueOrThrow
+ * company findUniqueOrThrow
  */
-export type CompanyFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * Filter, which Company to fetch.
+   * Filter, which company to fetch.
    */
-  where: Prisma.CompanyWhereUniqueInput
+  where: Prisma.companyWhereUniqueInput
 }
 
 /**
- * Company findFirst
+ * company findFirst
  */
-export type CompanyFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * Filter, which Company to fetch.
+   * Filter, which company to fetch.
    */
-  where?: Prisma.CompanyWhereInput
+  where?: Prisma.companyWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Companies to fetch.
+   * Determine the order of companies to fetch.
    */
-  orderBy?: Prisma.CompanyOrderByWithRelationInput | Prisma.CompanyOrderByWithRelationInput[]
+  orderBy?: Prisma.companyOrderByWithRelationInput | Prisma.companyOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Companies.
+   * Sets the position for searching for companies.
    */
-  cursor?: Prisma.CompanyWhereUniqueInput
+  cursor?: Prisma.companyWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Companies from the position of the cursor.
+   * Take `±n` companies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Companies.
+   * Skip the first `n` companies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Companies.
+   * Filter by unique combinations of companies.
    */
   distinct?: Prisma.CompanyScalarFieldEnum | Prisma.CompanyScalarFieldEnum[]
 }
 
 /**
- * Company findFirstOrThrow
+ * company findFirstOrThrow
  */
-export type CompanyFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * Filter, which Company to fetch.
+   * Filter, which company to fetch.
    */
-  where?: Prisma.CompanyWhereInput
+  where?: Prisma.companyWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Companies to fetch.
+   * Determine the order of companies to fetch.
    */
-  orderBy?: Prisma.CompanyOrderByWithRelationInput | Prisma.CompanyOrderByWithRelationInput[]
+  orderBy?: Prisma.companyOrderByWithRelationInput | Prisma.companyOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for Companies.
+   * Sets the position for searching for companies.
    */
-  cursor?: Prisma.CompanyWhereUniqueInput
+  cursor?: Prisma.companyWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Companies from the position of the cursor.
+   * Take `±n` companies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Companies.
+   * Skip the first `n` companies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Companies.
+   * Filter by unique combinations of companies.
    */
   distinct?: Prisma.CompanyScalarFieldEnum | Prisma.CompanyScalarFieldEnum[]
 }
 
 /**
- * Company findMany
+ * company findMany
  */
-export type CompanyFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * Filter, which Companies to fetch.
+   * Filter, which companies to fetch.
    */
-  where?: Prisma.CompanyWhereInput
+  where?: Prisma.companyWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of Companies to fetch.
+   * Determine the order of companies to fetch.
    */
-  orderBy?: Prisma.CompanyOrderByWithRelationInput | Prisma.CompanyOrderByWithRelationInput[]
+  orderBy?: Prisma.companyOrderByWithRelationInput | Prisma.companyOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing Companies.
+   * Sets the position for listing companies.
    */
-  cursor?: Prisma.CompanyWhereUniqueInput
+  cursor?: Prisma.companyWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` Companies from the position of the cursor.
+   * Take `±n` companies from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` Companies.
+   * Skip the first `n` companies.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of Companies.
+   * Filter by unique combinations of companies.
    */
   distinct?: Prisma.CompanyScalarFieldEnum | Prisma.CompanyScalarFieldEnum[]
 }
 
 /**
- * Company create
+ * company create
  */
-export type CompanyCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * The data needed to create a Company.
+   * The data needed to create a company.
    */
-  data: Prisma.XOR<Prisma.CompanyCreateInput, Prisma.CompanyUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.companyCreateInput, Prisma.companyUncheckedCreateInput>
 }
 
 /**
- * Company createMany
+ * company createMany
  */
-export type CompanyCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many Companies.
+   * The data used to create many companies.
    */
-  data: Prisma.CompanyCreateManyInput | Prisma.CompanyCreateManyInput[]
+  data: Prisma.companyCreateManyInput | Prisma.companyCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * Company update
+ * company update
  */
-export type CompanyUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * The data needed to update a Company.
+   * The data needed to update a company.
    */
-  data: Prisma.XOR<Prisma.CompanyUpdateInput, Prisma.CompanyUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.companyUpdateInput, Prisma.companyUncheckedUpdateInput>
   /**
-   * Choose, which Company to update.
+   * Choose, which company to update.
    */
-  where: Prisma.CompanyWhereUniqueInput
+  where: Prisma.companyWhereUniqueInput
 }
 
 /**
- * Company updateMany
+ * company updateMany
  */
-export type CompanyUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update Companies.
+   * The data used to update companies.
    */
-  data: Prisma.XOR<Prisma.CompanyUpdateManyMutationInput, Prisma.CompanyUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.companyUpdateManyMutationInput, Prisma.companyUncheckedUpdateManyInput>
   /**
-   * Filter which Companies to update
+   * Filter which companies to update
    */
-  where?: Prisma.CompanyWhereInput
+  where?: Prisma.companyWhereInput
   /**
-   * Limit how many Companies to update.
+   * Limit how many companies to update.
    */
   limit?: number
 }
 
 /**
- * Company upsert
+ * company upsert
  */
-export type CompanyUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * The filter to search for the Company to update in case it exists.
+   * The filter to search for the company to update in case it exists.
    */
-  where: Prisma.CompanyWhereUniqueInput
+  where: Prisma.companyWhereUniqueInput
   /**
-   * In case the Company found by the `where` argument doesn't exist, create a new Company with this data.
+   * In case the company found by the `where` argument doesn't exist, create a new company with this data.
    */
-  create: Prisma.XOR<Prisma.CompanyCreateInput, Prisma.CompanyUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.companyCreateInput, Prisma.companyUncheckedCreateInput>
   /**
-   * In case the Company was found with the provided `where` argument, update it with this data.
+   * In case the company was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.CompanyUpdateInput, Prisma.CompanyUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.companyUpdateInput, Prisma.companyUncheckedUpdateInput>
 }
 
 /**
- * Company delete
+ * company delete
  */
-export type CompanyDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.companyInclude<ExtArgs> | null
   /**
-   * Filter which Company to delete.
+   * Filter which company to delete.
    */
-  where: Prisma.CompanyWhereUniqueInput
+  where: Prisma.companyWhereUniqueInput
 }
 
 /**
- * Company deleteMany
+ * company deleteMany
  */
-export type CompanyDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type companyDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which Companies to delete
+   * Filter which companies to delete
    */
-  where?: Prisma.CompanyWhereInput
+  where?: Prisma.companyWhereInput
   /**
-   * Limit how many Companies to delete.
+   * Limit how many companies to delete.
    */
   limit?: number
 }
 
 /**
- * Company.recruiters
+ * company.job
  */
-export type Company$recruitersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type company$jobArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the job
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.jobSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the job
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.jobOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
-  where?: Prisma.RecruiterProfileWhereInput
-  orderBy?: Prisma.RecruiterProfileOrderByWithRelationInput | Prisma.RecruiterProfileOrderByWithRelationInput[]
-  cursor?: Prisma.RecruiterProfileWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.RecruiterProfileScalarFieldEnum | Prisma.RecruiterProfileScalarFieldEnum[]
-}
-
-/**
- * Company.jobs
- */
-export type Company$jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Job
-   */
-  select?: Prisma.JobSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Job
-   */
-  omit?: Prisma.JobOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.JobInclude<ExtArgs> | null
-  where?: Prisma.JobWhereInput
-  orderBy?: Prisma.JobOrderByWithRelationInput | Prisma.JobOrderByWithRelationInput[]
-  cursor?: Prisma.JobWhereUniqueInput
+  include?: Prisma.jobInclude<ExtArgs> | null
+  where?: Prisma.jobWhereInput
+  orderBy?: Prisma.jobOrderByWithRelationInput | Prisma.jobOrderByWithRelationInput[]
+  cursor?: Prisma.jobWhereUniqueInput
   take?: number
   skip?: number
   distinct?: Prisma.JobScalarFieldEnum | Prisma.JobScalarFieldEnum[]
 }
 
 /**
- * Company without action
+ * company.recruiterprofile
  */
-export type CompanyDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type company$recruiterprofileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
+  where?: Prisma.recruiterprofileWhereInput
+  orderBy?: Prisma.recruiterprofileOrderByWithRelationInput | Prisma.recruiterprofileOrderByWithRelationInput[]
+  cursor?: Prisma.recruiterprofileWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RecruiterprofileScalarFieldEnum | Prisma.RecruiterprofileScalarFieldEnum[]
+}
+
+/**
+ * company without action
+ */
+export type companyDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the company
+   */
+  select?: Prisma.companySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the company
+   */
+  omit?: Prisma.companyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.companyInclude<ExtArgs> | null
 }

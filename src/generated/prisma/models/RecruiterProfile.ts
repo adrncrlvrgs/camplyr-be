@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `RecruiterProfile` model and its related types.
+ * This file exports the `recruiterprofile` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,18 +13,18 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model RecruiterProfile
+ * Model recruiterprofile
  * 
  */
-export type RecruiterProfileModel = runtime.Types.Result.DefaultSelection<Prisma.$RecruiterProfilePayload>
+export type recruiterprofileModel = runtime.Types.Result.DefaultSelection<Prisma.$recruiterprofilePayload>
 
-export type AggregateRecruiterProfile = {
-  _count: RecruiterProfileCountAggregateOutputType | null
-  _min: RecruiterProfileMinAggregateOutputType | null
-  _max: RecruiterProfileMaxAggregateOutputType | null
+export type AggregateRecruiterprofile = {
+  _count: RecruiterprofileCountAggregateOutputType | null
+  _min: RecruiterprofileMinAggregateOutputType | null
+  _max: RecruiterprofileMaxAggregateOutputType | null
 }
 
-export type RecruiterProfileMinAggregateOutputType = {
+export type RecruiterprofileMinAggregateOutputType = {
   id: string | null
   userId: string | null
   companyId: string | null
@@ -33,7 +33,7 @@ export type RecruiterProfileMinAggregateOutputType = {
   updatedAt: Date | null
 }
 
-export type RecruiterProfileMaxAggregateOutputType = {
+export type RecruiterprofileMaxAggregateOutputType = {
   id: string | null
   userId: string | null
   companyId: string | null
@@ -42,7 +42,7 @@ export type RecruiterProfileMaxAggregateOutputType = {
   updatedAt: Date | null
 }
 
-export type RecruiterProfileCountAggregateOutputType = {
+export type RecruiterprofileCountAggregateOutputType = {
   id: number
   userId: number
   companyId: number
@@ -53,7 +53,7 @@ export type RecruiterProfileCountAggregateOutputType = {
 }
 
 
-export type RecruiterProfileMinAggregateInputType = {
+export type RecruiterprofileMinAggregateInputType = {
   id?: true
   userId?: true
   companyId?: true
@@ -62,7 +62,7 @@ export type RecruiterProfileMinAggregateInputType = {
   updatedAt?: true
 }
 
-export type RecruiterProfileMaxAggregateInputType = {
+export type RecruiterprofileMaxAggregateInputType = {
   id?: true
   userId?: true
   companyId?: true
@@ -71,7 +71,7 @@ export type RecruiterProfileMaxAggregateInputType = {
   updatedAt?: true
 }
 
-export type RecruiterProfileCountAggregateInputType = {
+export type RecruiterprofileCountAggregateInputType = {
   id?: true
   userId?: true
   companyId?: true
@@ -81,206 +81,179 @@ export type RecruiterProfileCountAggregateInputType = {
   _all?: true
 }
 
-export type RecruiterProfileAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type RecruiterprofileAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which RecruiterProfile to aggregate.
+   * Filter which recruiterprofile to aggregate.
    */
-  where?: Prisma.RecruiterProfileWhereInput
+  where?: Prisma.recruiterprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of RecruiterProfiles to fetch.
+   * Determine the order of recruiterprofiles to fetch.
    */
-  orderBy?: Prisma.RecruiterProfileOrderByWithRelationInput | Prisma.RecruiterProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.recruiterprofileOrderByWithRelationInput | Prisma.recruiterprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.RecruiterProfileWhereUniqueInput
+  cursor?: Prisma.recruiterprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` RecruiterProfiles from the position of the cursor.
+   * Take `±n` recruiterprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` RecruiterProfiles.
+   * Skip the first `n` recruiterprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned RecruiterProfiles
+   * Count returned recruiterprofiles
   **/
-  _count?: true | RecruiterProfileCountAggregateInputType
+  _count?: true | RecruiterprofileCountAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the minimum value
   **/
-  _min?: RecruiterProfileMinAggregateInputType
+  _min?: RecruiterprofileMinAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the maximum value
   **/
-  _max?: RecruiterProfileMaxAggregateInputType
+  _max?: RecruiterprofileMaxAggregateInputType
 }
 
-export type GetRecruiterProfileAggregateType<T extends RecruiterProfileAggregateArgs> = {
-      [P in keyof T & keyof AggregateRecruiterProfile]: P extends '_count' | 'count'
+export type GetRecruiterprofileAggregateType<T extends RecruiterprofileAggregateArgs> = {
+      [P in keyof T & keyof AggregateRecruiterprofile]: P extends '_count' | 'count'
     ? T[P] extends true
       ? number
-      : Prisma.GetScalarType<T[P], AggregateRecruiterProfile[P]>
-    : Prisma.GetScalarType<T[P], AggregateRecruiterProfile[P]>
+      : Prisma.GetScalarType<T[P], AggregateRecruiterprofile[P]>
+    : Prisma.GetScalarType<T[P], AggregateRecruiterprofile[P]>
 }
 
 
 
 
-export type RecruiterProfileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.RecruiterProfileWhereInput
-  orderBy?: Prisma.RecruiterProfileOrderByWithAggregationInput | Prisma.RecruiterProfileOrderByWithAggregationInput[]
-  by: Prisma.RecruiterProfileScalarFieldEnum[] | Prisma.RecruiterProfileScalarFieldEnum
-  having?: Prisma.RecruiterProfileScalarWhereWithAggregatesInput
+export type recruiterprofileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recruiterprofileWhereInput
+  orderBy?: Prisma.recruiterprofileOrderByWithAggregationInput | Prisma.recruiterprofileOrderByWithAggregationInput[]
+  by: Prisma.RecruiterprofileScalarFieldEnum[] | Prisma.RecruiterprofileScalarFieldEnum
+  having?: Prisma.recruiterprofileScalarWhereWithAggregatesInput
   take?: number
   skip?: number
-  _count?: RecruiterProfileCountAggregateInputType | true
-  _min?: RecruiterProfileMinAggregateInputType
-  _max?: RecruiterProfileMaxAggregateInputType
+  _count?: RecruiterprofileCountAggregateInputType | true
+  _min?: RecruiterprofileMinAggregateInputType
+  _max?: RecruiterprofileMaxAggregateInputType
 }
 
-export type RecruiterProfileGroupByOutputType = {
+export type RecruiterprofileGroupByOutputType = {
   id: string
   userId: string
   companyId: string | null
   position: string | null
   createdAt: Date
   updatedAt: Date
-  _count: RecruiterProfileCountAggregateOutputType | null
-  _min: RecruiterProfileMinAggregateOutputType | null
-  _max: RecruiterProfileMaxAggregateOutputType | null
+  _count: RecruiterprofileCountAggregateOutputType | null
+  _min: RecruiterprofileMinAggregateOutputType | null
+  _max: RecruiterprofileMaxAggregateOutputType | null
 }
 
-export type GetRecruiterProfileGroupByPayload<T extends RecruiterProfileGroupByArgs> = Prisma.PrismaPromise<
+export type GetRecruiterprofileGroupByPayload<T extends recruiterprofileGroupByArgs> = Prisma.PrismaPromise<
   Array<
-    Prisma.PickEnumerable<RecruiterProfileGroupByOutputType, T['by']> &
+    Prisma.PickEnumerable<RecruiterprofileGroupByOutputType, T['by']> &
       {
-        [P in ((keyof T) & (keyof RecruiterProfileGroupByOutputType))]: P extends '_count'
+        [P in ((keyof T) & (keyof RecruiterprofileGroupByOutputType))]: P extends '_count'
           ? T[P] extends boolean
             ? number
-            : Prisma.GetScalarType<T[P], RecruiterProfileGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], RecruiterProfileGroupByOutputType[P]>
+            : Prisma.GetScalarType<T[P], RecruiterprofileGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], RecruiterprofileGroupByOutputType[P]>
       }
     >
   >
 
 
 
-export type RecruiterProfileWhereInput = {
-  AND?: Prisma.RecruiterProfileWhereInput | Prisma.RecruiterProfileWhereInput[]
-  OR?: Prisma.RecruiterProfileWhereInput[]
-  NOT?: Prisma.RecruiterProfileWhereInput | Prisma.RecruiterProfileWhereInput[]
-  id?: Prisma.StringFilter<"RecruiterProfile"> | string
-  userId?: Prisma.StringFilter<"RecruiterProfile"> | string
-  companyId?: Prisma.StringNullableFilter<"RecruiterProfile"> | string | null
-  position?: Prisma.StringNullableFilter<"RecruiterProfile"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"RecruiterProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"RecruiterProfile"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  company?: Prisma.XOR<Prisma.CompanyNullableScalarRelationFilter, Prisma.CompanyWhereInput> | null
+export type recruiterprofileWhereInput = {
+  AND?: Prisma.recruiterprofileWhereInput | Prisma.recruiterprofileWhereInput[]
+  OR?: Prisma.recruiterprofileWhereInput[]
+  NOT?: Prisma.recruiterprofileWhereInput | Prisma.recruiterprofileWhereInput[]
+  id?: Prisma.StringFilter<"recruiterprofile"> | string
+  userId?: Prisma.StringFilter<"recruiterprofile"> | string
+  companyId?: Prisma.StringNullableFilter<"recruiterprofile"> | string | null
+  position?: Prisma.StringNullableFilter<"recruiterprofile"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"recruiterprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"recruiterprofile"> | Date | string
+  company?: Prisma.XOR<Prisma.CompanyNullableScalarRelationFilter, Prisma.companyWhereInput> | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
 }
 
-export type RecruiterProfileOrderByWithRelationInput = {
+export type recruiterprofileOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   companyId?: Prisma.SortOrderInput | Prisma.SortOrder
   position?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
-  company?: Prisma.CompanyOrderByWithRelationInput
-  _relevance?: Prisma.RecruiterProfileOrderByRelevanceInput
+  company?: Prisma.companyOrderByWithRelationInput
+  user?: Prisma.userOrderByWithRelationInput
+  _relevance?: Prisma.recruiterprofileOrderByRelevanceInput
 }
 
-export type RecruiterProfileWhereUniqueInput = Prisma.AtLeast<{
+export type recruiterprofileWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   userId?: string
-  AND?: Prisma.RecruiterProfileWhereInput | Prisma.RecruiterProfileWhereInput[]
-  OR?: Prisma.RecruiterProfileWhereInput[]
-  NOT?: Prisma.RecruiterProfileWhereInput | Prisma.RecruiterProfileWhereInput[]
-  companyId?: Prisma.StringNullableFilter<"RecruiterProfile"> | string | null
-  position?: Prisma.StringNullableFilter<"RecruiterProfile"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"RecruiterProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"RecruiterProfile"> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  company?: Prisma.XOR<Prisma.CompanyNullableScalarRelationFilter, Prisma.CompanyWhereInput> | null
+  AND?: Prisma.recruiterprofileWhereInput | Prisma.recruiterprofileWhereInput[]
+  OR?: Prisma.recruiterprofileWhereInput[]
+  NOT?: Prisma.recruiterprofileWhereInput | Prisma.recruiterprofileWhereInput[]
+  companyId?: Prisma.StringNullableFilter<"recruiterprofile"> | string | null
+  position?: Prisma.StringNullableFilter<"recruiterprofile"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"recruiterprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"recruiterprofile"> | Date | string
+  company?: Prisma.XOR<Prisma.CompanyNullableScalarRelationFilter, Prisma.companyWhereInput> | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
 }, "id" | "userId">
 
-export type RecruiterProfileOrderByWithAggregationInput = {
+export type recruiterprofileOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   companyId?: Prisma.SortOrderInput | Prisma.SortOrder
   position?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  _count?: Prisma.RecruiterProfileCountOrderByAggregateInput
-  _max?: Prisma.RecruiterProfileMaxOrderByAggregateInput
-  _min?: Prisma.RecruiterProfileMinOrderByAggregateInput
+  _count?: Prisma.recruiterprofileCountOrderByAggregateInput
+  _max?: Prisma.recruiterprofileMaxOrderByAggregateInput
+  _min?: Prisma.recruiterprofileMinOrderByAggregateInput
 }
 
-export type RecruiterProfileScalarWhereWithAggregatesInput = {
-  AND?: Prisma.RecruiterProfileScalarWhereWithAggregatesInput | Prisma.RecruiterProfileScalarWhereWithAggregatesInput[]
-  OR?: Prisma.RecruiterProfileScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.RecruiterProfileScalarWhereWithAggregatesInput | Prisma.RecruiterProfileScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"RecruiterProfile"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"RecruiterProfile"> | string
-  companyId?: Prisma.StringNullableWithAggregatesFilter<"RecruiterProfile"> | string | null
-  position?: Prisma.StringNullableWithAggregatesFilter<"RecruiterProfile"> | string | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"RecruiterProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"RecruiterProfile"> | Date | string
+export type recruiterprofileScalarWhereWithAggregatesInput = {
+  AND?: Prisma.recruiterprofileScalarWhereWithAggregatesInput | Prisma.recruiterprofileScalarWhereWithAggregatesInput[]
+  OR?: Prisma.recruiterprofileScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.recruiterprofileScalarWhereWithAggregatesInput | Prisma.recruiterprofileScalarWhereWithAggregatesInput[]
+  id?: Prisma.StringWithAggregatesFilter<"recruiterprofile"> | string
+  userId?: Prisma.StringWithAggregatesFilter<"recruiterprofile"> | string
+  companyId?: Prisma.StringNullableWithAggregatesFilter<"recruiterprofile"> | string | null
+  position?: Prisma.StringNullableWithAggregatesFilter<"recruiterprofile"> | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"recruiterprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"recruiterprofile"> | Date | string
 }
 
-export type RecruiterProfileCreateInput = {
+export type recruiterprofileCreateInput = {
   id?: string
   position?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutRecruiterProfileInput
-  company?: Prisma.CompanyCreateNestedOneWithoutRecruitersInput
+  company?: Prisma.companyCreateNestedOneWithoutRecruiterprofileInput
+  user: Prisma.userCreateNestedOneWithoutRecruiterprofileInput
 }
 
-export type RecruiterProfileUncheckedCreateInput = {
-  id?: string
-  userId: string
-  companyId?: string | null
-  position?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type RecruiterProfileUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutRecruiterProfileNestedInput
-  company?: Prisma.CompanyUpdateOneWithoutRecruitersNestedInput
-}
-
-export type RecruiterProfileUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type RecruiterProfileCreateManyInput = {
+export type recruiterprofileUncheckedCreateInput = {
   id?: string
   userId: string
   companyId?: string | null
@@ -289,14 +262,16 @@ export type RecruiterProfileCreateManyInput = {
   updatedAt?: Date | string
 }
 
-export type RecruiterProfileUpdateManyMutationInput = {
+export type recruiterprofileUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.companyUpdateOneWithoutRecruiterprofileNestedInput
+  user?: Prisma.userUpdateOneRequiredWithoutRecruiterprofileNestedInput
 }
 
-export type RecruiterProfileUncheckedUpdateManyInput = {
+export type recruiterprofileUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -305,18 +280,48 @@ export type RecruiterProfileUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type RecruiterProfileNullableScalarRelationFilter = {
-  is?: Prisma.RecruiterProfileWhereInput | null
-  isNot?: Prisma.RecruiterProfileWhereInput | null
+export type recruiterprofileCreateManyInput = {
+  id?: string
+  userId: string
+  companyId?: string | null
+  position?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type RecruiterProfileOrderByRelevanceInput = {
-  fields: Prisma.RecruiterProfileOrderByRelevanceFieldEnum | Prisma.RecruiterProfileOrderByRelevanceFieldEnum[]
+export type recruiterprofileUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type recruiterprofileUncheckedUpdateManyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type RecruiterprofileListRelationFilter = {
+  every?: Prisma.recruiterprofileWhereInput
+  some?: Prisma.recruiterprofileWhereInput
+  none?: Prisma.recruiterprofileWhereInput
+}
+
+export type recruiterprofileOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type recruiterprofileOrderByRelevanceInput = {
+  fields: Prisma.recruiterprofileOrderByRelevanceFieldEnum | Prisma.recruiterprofileOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type RecruiterProfileCountOrderByAggregateInput = {
+export type recruiterprofileCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
@@ -325,7 +330,7 @@ export type RecruiterProfileCountOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type RecruiterProfileMaxOrderByAggregateInput = {
+export type recruiterprofileMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
@@ -334,7 +339,7 @@ export type RecruiterProfileMaxOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type RecruiterProfileMinOrderByAggregateInput = {
+export type recruiterprofileMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
@@ -343,99 +348,148 @@ export type RecruiterProfileMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type RecruiterProfileListRelationFilter = {
-  every?: Prisma.RecruiterProfileWhereInput
-  some?: Prisma.RecruiterProfileWhereInput
-  none?: Prisma.RecruiterProfileWhereInput
+export type RecruiterprofileNullableScalarRelationFilter = {
+  is?: Prisma.recruiterprofileWhereInput | null
+  isNot?: Prisma.recruiterprofileWhereInput | null
 }
 
-export type RecruiterProfileOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
+export type recruiterprofileCreateNestedManyWithoutCompanyInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutCompanyInput, Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput> | Prisma.recruiterprofileCreateWithoutCompanyInput[] | Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput | Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput[]
+  createMany?: Prisma.recruiterprofileCreateManyCompanyInputEnvelope
+  connect?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
 }
 
-export type RecruiterProfileCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutUserInput, Prisma.RecruiterProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutUserInput
-  connect?: Prisma.RecruiterProfileWhereUniqueInput
+export type recruiterprofileUncheckedCreateNestedManyWithoutCompanyInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutCompanyInput, Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput> | Prisma.recruiterprofileCreateWithoutCompanyInput[] | Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput | Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput[]
+  createMany?: Prisma.recruiterprofileCreateManyCompanyInputEnvelope
+  connect?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
 }
 
-export type RecruiterProfileUncheckedCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutUserInput, Prisma.RecruiterProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutUserInput
-  connect?: Prisma.RecruiterProfileWhereUniqueInput
+export type recruiterprofileUpdateManyWithoutCompanyNestedInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutCompanyInput, Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput> | Prisma.recruiterprofileCreateWithoutCompanyInput[] | Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput | Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput[]
+  upsert?: Prisma.recruiterprofileUpsertWithWhereUniqueWithoutCompanyInput | Prisma.recruiterprofileUpsertWithWhereUniqueWithoutCompanyInput[]
+  createMany?: Prisma.recruiterprofileCreateManyCompanyInputEnvelope
+  set?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  disconnect?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  delete?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  connect?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  update?: Prisma.recruiterprofileUpdateWithWhereUniqueWithoutCompanyInput | Prisma.recruiterprofileUpdateWithWhereUniqueWithoutCompanyInput[]
+  updateMany?: Prisma.recruiterprofileUpdateManyWithWhereWithoutCompanyInput | Prisma.recruiterprofileUpdateManyWithWhereWithoutCompanyInput[]
+  deleteMany?: Prisma.recruiterprofileScalarWhereInput | Prisma.recruiterprofileScalarWhereInput[]
 }
 
-export type RecruiterProfileUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutUserInput, Prisma.RecruiterProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutUserInput
-  upsert?: Prisma.RecruiterProfileUpsertWithoutUserInput
-  disconnect?: Prisma.RecruiterProfileWhereInput | boolean
-  delete?: Prisma.RecruiterProfileWhereInput | boolean
-  connect?: Prisma.RecruiterProfileWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.RecruiterProfileUpdateToOneWithWhereWithoutUserInput, Prisma.RecruiterProfileUpdateWithoutUserInput>, Prisma.RecruiterProfileUncheckedUpdateWithoutUserInput>
+export type recruiterprofileUncheckedUpdateManyWithoutCompanyNestedInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutCompanyInput, Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput> | Prisma.recruiterprofileCreateWithoutCompanyInput[] | Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput[]
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput | Prisma.recruiterprofileCreateOrConnectWithoutCompanyInput[]
+  upsert?: Prisma.recruiterprofileUpsertWithWhereUniqueWithoutCompanyInput | Prisma.recruiterprofileUpsertWithWhereUniqueWithoutCompanyInput[]
+  createMany?: Prisma.recruiterprofileCreateManyCompanyInputEnvelope
+  set?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  disconnect?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  delete?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  connect?: Prisma.recruiterprofileWhereUniqueInput | Prisma.recruiterprofileWhereUniqueInput[]
+  update?: Prisma.recruiterprofileUpdateWithWhereUniqueWithoutCompanyInput | Prisma.recruiterprofileUpdateWithWhereUniqueWithoutCompanyInput[]
+  updateMany?: Prisma.recruiterprofileUpdateManyWithWhereWithoutCompanyInput | Prisma.recruiterprofileUpdateManyWithWhereWithoutCompanyInput[]
+  deleteMany?: Prisma.recruiterprofileScalarWhereInput | Prisma.recruiterprofileScalarWhereInput[]
 }
 
-export type RecruiterProfileUncheckedUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutUserInput, Prisma.RecruiterProfileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutUserInput
-  upsert?: Prisma.RecruiterProfileUpsertWithoutUserInput
-  disconnect?: Prisma.RecruiterProfileWhereInput | boolean
-  delete?: Prisma.RecruiterProfileWhereInput | boolean
-  connect?: Prisma.RecruiterProfileWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.RecruiterProfileUpdateToOneWithWhereWithoutUserInput, Prisma.RecruiterProfileUpdateWithoutUserInput>, Prisma.RecruiterProfileUncheckedUpdateWithoutUserInput>
+export type recruiterprofileCreateNestedOneWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutUserInput, Prisma.recruiterprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutUserInput
+  connect?: Prisma.recruiterprofileWhereUniqueInput
 }
 
-export type RecruiterProfileCreateNestedManyWithoutCompanyInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput> | Prisma.RecruiterProfileCreateWithoutCompanyInput[] | Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput | Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput[]
-  createMany?: Prisma.RecruiterProfileCreateManyCompanyInputEnvelope
-  connect?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
+export type recruiterprofileUncheckedCreateNestedOneWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutUserInput, Prisma.recruiterprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutUserInput
+  connect?: Prisma.recruiterprofileWhereUniqueInput
 }
 
-export type RecruiterProfileUncheckedCreateNestedManyWithoutCompanyInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput> | Prisma.RecruiterProfileCreateWithoutCompanyInput[] | Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput | Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput[]
-  createMany?: Prisma.RecruiterProfileCreateManyCompanyInputEnvelope
-  connect?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
+export type recruiterprofileUpdateOneWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutUserInput, Prisma.recruiterprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutUserInput
+  upsert?: Prisma.recruiterprofileUpsertWithoutUserInput
+  disconnect?: Prisma.recruiterprofileWhereInput | boolean
+  delete?: Prisma.recruiterprofileWhereInput | boolean
+  connect?: Prisma.recruiterprofileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.recruiterprofileUpdateToOneWithWhereWithoutUserInput, Prisma.recruiterprofileUpdateWithoutUserInput>, Prisma.recruiterprofileUncheckedUpdateWithoutUserInput>
 }
 
-export type RecruiterProfileUpdateManyWithoutCompanyNestedInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput> | Prisma.RecruiterProfileCreateWithoutCompanyInput[] | Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput | Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput[]
-  upsert?: Prisma.RecruiterProfileUpsertWithWhereUniqueWithoutCompanyInput | Prisma.RecruiterProfileUpsertWithWhereUniqueWithoutCompanyInput[]
-  createMany?: Prisma.RecruiterProfileCreateManyCompanyInputEnvelope
-  set?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  disconnect?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  delete?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  connect?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  update?: Prisma.RecruiterProfileUpdateWithWhereUniqueWithoutCompanyInput | Prisma.RecruiterProfileUpdateWithWhereUniqueWithoutCompanyInput[]
-  updateMany?: Prisma.RecruiterProfileUpdateManyWithWhereWithoutCompanyInput | Prisma.RecruiterProfileUpdateManyWithWhereWithoutCompanyInput[]
-  deleteMany?: Prisma.RecruiterProfileScalarWhereInput | Prisma.RecruiterProfileScalarWhereInput[]
+export type recruiterprofileUncheckedUpdateOneWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.recruiterprofileCreateWithoutUserInput, Prisma.recruiterprofileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.recruiterprofileCreateOrConnectWithoutUserInput
+  upsert?: Prisma.recruiterprofileUpsertWithoutUserInput
+  disconnect?: Prisma.recruiterprofileWhereInput | boolean
+  delete?: Prisma.recruiterprofileWhereInput | boolean
+  connect?: Prisma.recruiterprofileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.recruiterprofileUpdateToOneWithWhereWithoutUserInput, Prisma.recruiterprofileUpdateWithoutUserInput>, Prisma.recruiterprofileUncheckedUpdateWithoutUserInput>
 }
 
-export type RecruiterProfileUncheckedUpdateManyWithoutCompanyNestedInput = {
-  create?: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput> | Prisma.RecruiterProfileCreateWithoutCompanyInput[] | Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput[]
-  connectOrCreate?: Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput | Prisma.RecruiterProfileCreateOrConnectWithoutCompanyInput[]
-  upsert?: Prisma.RecruiterProfileUpsertWithWhereUniqueWithoutCompanyInput | Prisma.RecruiterProfileUpsertWithWhereUniqueWithoutCompanyInput[]
-  createMany?: Prisma.RecruiterProfileCreateManyCompanyInputEnvelope
-  set?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  disconnect?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  delete?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  connect?: Prisma.RecruiterProfileWhereUniqueInput | Prisma.RecruiterProfileWhereUniqueInput[]
-  update?: Prisma.RecruiterProfileUpdateWithWhereUniqueWithoutCompanyInput | Prisma.RecruiterProfileUpdateWithWhereUniqueWithoutCompanyInput[]
-  updateMany?: Prisma.RecruiterProfileUpdateManyWithWhereWithoutCompanyInput | Prisma.RecruiterProfileUpdateManyWithWhereWithoutCompanyInput[]
-  deleteMany?: Prisma.RecruiterProfileScalarWhereInput | Prisma.RecruiterProfileScalarWhereInput[]
-}
-
-export type RecruiterProfileCreateWithoutUserInput = {
+export type recruiterprofileCreateWithoutCompanyInput = {
   id?: string
   position?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  company?: Prisma.CompanyCreateNestedOneWithoutRecruitersInput
+  user: Prisma.userCreateNestedOneWithoutRecruiterprofileInput
 }
 
-export type RecruiterProfileUncheckedCreateWithoutUserInput = {
+export type recruiterprofileUncheckedCreateWithoutCompanyInput = {
+  id?: string
+  userId: string
+  position?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type recruiterprofileCreateOrConnectWithoutCompanyInput = {
+  where: Prisma.recruiterprofileWhereUniqueInput
+  create: Prisma.XOR<Prisma.recruiterprofileCreateWithoutCompanyInput, Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput>
+}
+
+export type recruiterprofileCreateManyCompanyInputEnvelope = {
+  data: Prisma.recruiterprofileCreateManyCompanyInput | Prisma.recruiterprofileCreateManyCompanyInput[]
+  skipDuplicates?: boolean
+}
+
+export type recruiterprofileUpsertWithWhereUniqueWithoutCompanyInput = {
+  where: Prisma.recruiterprofileWhereUniqueInput
+  update: Prisma.XOR<Prisma.recruiterprofileUpdateWithoutCompanyInput, Prisma.recruiterprofileUncheckedUpdateWithoutCompanyInput>
+  create: Prisma.XOR<Prisma.recruiterprofileCreateWithoutCompanyInput, Prisma.recruiterprofileUncheckedCreateWithoutCompanyInput>
+}
+
+export type recruiterprofileUpdateWithWhereUniqueWithoutCompanyInput = {
+  where: Prisma.recruiterprofileWhereUniqueInput
+  data: Prisma.XOR<Prisma.recruiterprofileUpdateWithoutCompanyInput, Prisma.recruiterprofileUncheckedUpdateWithoutCompanyInput>
+}
+
+export type recruiterprofileUpdateManyWithWhereWithoutCompanyInput = {
+  where: Prisma.recruiterprofileScalarWhereInput
+  data: Prisma.XOR<Prisma.recruiterprofileUpdateManyMutationInput, Prisma.recruiterprofileUncheckedUpdateManyWithoutCompanyInput>
+}
+
+export type recruiterprofileScalarWhereInput = {
+  AND?: Prisma.recruiterprofileScalarWhereInput | Prisma.recruiterprofileScalarWhereInput[]
+  OR?: Prisma.recruiterprofileScalarWhereInput[]
+  NOT?: Prisma.recruiterprofileScalarWhereInput | Prisma.recruiterprofileScalarWhereInput[]
+  id?: Prisma.StringFilter<"recruiterprofile"> | string
+  userId?: Prisma.StringFilter<"recruiterprofile"> | string
+  companyId?: Prisma.StringNullableFilter<"recruiterprofile"> | string | null
+  position?: Prisma.StringNullableFilter<"recruiterprofile"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"recruiterprofile"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"recruiterprofile"> | Date | string
+}
+
+export type recruiterprofileCreateWithoutUserInput = {
+  id?: string
+  position?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company?: Prisma.companyCreateNestedOneWithoutRecruiterprofileInput
+}
+
+export type recruiterprofileUncheckedCreateWithoutUserInput = {
   id?: string
   companyId?: string | null
   position?: string | null
@@ -443,31 +497,31 @@ export type RecruiterProfileUncheckedCreateWithoutUserInput = {
   updatedAt?: Date | string
 }
 
-export type RecruiterProfileCreateOrConnectWithoutUserInput = {
-  where: Prisma.RecruiterProfileWhereUniqueInput
-  create: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutUserInput, Prisma.RecruiterProfileUncheckedCreateWithoutUserInput>
+export type recruiterprofileCreateOrConnectWithoutUserInput = {
+  where: Prisma.recruiterprofileWhereUniqueInput
+  create: Prisma.XOR<Prisma.recruiterprofileCreateWithoutUserInput, Prisma.recruiterprofileUncheckedCreateWithoutUserInput>
 }
 
-export type RecruiterProfileUpsertWithoutUserInput = {
-  update: Prisma.XOR<Prisma.RecruiterProfileUpdateWithoutUserInput, Prisma.RecruiterProfileUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutUserInput, Prisma.RecruiterProfileUncheckedCreateWithoutUserInput>
-  where?: Prisma.RecruiterProfileWhereInput
+export type recruiterprofileUpsertWithoutUserInput = {
+  update: Prisma.XOR<Prisma.recruiterprofileUpdateWithoutUserInput, Prisma.recruiterprofileUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.recruiterprofileCreateWithoutUserInput, Prisma.recruiterprofileUncheckedCreateWithoutUserInput>
+  where?: Prisma.recruiterprofileWhereInput
 }
 
-export type RecruiterProfileUpdateToOneWithWhereWithoutUserInput = {
-  where?: Prisma.RecruiterProfileWhereInput
-  data: Prisma.XOR<Prisma.RecruiterProfileUpdateWithoutUserInput, Prisma.RecruiterProfileUncheckedUpdateWithoutUserInput>
+export type recruiterprofileUpdateToOneWithWhereWithoutUserInput = {
+  where?: Prisma.recruiterprofileWhereInput
+  data: Prisma.XOR<Prisma.recruiterprofileUpdateWithoutUserInput, Prisma.recruiterprofileUncheckedUpdateWithoutUserInput>
 }
 
-export type RecruiterProfileUpdateWithoutUserInput = {
+export type recruiterprofileUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  company?: Prisma.CompanyUpdateOneWithoutRecruitersNestedInput
+  company?: Prisma.companyUpdateOneWithoutRecruiterprofileNestedInput
 }
 
-export type RecruiterProfileUncheckedUpdateWithoutUserInput = {
+export type recruiterprofileUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -475,15 +529,7 @@ export type RecruiterProfileUncheckedUpdateWithoutUserInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type RecruiterProfileCreateWithoutCompanyInput = {
-  id?: string
-  position?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutRecruiterProfileInput
-}
-
-export type RecruiterProfileUncheckedCreateWithoutCompanyInput = {
+export type recruiterprofileCreateManyCompanyInput = {
   id?: string
   userId: string
   position?: string | null
@@ -491,61 +537,15 @@ export type RecruiterProfileUncheckedCreateWithoutCompanyInput = {
   updatedAt?: Date | string
 }
 
-export type RecruiterProfileCreateOrConnectWithoutCompanyInput = {
-  where: Prisma.RecruiterProfileWhereUniqueInput
-  create: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput>
-}
-
-export type RecruiterProfileCreateManyCompanyInputEnvelope = {
-  data: Prisma.RecruiterProfileCreateManyCompanyInput | Prisma.RecruiterProfileCreateManyCompanyInput[]
-  skipDuplicates?: boolean
-}
-
-export type RecruiterProfileUpsertWithWhereUniqueWithoutCompanyInput = {
-  where: Prisma.RecruiterProfileWhereUniqueInput
-  update: Prisma.XOR<Prisma.RecruiterProfileUpdateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedUpdateWithoutCompanyInput>
-  create: Prisma.XOR<Prisma.RecruiterProfileCreateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedCreateWithoutCompanyInput>
-}
-
-export type RecruiterProfileUpdateWithWhereUniqueWithoutCompanyInput = {
-  where: Prisma.RecruiterProfileWhereUniqueInput
-  data: Prisma.XOR<Prisma.RecruiterProfileUpdateWithoutCompanyInput, Prisma.RecruiterProfileUncheckedUpdateWithoutCompanyInput>
-}
-
-export type RecruiterProfileUpdateManyWithWhereWithoutCompanyInput = {
-  where: Prisma.RecruiterProfileScalarWhereInput
-  data: Prisma.XOR<Prisma.RecruiterProfileUpdateManyMutationInput, Prisma.RecruiterProfileUncheckedUpdateManyWithoutCompanyInput>
-}
-
-export type RecruiterProfileScalarWhereInput = {
-  AND?: Prisma.RecruiterProfileScalarWhereInput | Prisma.RecruiterProfileScalarWhereInput[]
-  OR?: Prisma.RecruiterProfileScalarWhereInput[]
-  NOT?: Prisma.RecruiterProfileScalarWhereInput | Prisma.RecruiterProfileScalarWhereInput[]
-  id?: Prisma.StringFilter<"RecruiterProfile"> | string
-  userId?: Prisma.StringFilter<"RecruiterProfile"> | string
-  companyId?: Prisma.StringNullableFilter<"RecruiterProfile"> | string | null
-  position?: Prisma.StringNullableFilter<"RecruiterProfile"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"RecruiterProfile"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"RecruiterProfile"> | Date | string
-}
-
-export type RecruiterProfileCreateManyCompanyInput = {
-  id?: string
-  userId: string
-  position?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type RecruiterProfileUpdateWithoutCompanyInput = {
+export type recruiterprofileUpdateWithoutCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutRecruiterProfileNestedInput
+  user?: Prisma.userUpdateOneRequiredWithoutRecruiterprofileNestedInput
 }
 
-export type RecruiterProfileUncheckedUpdateWithoutCompanyInput = {
+export type recruiterprofileUncheckedUpdateWithoutCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -553,7 +553,7 @@ export type RecruiterProfileUncheckedUpdateWithoutCompanyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type RecruiterProfileUncheckedUpdateManyWithoutCompanyInput = {
+export type recruiterprofileUncheckedUpdateManyWithoutCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -563,20 +563,20 @@ export type RecruiterProfileUncheckedUpdateManyWithoutCompanyInput = {
 
 
 
-export type RecruiterProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type recruiterprofileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
   companyId?: boolean
   position?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  company?: boolean | Prisma.RecruiterProfile$companyArgs<ExtArgs>
-}, ExtArgs["result"]["recruiterProfile"]>
+  company?: boolean | Prisma.recruiterprofile$companyArgs<ExtArgs>
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["recruiterprofile"]>
 
 
 
-export type RecruiterProfileSelectScalar = {
+export type recruiterprofileSelectScalar = {
   id?: boolean
   userId?: boolean
   companyId?: boolean
@@ -585,17 +585,17 @@ export type RecruiterProfileSelectScalar = {
   updatedAt?: boolean
 }
 
-export type RecruiterProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "companyId" | "position" | "createdAt" | "updatedAt", ExtArgs["result"]["recruiterProfile"]>
-export type RecruiterProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  company?: boolean | Prisma.RecruiterProfile$companyArgs<ExtArgs>
+export type recruiterprofileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "companyId" | "position" | "createdAt" | "updatedAt", ExtArgs["result"]["recruiterprofile"]>
+export type recruiterprofileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  company?: boolean | Prisma.recruiterprofile$companyArgs<ExtArgs>
+  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
 }
 
-export type $RecruiterProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "RecruiterProfile"
+export type $recruiterprofilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "recruiterprofile"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
-    company: Prisma.$CompanyPayload<ExtArgs> | null
+    company: Prisma.$companyPayload<ExtArgs> | null
+    user: Prisma.$userPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -604,143 +604,143 @@ export type $RecruiterProfilePayload<ExtArgs extends runtime.Types.Extensions.In
     position: string | null
     createdAt: Date
     updatedAt: Date
-  }, ExtArgs["result"]["recruiterProfile"]>
+  }, ExtArgs["result"]["recruiterprofile"]>
   composites: {}
 }
 
-export type RecruiterProfileGetPayload<S extends boolean | null | undefined | RecruiterProfileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload, S>
+export type recruiterprofileGetPayload<S extends boolean | null | undefined | recruiterprofileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload, S>
 
-export type RecruiterProfileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<RecruiterProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-    select?: RecruiterProfileCountAggregateInputType | true
+export type recruiterprofileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<recruiterprofileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: RecruiterprofileCountAggregateInputType | true
   }
 
-export interface RecruiterProfileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RecruiterProfile'], meta: { name: 'RecruiterProfile' } }
+export interface recruiterprofileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['recruiterprofile'], meta: { name: 'recruiterprofile' } }
   /**
-   * Find zero or one RecruiterProfile that matches the filter.
-   * @param {RecruiterProfileFindUniqueArgs} args - Arguments to find a RecruiterProfile
+   * Find zero or one Recruiterprofile that matches the filter.
+   * @param {recruiterprofileFindUniqueArgs} args - Arguments to find a Recruiterprofile
    * @example
-   * // Get one RecruiterProfile
-   * const recruiterProfile = await prisma.recruiterProfile.findUnique({
+   * // Get one Recruiterprofile
+   * const recruiterprofile = await prisma.recruiterprofile.findUnique({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUnique<T extends RecruiterProfileFindUniqueArgs>(args: Prisma.SelectSubset<T, RecruiterProfileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends recruiterprofileFindUniqueArgs>(args: Prisma.SelectSubset<T, recruiterprofileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find one RecruiterProfile that matches the filter or throw an error with `error.code='P2025'`
+   * Find one Recruiterprofile that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {RecruiterProfileFindUniqueOrThrowArgs} args - Arguments to find a RecruiterProfile
+   * @param {recruiterprofileFindUniqueOrThrowArgs} args - Arguments to find a Recruiterprofile
    * @example
-   * // Get one RecruiterProfile
-   * const recruiterProfile = await prisma.recruiterProfile.findUniqueOrThrow({
+   * // Get one Recruiterprofile
+   * const recruiterprofile = await prisma.recruiterprofile.findUniqueOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUniqueOrThrow<T extends RecruiterProfileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, RecruiterProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends recruiterprofileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, recruiterprofileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first RecruiterProfile that matches the filter.
+   * Find the first Recruiterprofile that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileFindFirstArgs} args - Arguments to find a RecruiterProfile
+   * @param {recruiterprofileFindFirstArgs} args - Arguments to find a Recruiterprofile
    * @example
-   * // Get one RecruiterProfile
-   * const recruiterProfile = await prisma.recruiterProfile.findFirst({
+   * // Get one Recruiterprofile
+   * const recruiterprofile = await prisma.recruiterprofile.findFirst({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirst<T extends RecruiterProfileFindFirstArgs>(args?: Prisma.SelectSubset<T, RecruiterProfileFindFirstArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends recruiterprofileFindFirstArgs>(args?: Prisma.SelectSubset<T, recruiterprofileFindFirstArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first RecruiterProfile that matches the filter or
+   * Find the first Recruiterprofile that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileFindFirstOrThrowArgs} args - Arguments to find a RecruiterProfile
+   * @param {recruiterprofileFindFirstOrThrowArgs} args - Arguments to find a Recruiterprofile
    * @example
-   * // Get one RecruiterProfile
-   * const recruiterProfile = await prisma.recruiterProfile.findFirstOrThrow({
+   * // Get one Recruiterprofile
+   * const recruiterprofile = await prisma.recruiterprofile.findFirstOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirstOrThrow<T extends RecruiterProfileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, RecruiterProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends recruiterprofileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, recruiterprofileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find zero or more RecruiterProfiles that matches the filter.
+   * Find zero or more Recruiterprofiles that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {recruiterprofileFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
-   * // Get all RecruiterProfiles
-   * const recruiterProfiles = await prisma.recruiterProfile.findMany()
+   * // Get all Recruiterprofiles
+   * const recruiterprofiles = await prisma.recruiterprofile.findMany()
    * 
-   * // Get first 10 RecruiterProfiles
-   * const recruiterProfiles = await prisma.recruiterProfile.findMany({ take: 10 })
+   * // Get first 10 Recruiterprofiles
+   * const recruiterprofiles = await prisma.recruiterprofile.findMany({ take: 10 })
    * 
    * // Only select the `id`
-   * const recruiterProfileWithIdOnly = await prisma.recruiterProfile.findMany({ select: { id: true } })
+   * const recruiterprofileWithIdOnly = await prisma.recruiterprofile.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends RecruiterProfileFindManyArgs>(args?: Prisma.SelectSubset<T, RecruiterProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends recruiterprofileFindManyArgs>(args?: Prisma.SelectSubset<T, recruiterprofileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
-   * Create a RecruiterProfile.
-   * @param {RecruiterProfileCreateArgs} args - Arguments to create a RecruiterProfile.
+   * Create a Recruiterprofile.
+   * @param {recruiterprofileCreateArgs} args - Arguments to create a Recruiterprofile.
    * @example
-   * // Create one RecruiterProfile
-   * const RecruiterProfile = await prisma.recruiterProfile.create({
+   * // Create one Recruiterprofile
+   * const Recruiterprofile = await prisma.recruiterprofile.create({
    *   data: {
-   *     // ... data to create a RecruiterProfile
+   *     // ... data to create a Recruiterprofile
    *   }
    * })
    * 
    */
-  create<T extends RecruiterProfileCreateArgs>(args: Prisma.SelectSubset<T, RecruiterProfileCreateArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends recruiterprofileCreateArgs>(args: Prisma.SelectSubset<T, recruiterprofileCreateArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Create many RecruiterProfiles.
-   * @param {RecruiterProfileCreateManyArgs} args - Arguments to create many RecruiterProfiles.
+   * Create many Recruiterprofiles.
+   * @param {recruiterprofileCreateManyArgs} args - Arguments to create many Recruiterprofiles.
    * @example
-   * // Create many RecruiterProfiles
-   * const recruiterProfile = await prisma.recruiterProfile.createMany({
+   * // Create many Recruiterprofiles
+   * const recruiterprofile = await prisma.recruiterprofile.createMany({
    *   data: [
    *     // ... provide data here
    *   ]
    * })
    *     
    */
-  createMany<T extends RecruiterProfileCreateManyArgs>(args?: Prisma.SelectSubset<T, RecruiterProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends recruiterprofileCreateManyArgs>(args?: Prisma.SelectSubset<T, recruiterprofileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Delete a RecruiterProfile.
-   * @param {RecruiterProfileDeleteArgs} args - Arguments to delete one RecruiterProfile.
+   * Delete a Recruiterprofile.
+   * @param {recruiterprofileDeleteArgs} args - Arguments to delete one Recruiterprofile.
    * @example
-   * // Delete one RecruiterProfile
-   * const RecruiterProfile = await prisma.recruiterProfile.delete({
+   * // Delete one Recruiterprofile
+   * const Recruiterprofile = await prisma.recruiterprofile.delete({
    *   where: {
-   *     // ... filter to delete one RecruiterProfile
+   *     // ... filter to delete one Recruiterprofile
    *   }
    * })
    * 
    */
-  delete<T extends RecruiterProfileDeleteArgs>(args: Prisma.SelectSubset<T, RecruiterProfileDeleteArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends recruiterprofileDeleteArgs>(args: Prisma.SelectSubset<T, recruiterprofileDeleteArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Update one RecruiterProfile.
-   * @param {RecruiterProfileUpdateArgs} args - Arguments to update one RecruiterProfile.
+   * Update one Recruiterprofile.
+   * @param {recruiterprofileUpdateArgs} args - Arguments to update one Recruiterprofile.
    * @example
-   * // Update one RecruiterProfile
-   * const recruiterProfile = await prisma.recruiterProfile.update({
+   * // Update one Recruiterprofile
+   * const recruiterprofile = await prisma.recruiterprofile.update({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -750,30 +750,30 @@ export interface RecruiterProfileDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  update<T extends RecruiterProfileUpdateArgs>(args: Prisma.SelectSubset<T, RecruiterProfileUpdateArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends recruiterprofileUpdateArgs>(args: Prisma.SelectSubset<T, recruiterprofileUpdateArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Delete zero or more RecruiterProfiles.
-   * @param {RecruiterProfileDeleteManyArgs} args - Arguments to filter RecruiterProfiles to delete.
+   * Delete zero or more Recruiterprofiles.
+   * @param {recruiterprofileDeleteManyArgs} args - Arguments to filter Recruiterprofiles to delete.
    * @example
-   * // Delete a few RecruiterProfiles
-   * const { count } = await prisma.recruiterProfile.deleteMany({
+   * // Delete a few Recruiterprofiles
+   * const { count } = await prisma.recruiterprofile.deleteMany({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    * 
    */
-  deleteMany<T extends RecruiterProfileDeleteManyArgs>(args?: Prisma.SelectSubset<T, RecruiterProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends recruiterprofileDeleteManyArgs>(args?: Prisma.SelectSubset<T, recruiterprofileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Update zero or more RecruiterProfiles.
+   * Update zero or more Recruiterprofiles.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {recruiterprofileUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
-   * // Update many RecruiterProfiles
-   * const recruiterProfile = await prisma.recruiterProfile.updateMany({
+   * // Update many Recruiterprofiles
+   * const recruiterprofile = await prisma.recruiterprofile.updateMany({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -783,56 +783,56 @@ export interface RecruiterProfileDelegate<ExtArgs extends runtime.Types.Extensio
    * })
    * 
    */
-  updateMany<T extends RecruiterProfileUpdateManyArgs>(args: Prisma.SelectSubset<T, RecruiterProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends recruiterprofileUpdateManyArgs>(args: Prisma.SelectSubset<T, recruiterprofileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Create or update one RecruiterProfile.
-   * @param {RecruiterProfileUpsertArgs} args - Arguments to update or create a RecruiterProfile.
+   * Create or update one Recruiterprofile.
+   * @param {recruiterprofileUpsertArgs} args - Arguments to update or create a Recruiterprofile.
    * @example
-   * // Update or create a RecruiterProfile
-   * const recruiterProfile = await prisma.recruiterProfile.upsert({
+   * // Update or create a Recruiterprofile
+   * const recruiterprofile = await prisma.recruiterprofile.upsert({
    *   create: {
-   *     // ... data to create a RecruiterProfile
+   *     // ... data to create a Recruiterprofile
    *   },
    *   update: {
    *     // ... in case it already exists, update
    *   },
    *   where: {
-   *     // ... the filter for the RecruiterProfile we want to update
+   *     // ... the filter for the Recruiterprofile we want to update
    *   }
    * })
    */
-  upsert<T extends RecruiterProfileUpsertArgs>(args: Prisma.SelectSubset<T, RecruiterProfileUpsertArgs<ExtArgs>>): Prisma.Prisma__RecruiterProfileClient<runtime.Types.Result.GetResult<Prisma.$RecruiterProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends recruiterprofileUpsertArgs>(args: Prisma.SelectSubset<T, recruiterprofileUpsertArgs<ExtArgs>>): Prisma.Prisma__recruiterprofileClient<runtime.Types.Result.GetResult<Prisma.$recruiterprofilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
-   * Count the number of RecruiterProfiles.
+   * Count the number of Recruiterprofiles.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileCountArgs} args - Arguments to filter RecruiterProfiles to count.
+   * @param {recruiterprofileCountArgs} args - Arguments to filter Recruiterprofiles to count.
    * @example
-   * // Count the number of RecruiterProfiles
-   * const count = await prisma.recruiterProfile.count({
+   * // Count the number of Recruiterprofiles
+   * const count = await prisma.recruiterprofile.count({
    *   where: {
-   *     // ... the filter for the RecruiterProfiles we want to count
+   *     // ... the filter for the Recruiterprofiles we want to count
    *   }
    * })
   **/
-  count<T extends RecruiterProfileCountArgs>(
-    args?: Prisma.Subset<T, RecruiterProfileCountArgs>,
+  count<T extends recruiterprofileCountArgs>(
+    args?: Prisma.Subset<T, recruiterprofileCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], RecruiterProfileCountAggregateOutputType>
+        : Prisma.GetScalarType<T['select'], RecruiterprofileCountAggregateOutputType>
       : number
   >
 
   /**
-   * Allows you to perform aggregations operations on a RecruiterProfile.
+   * Allows you to perform aggregations operations on a Recruiterprofile.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @param {RecruiterprofileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
    * @example
    * // Ordered by age ascending
    * // Where email contains prisma.io
@@ -852,13 +852,13 @@ export interface RecruiterProfileDelegate<ExtArgs extends runtime.Types.Extensio
    *   take: 10,
    * })
   **/
-  aggregate<T extends RecruiterProfileAggregateArgs>(args: Prisma.Subset<T, RecruiterProfileAggregateArgs>): Prisma.PrismaPromise<GetRecruiterProfileAggregateType<T>>
+  aggregate<T extends RecruiterprofileAggregateArgs>(args: Prisma.Subset<T, RecruiterprofileAggregateArgs>): Prisma.PrismaPromise<GetRecruiterprofileAggregateType<T>>
 
   /**
-   * Group by RecruiterProfile.
+   * Group by Recruiterprofile.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {RecruiterProfileGroupByArgs} args - Group by arguments.
+   * @param {recruiterprofileGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -873,14 +873,14 @@ export interface RecruiterProfileDelegate<ExtArgs extends runtime.Types.Extensio
    * 
   **/
   groupBy<
-    T extends RecruiterProfileGroupByArgs,
+    T extends recruiterprofileGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: RecruiterProfileGroupByArgs['orderBy'] }
-      : { orderBy?: RecruiterProfileGroupByArgs['orderBy'] },
+      ? { orderBy: recruiterprofileGroupByArgs['orderBy'] }
+      : { orderBy?: recruiterprofileGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -929,23 +929,23 @@ export interface RecruiterProfileDelegate<ExtArgs extends runtime.Types.Extensio
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, RecruiterProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRecruiterProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, recruiterprofileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRecruiterprofileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the RecruiterProfile model
+ * Fields of the recruiterprofile model
  */
-readonly fields: RecruiterProfileFieldRefs;
+readonly fields: recruiterprofileFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for RecruiterProfile.
+ * The delegate class that acts as a "Promise-like" for recruiterprofile.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__RecruiterProfileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__recruiterprofileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  company<T extends Prisma.RecruiterProfile$companyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RecruiterProfile$companyArgs<ExtArgs>>): Prisma.Prisma__CompanyClient<runtime.Types.Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  company<T extends Prisma.recruiterprofile$companyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.recruiterprofile$companyArgs<ExtArgs>>): Prisma.Prisma__companyClient<runtime.Types.Result.GetResult<Prisma.$companyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -972,395 +972,395 @@ export interface Prisma__RecruiterProfileClient<T, Null = never, ExtArgs extends
 
 
 /**
- * Fields of the RecruiterProfile model
+ * Fields of the recruiterprofile model
  */
-export interface RecruiterProfileFieldRefs {
-  readonly id: Prisma.FieldRef<"RecruiterProfile", 'String'>
-  readonly userId: Prisma.FieldRef<"RecruiterProfile", 'String'>
-  readonly companyId: Prisma.FieldRef<"RecruiterProfile", 'String'>
-  readonly position: Prisma.FieldRef<"RecruiterProfile", 'String'>
-  readonly createdAt: Prisma.FieldRef<"RecruiterProfile", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"RecruiterProfile", 'DateTime'>
+export interface recruiterprofileFieldRefs {
+  readonly id: Prisma.FieldRef<"recruiterprofile", 'String'>
+  readonly userId: Prisma.FieldRef<"recruiterprofile", 'String'>
+  readonly companyId: Prisma.FieldRef<"recruiterprofile", 'String'>
+  readonly position: Prisma.FieldRef<"recruiterprofile", 'String'>
+  readonly createdAt: Prisma.FieldRef<"recruiterprofile", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"recruiterprofile", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * RecruiterProfile findUnique
+ * recruiterprofile findUnique
  */
-export type RecruiterProfileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * Filter, which RecruiterProfile to fetch.
+   * Filter, which recruiterprofile to fetch.
    */
-  where: Prisma.RecruiterProfileWhereUniqueInput
+  where: Prisma.recruiterprofileWhereUniqueInput
 }
 
 /**
- * RecruiterProfile findUniqueOrThrow
+ * recruiterprofile findUniqueOrThrow
  */
-export type RecruiterProfileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * Filter, which RecruiterProfile to fetch.
+   * Filter, which recruiterprofile to fetch.
    */
-  where: Prisma.RecruiterProfileWhereUniqueInput
+  where: Prisma.recruiterprofileWhereUniqueInput
 }
 
 /**
- * RecruiterProfile findFirst
+ * recruiterprofile findFirst
  */
-export type RecruiterProfileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * Filter, which RecruiterProfile to fetch.
+   * Filter, which recruiterprofile to fetch.
    */
-  where?: Prisma.RecruiterProfileWhereInput
+  where?: Prisma.recruiterprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of RecruiterProfiles to fetch.
+   * Determine the order of recruiterprofiles to fetch.
    */
-  orderBy?: Prisma.RecruiterProfileOrderByWithRelationInput | Prisma.RecruiterProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.recruiterprofileOrderByWithRelationInput | Prisma.recruiterprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for RecruiterProfiles.
+   * Sets the position for searching for recruiterprofiles.
    */
-  cursor?: Prisma.RecruiterProfileWhereUniqueInput
+  cursor?: Prisma.recruiterprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` RecruiterProfiles from the position of the cursor.
+   * Take `±n` recruiterprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` RecruiterProfiles.
+   * Skip the first `n` recruiterprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of RecruiterProfiles.
+   * Filter by unique combinations of recruiterprofiles.
    */
-  distinct?: Prisma.RecruiterProfileScalarFieldEnum | Prisma.RecruiterProfileScalarFieldEnum[]
+  distinct?: Prisma.RecruiterprofileScalarFieldEnum | Prisma.RecruiterprofileScalarFieldEnum[]
 }
 
 /**
- * RecruiterProfile findFirstOrThrow
+ * recruiterprofile findFirstOrThrow
  */
-export type RecruiterProfileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * Filter, which RecruiterProfile to fetch.
+   * Filter, which recruiterprofile to fetch.
    */
-  where?: Prisma.RecruiterProfileWhereInput
+  where?: Prisma.recruiterprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of RecruiterProfiles to fetch.
+   * Determine the order of recruiterprofiles to fetch.
    */
-  orderBy?: Prisma.RecruiterProfileOrderByWithRelationInput | Prisma.RecruiterProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.recruiterprofileOrderByWithRelationInput | Prisma.recruiterprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for RecruiterProfiles.
+   * Sets the position for searching for recruiterprofiles.
    */
-  cursor?: Prisma.RecruiterProfileWhereUniqueInput
+  cursor?: Prisma.recruiterprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` RecruiterProfiles from the position of the cursor.
+   * Take `±n` recruiterprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` RecruiterProfiles.
+   * Skip the first `n` recruiterprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of RecruiterProfiles.
+   * Filter by unique combinations of recruiterprofiles.
    */
-  distinct?: Prisma.RecruiterProfileScalarFieldEnum | Prisma.RecruiterProfileScalarFieldEnum[]
+  distinct?: Prisma.RecruiterprofileScalarFieldEnum | Prisma.RecruiterprofileScalarFieldEnum[]
 }
 
 /**
- * RecruiterProfile findMany
+ * recruiterprofile findMany
  */
-export type RecruiterProfileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * Filter, which RecruiterProfiles to fetch.
+   * Filter, which recruiterprofiles to fetch.
    */
-  where?: Prisma.RecruiterProfileWhereInput
+  where?: Prisma.recruiterprofileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of RecruiterProfiles to fetch.
+   * Determine the order of recruiterprofiles to fetch.
    */
-  orderBy?: Prisma.RecruiterProfileOrderByWithRelationInput | Prisma.RecruiterProfileOrderByWithRelationInput[]
+  orderBy?: Prisma.recruiterprofileOrderByWithRelationInput | Prisma.recruiterprofileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing RecruiterProfiles.
+   * Sets the position for listing recruiterprofiles.
    */
-  cursor?: Prisma.RecruiterProfileWhereUniqueInput
+  cursor?: Prisma.recruiterprofileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` RecruiterProfiles from the position of the cursor.
+   * Take `±n` recruiterprofiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` RecruiterProfiles.
+   * Skip the first `n` recruiterprofiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of RecruiterProfiles.
+   * Filter by unique combinations of recruiterprofiles.
    */
-  distinct?: Prisma.RecruiterProfileScalarFieldEnum | Prisma.RecruiterProfileScalarFieldEnum[]
+  distinct?: Prisma.RecruiterprofileScalarFieldEnum | Prisma.RecruiterprofileScalarFieldEnum[]
 }
 
 /**
- * RecruiterProfile create
+ * recruiterprofile create
  */
-export type RecruiterProfileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * The data needed to create a RecruiterProfile.
+   * The data needed to create a recruiterprofile.
    */
-  data: Prisma.XOR<Prisma.RecruiterProfileCreateInput, Prisma.RecruiterProfileUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.recruiterprofileCreateInput, Prisma.recruiterprofileUncheckedCreateInput>
 }
 
 /**
- * RecruiterProfile createMany
+ * recruiterprofile createMany
  */
-export type RecruiterProfileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many RecruiterProfiles.
+   * The data used to create many recruiterprofiles.
    */
-  data: Prisma.RecruiterProfileCreateManyInput | Prisma.RecruiterProfileCreateManyInput[]
+  data: Prisma.recruiterprofileCreateManyInput | Prisma.recruiterprofileCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * RecruiterProfile update
+ * recruiterprofile update
  */
-export type RecruiterProfileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * The data needed to update a RecruiterProfile.
+   * The data needed to update a recruiterprofile.
    */
-  data: Prisma.XOR<Prisma.RecruiterProfileUpdateInput, Prisma.RecruiterProfileUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.recruiterprofileUpdateInput, Prisma.recruiterprofileUncheckedUpdateInput>
   /**
-   * Choose, which RecruiterProfile to update.
+   * Choose, which recruiterprofile to update.
    */
-  where: Prisma.RecruiterProfileWhereUniqueInput
+  where: Prisma.recruiterprofileWhereUniqueInput
 }
 
 /**
- * RecruiterProfile updateMany
+ * recruiterprofile updateMany
  */
-export type RecruiterProfileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update RecruiterProfiles.
+   * The data used to update recruiterprofiles.
    */
-  data: Prisma.XOR<Prisma.RecruiterProfileUpdateManyMutationInput, Prisma.RecruiterProfileUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.recruiterprofileUpdateManyMutationInput, Prisma.recruiterprofileUncheckedUpdateManyInput>
   /**
-   * Filter which RecruiterProfiles to update
+   * Filter which recruiterprofiles to update
    */
-  where?: Prisma.RecruiterProfileWhereInput
+  where?: Prisma.recruiterprofileWhereInput
   /**
-   * Limit how many RecruiterProfiles to update.
+   * Limit how many recruiterprofiles to update.
    */
   limit?: number
 }
 
 /**
- * RecruiterProfile upsert
+ * recruiterprofile upsert
  */
-export type RecruiterProfileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * The filter to search for the RecruiterProfile to update in case it exists.
+   * The filter to search for the recruiterprofile to update in case it exists.
    */
-  where: Prisma.RecruiterProfileWhereUniqueInput
+  where: Prisma.recruiterprofileWhereUniqueInput
   /**
-   * In case the RecruiterProfile found by the `where` argument doesn't exist, create a new RecruiterProfile with this data.
+   * In case the recruiterprofile found by the `where` argument doesn't exist, create a new recruiterprofile with this data.
    */
-  create: Prisma.XOR<Prisma.RecruiterProfileCreateInput, Prisma.RecruiterProfileUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.recruiterprofileCreateInput, Prisma.recruiterprofileUncheckedCreateInput>
   /**
-   * In case the RecruiterProfile was found with the provided `where` argument, update it with this data.
+   * In case the recruiterprofile was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.RecruiterProfileUpdateInput, Prisma.RecruiterProfileUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.recruiterprofileUpdateInput, Prisma.recruiterprofileUncheckedUpdateInput>
 }
 
 /**
- * RecruiterProfile delete
+ * recruiterprofile delete
  */
-export type RecruiterProfileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
   /**
-   * Filter which RecruiterProfile to delete.
+   * Filter which recruiterprofile to delete.
    */
-  where: Prisma.RecruiterProfileWhereUniqueInput
+  where: Prisma.recruiterprofileWhereUniqueInput
 }
 
 /**
- * RecruiterProfile deleteMany
+ * recruiterprofile deleteMany
  */
-export type RecruiterProfileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which RecruiterProfiles to delete
+   * Filter which recruiterprofiles to delete
    */
-  where?: Prisma.RecruiterProfileWhereInput
+  where?: Prisma.recruiterprofileWhereInput
   /**
-   * Limit how many RecruiterProfiles to delete.
+   * Limit how many recruiterprofiles to delete.
    */
   limit?: number
 }
 
 /**
- * RecruiterProfile.company
+ * recruiterprofile.company
  */
-export type RecruiterProfile$companyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofile$companyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Company
+   * Select specific fields to fetch from the company
    */
-  select?: Prisma.CompanySelect<ExtArgs> | null
+  select?: Prisma.companySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Company
+   * Omit specific fields from the company
    */
-  omit?: Prisma.CompanyOmit<ExtArgs> | null
+  omit?: Prisma.companyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CompanyInclude<ExtArgs> | null
-  where?: Prisma.CompanyWhereInput
+  include?: Prisma.companyInclude<ExtArgs> | null
+  where?: Prisma.companyWhereInput
 }
 
 /**
- * RecruiterProfile without action
+ * recruiterprofile without action
  */
-export type RecruiterProfileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type recruiterprofileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the RecruiterProfile
+   * Select specific fields to fetch from the recruiterprofile
    */
-  select?: Prisma.RecruiterProfileSelect<ExtArgs> | null
+  select?: Prisma.recruiterprofileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the RecruiterProfile
+   * Omit specific fields from the recruiterprofile
    */
-  omit?: Prisma.RecruiterProfileOmit<ExtArgs> | null
+  omit?: Prisma.recruiterprofileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.RecruiterProfileInclude<ExtArgs> | null
+  include?: Prisma.recruiterprofileInclude<ExtArgs> | null
 }
