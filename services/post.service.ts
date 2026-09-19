@@ -1,5 +1,5 @@
 import prisma from "../config/prisma";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "../src/generated/prisma/client";
 import { PostInput } from "../utils/validation/schema.validation";
 
 async function createPost(authorId: string, data: PostInput) {

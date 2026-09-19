@@ -1,6 +1,5 @@
 import { z } from "zod";
-import { JobStatus } from "@prisma/client";
-import { ApplicationStatus } from "@prisma/client";
+import { application_status, job_status } from "../../src/generated/prisma/enums";
 
 export const seekerOnboardingSchema = z.object({
   role: z.literal("SEEKER"),
@@ -47,7 +46,7 @@ export const createJob = z.object({
   description: z.string().trim().min(2, "Description is required"),
   salaryMin: z.number().int().nonnegative().optional(),
   salaryMax: z.number().int().nonnegative().optional(),
-  status: z.enum(JobStatus),
+  status: z.enum(job_status),
 });
 
 export type CreateJobInput = z.infer<typeof createJob>;
@@ -60,7 +59,7 @@ export const createApplicationSchema = z.object({
 export type CreateApplicationInput = z.infer<typeof createApplicationSchema>;
 
 export const updateApplicationStatus = z.object({
-  status: z.nativeEnum(ApplicationStatus)
+  status: z.nativeEnum(application_status)
 });
 
 export type UpdateApplicationStatusInput = z.infer<typeof updateApplicationStatus>;
