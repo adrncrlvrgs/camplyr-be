@@ -31,3 +31,18 @@ export async function createPost(req: Request, res: Response) {
     return;
   }
 }
+
+export async function getAllPost(req: Request, res: Response) {
+  try{
+    const post = await postService.getAllPost();
+    res.status(200).json({
+      message: "Post retrieve",
+      data: post
+    });
+  }catch (error){
+    res.status(500).json({
+      message: "Failed to get all Post"
+    });
+    return;
+  }
+}
