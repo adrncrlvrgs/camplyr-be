@@ -63,3 +63,11 @@ export const updateApplicationStatus = z.object({
 });
 
 export type UpdateApplicationStatusInput = z.infer<typeof updateApplicationStatus>;
+
+
+export const paginationQuerySchema = z.object({
+  cursor: z.string().optional(),
+  limit: z.coerce.number().int().min(1).max(50).default(10),
+})
+
+export type PaginationQuery = z.infer<typeof paginationQuerySchema>

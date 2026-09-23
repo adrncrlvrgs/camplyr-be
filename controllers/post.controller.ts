@@ -1,6 +1,10 @@
 import { Request, Response } from "express";
-import { PostInput } from "../utils/validation/schema.validation";
+import {
+  PostInput,
+  paginationQuerySchema,
+} from "../utils/validation/schema.validation";
 import { postService } from "../services/post.service";
+import { error } from "console";
 
 export async function createPost(req: Request, res: Response) {
   try {
@@ -33,15 +37,22 @@ export async function createPost(req: Request, res: Response) {
 }
 
 export async function getAllPost(req: Request, res: Response) {
-  try{
-    const post = await postService.getAllPost();
-    res.status(200).json({
-      message: "Post retrieve",
-      data: post
+  try {
+    const parsed = paginationQuerySchema.safeParse(req.query);
+
+    if (!parsed.success) {
+      return res.status(400).json({
+        error: "Invalid pagination params",
+      });
+    }
+    const result = await postService.getAllPost(parsed.data);
+    return res.status(200).json({
+      message: "Posts retrieve successful",
+      data: result,
     });
-  }catch (error){
+  } catch (error) {
     res.status(500).json({
-      message: "Failed to get all Post"
+      message: "Failed to get all Post",
     });
     return;
   }
