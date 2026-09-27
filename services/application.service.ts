@@ -1,5 +1,5 @@
 import prisma from "../config/prisma";
-import { Prisma, ApplicationStatus } from "@prisma/client";
+import { Prisma, application_status } from "../src/generated/prisma/client";
 import { CreateApplicationInput } from "../utils/validation/schema.validation";
 
 async function applyToJob(
@@ -143,7 +143,7 @@ async function getJobApplications(userId: string, jobId: string) {
 async function updateApplicationStatus(
   userId: string,
   applicationId: string,
-  status: ApplicationStatus,
+  status: application_status,
 ) {
   const recruiter = await prisma.recruiterprofile.findUnique({
     where: { userId },
