@@ -29,13 +29,38 @@ export async function createJob(req: Request, res: Response) {
   }
 }
 
-
 export async function getAllJobs(req: Request, res: Response) {
   try {
     const jobs = await jobService.getAllJobs();
     res.status(200).json({
       message: "Jobs retrieved",
       data: jobs,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to get all job",
+    });
+
+    return;
+  }
+}
+
+export async function getJobById(req: Request, res: Response) {
+  try {
+    const { jobId } = req.params;
+
+    if (!jobId) {
+      res.status(400).json({
+        message: "Job id is required",
+      });
+      return;
+    }
+
+    const job = await jobService.getJobById(jobId);
+
+    res.status(200).json({
+      message: "Job retrieved",
+      data: job,
     });
   } catch (error) {
     res.status(500).json({

@@ -70,6 +70,40 @@ async function getAllJobs() {
   }));
 }
 
+async function getJobById(jobId:string) {
+
+  const job  = await prisma.job.findUnique({
+    where:{id: jobId},
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      location: true,
+      salaryMin: true,
+      salaryMax: true,
+      status: true,
+      type: true,
+      requirements: true,
+      createdAt: true,
+      company: {
+        select: {
+          id: true,
+          name: true,
+          slug: true,
+          logoUrl: true,
+        },
+      },
+    },
+  })
+
+  if (!job) {
+    throw new Error("Job not found");
+  } else {
+    return job;
+  }
+  
+}
+
 async function getCompanyJobs(userId: string) {
   const companyId = await getRecruiterCompanyId(userId);
 
@@ -96,5 +130,6 @@ async function getCompanyJobs(userId: string) {
 export const jobService = {
   createJob,
   getAllJobs,
+  getJobById,
   getCompanyJobs,
 };
