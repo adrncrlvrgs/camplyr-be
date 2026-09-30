@@ -8,20 +8,38 @@ datasource db {
 }
 
 model application {
-  id          String             @id @default(cuid())
+  id          String              @id @default(cuid())
   seekerId    String
   jobId       String
-  status      application_status @default(PENDING)
-  coverLetter String?            @db.Text
+  status      application_status  @default(PENDING)
+  coverLetter String?             @db.Text // used as the optional note
   resumeUrl   String?
-  createdAt   DateTime           @default(now())
-  updatedAt   DateTime           @default(now()) @updatedAt
-  job         job                @relation(fields: [jobId], references: [id], onDelete: Cascade, map: "Application_jobId_fkey")
-  user        user               @relation(fields: [seekerId], references: [id], onDelete: Cascade, map: "Application_seekerId_fkey")
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @default(now()) @updatedAt
+  job         job                 @relation(fields: [jobId], references: [id], onDelete: Cascade, map: "Application_jobId_fkey")
+  user        user                @relation(fields: [seekerId], references: [id], onDelete: Cascade, map: "Application_seekerId_fkey")
+  answers     applicationanswer[] // NEW
 
   @@unique([seekerId, jobId], map: "Application_seekerId_jobId_key")
   @@index([jobId], map: "Application_jobId_idx")
   @@index([seekerId], map: "Application_seekerId_idx")
+}
+
+// NEW
+model applicationanswer {
+  id            String        @id @default(cuid())
+  applicationId String
+  questionId    String?       // nullable so deleting a question keeps old answers
+  questionLabel String        // snapshot of the question text at answer time
+  questionType  question_type // snapshot of the type at answer time
+  value         Json          // string | number | boolean | string[]
+  createdAt     DateTime      @default(now())
+  application   application   @relation(fields: [applicationId], references: [id], onDelete: Cascade, map: "ApplicationAnswer_applicationId_fkey")
+  question      jobquestion?  @relation(fields: [questionId], references: [id], onDelete: SetNull, map: "ApplicationAnswer_questionId_fkey")
+
+  @@unique([applicationId, questionId], map: "ApplicationAnswer_applicationId_questionId_key")
+  @@index([applicationId], map: "ApplicationAnswer_applicationId_idx")
+  @@index([questionId], map: "ApplicationAnswer_questionId_idx")
 }
 
 model company {
@@ -53,9 +71,27 @@ model job {
   updatedAt    DateTime      @default(now()) @updatedAt
   application  application[]
   company      company       @relation(fields: [companyId], references: [id], onDelete: Cascade, map: "Job_companyId_fkey")
+  questions    jobquestion[] // NEW
 
   @@index([companyId], map: "Job_companyId_idx")
   @@index([status], map: "Job_status_idx")
+}
+
+// NEW
+model jobquestion {
+  id        String              @id @default(cuid())
+  jobId     String
+  label     String
+  type      question_type
+  required  Boolean             @default(true)
+  options   Json?               // string[] for SINGLE_CHOICE / MULTI_CHOICE
+  sortOrder Int                 @default(0)
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @default(now()) @updatedAt
+  job       job                 @relation(fields: [jobId], references: [id], onDelete: Cascade, map: "JobQuestion_jobId_fkey")
+  answers   applicationanswer[]
+
+  @@index([jobId], map: "JobQuestion_jobId_idx")
 }
 
 model post {
@@ -142,4 +178,15 @@ enum job_type {
   CONTRACT
   INTERNSHIP
   TEMPORARY
+}
+
+// NEW
+enum question_type {
+  SHORT_TEXT
+  LONG_TEXT
+  SINGLE_CHOICE
+  MULTI_CHOICE
+  YES_NO
+  NUMBER
+  DATE
 }

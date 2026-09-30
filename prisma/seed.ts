@@ -1,6 +1,7 @@
 /**
  * Prisma seed script for the job-board schema
- * (User, SeekerProfile, RecruiterProfile, Company, Job, Application, Post)
+ * (User, SeekerProfile, RecruiterProfile, Company, Job, JobQuestion,
+ *  Application, ApplicationAnswer, Post)
  *
  * Setup:
  *   npm install -D @faker-js/faker tsx
@@ -50,6 +51,17 @@ type ApplicationStatusValue =
   | "SHORTLISTED"
   | "REJECTED"
   | "HIRED";
+type QuestionTypeValue =
+  | "SHORT_TEXT"
+  | "LONG_TEXT"
+  | "SINGLE_CHOICE"
+  | "MULTI_CHOICE"
+  | "YES_NO"
+  | "NUMBER"
+  | "DATE";
+
+// Shape of a stored answer value (matches the `value Json` column)
+type AnswerValue = string | number | boolean | string[];
 
 // ---------------------------------------------------------------------------
 // Config — change these numbers to control how much dummy data gets created
@@ -65,6 +77,11 @@ const COUNTS = {
   applications: 70,
 };
 
+// Share of jobs that get custom screening questions (the rest use the
+// default resume + optional note only)
+const JOBS_WITH_QUESTIONS_RATE = 0.5;
+const MAX_QUESTIONS_PER_JOB = 5;
+
 // ---------------------------------------------------------------------------
 // Small helpers (kept dependency-light so this doesn't break across faker versions)
 // ---------------------------------------------------------------------------
@@ -74,6 +91,10 @@ function chance(probability: number): boolean {
 
 function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  return [...arr].sort(() => 0.5 - Math.random());
 }
 
 function weightedPick<T>(pairs: Array<[T, number]>): T {
@@ -187,8 +208,7 @@ const RECRUITER_POSITIONS = [
 
 function pickSkills(): string[] {
   const count = Math.floor(Math.random() * 6) + 3; // 3-8 skills
-  const shuffled = [...SKILL_POOL].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+  return shuffle(SKILL_POOL).slice(0, count);
 }
 
 function jobDescription(title: string): string {
@@ -226,15 +246,101 @@ function pickRequirements(): string[] {
   ];
   const skillLines = pickSkills().map((skill) => `Proficiency in ${skill}`);
   const pool = [...experienceLines, ...skillLines];
-  return pool.sort(() => 0.5 - Math.random()).slice(0, count);
+  return shuffle(pool).slice(0, count);
 }
+
+// ---------------------------------------------------------------------------
+// Screening question presets + answer generators
+// ---------------------------------------------------------------------------
+type QuestionPreset = {
+  label: string;
+  type: QuestionTypeValue;
+  required: boolean;
+  options?: string[]; // only for SINGLE_CHOICE / MULTI_CHOICE
+  answer: (options?: string[]) => AnswerValue;
+};
+
+const QUESTION_PRESETS: QuestionPreset[] = [
+  {
+    label: "What is your preferred work setup?",
+    type: "SINGLE_CHOICE",
+    required: true,
+    options: ["Remote", "Hybrid", "On-site"],
+    answer: (options) => pick(options ?? ["Remote"]),
+  },
+  {
+    label: "How many years of relevant experience do you have?",
+    type: "NUMBER",
+    required: true,
+    answer: () => faker.number.int({ min: 0, max: 15 }),
+  },
+  {
+    label: "What is your expected monthly salary?",
+    type: "NUMBER",
+    required: false,
+    answer: () => faker.number.int({ min: 20, max: 150 }) * 1000,
+  },
+  {
+    label: "When can you start?",
+    type: "DATE",
+    required: true,
+    answer: () =>
+      faker.date.soon({ days: 90 }).toISOString().slice(0, 10), // YYYY-MM-DD
+  },
+  {
+    label: "Are you willing to relocate?",
+    type: "YES_NO",
+    required: false,
+    answer: () => chance(0.4),
+  },
+  {
+    label: "Are you legally authorized to work in this country?",
+    type: "YES_NO",
+    required: true,
+    answer: () => chance(0.9),
+  },
+  {
+    label: "Which of these tools have you used professionally?",
+    type: "MULTI_CHOICE",
+    required: false,
+    options: ["Git", "Docker", "AWS", "Jira", "Figma", "CI/CD"],
+    answer: (options) => {
+      const pool = options ?? [];
+      const count = Math.max(1, Math.floor(Math.random() * pool.length) + 1);
+      return shuffle(pool).slice(0, count);
+    },
+  },
+  {
+    label: "What is your current job title?",
+    type: "SHORT_TEXT",
+    required: false,
+    answer: () => faker.person.jobTitle(),
+  },
+  {
+    label: "Tell us about a project you're proud of.",
+    type: "LONG_TEXT",
+    required: false,
+    answer: () => faker.lorem.paragraph(),
+  },
+];
+
+type SeededQuestion = {
+  id: string;
+  label: string;
+  type: QuestionTypeValue;
+  required: boolean;
+  options: string[] | null;
+  answer: QuestionPreset["answer"];
+};
 
 let userIndex = 0;
 
 async function main(): Promise<void> {
   console.log("Cleaning existing data...");
   // Delete in FK-safe order (children before parents)
+  await prisma.applicationanswer.deleteMany();
   await prisma.application.deleteMany();
+  await prisma.jobquestion.deleteMany();
   await prisma.post.deleteMany();
   await prisma.seekerprofile.deleteMany();
   await prisma.recruiterprofile.deleteMany();
@@ -396,10 +502,14 @@ async function main(): Promise<void> {
   }
 
   // ---------------------------------------------------------------------
-  // Jobs
+  // Jobs (+ optional screening questions)
   // ---------------------------------------------------------------------
-  console.log("Creating jobs...");
+  console.log("Creating jobs and screening questions...");
   const jobs = [];
+  // jobId -> the questions created for that job (used later to build answers)
+  const questionsByJob = new Map<string, SeededQuestion[]>();
+  let questionCount = 0;
+
   for (let i = 0; i < COUNTS.jobs; i++) {
     const company = pick(companies);
     const title = pick(JOB_TITLES);
@@ -432,23 +542,71 @@ async function main(): Promise<void> {
       },
     });
     jobs.push(job);
+
+    // Some jobs get custom screening questions; the rest have none, which
+    // means applicants only submit a resume + optional note.
+    if (chance(JOBS_WITH_QUESTIONS_RATE)) {
+      const howMany = faker.number.int({ min: 1, max: MAX_QUESTIONS_PER_JOB });
+      const chosen = shuffle(QUESTION_PRESETS).slice(0, howMany);
+      const seeded: SeededQuestion[] = [];
+
+      for (let order = 0; order < chosen.length; order++) {
+        const preset = chosen[order];
+        const question = await prisma.jobquestion.create({
+          data: {
+            jobId: job.id,
+            label: preset.label,
+            type: preset.type,
+            required: preset.required,
+            options: preset.options ?? undefined,
+            sortOrder: order,
+          },
+        });
+        seeded.push({
+          id: question.id,
+          label: preset.label,
+          type: preset.type,
+          required: preset.required,
+          options: preset.options ?? null,
+          answer: preset.answer,
+        });
+        questionCount++;
+      }
+      questionsByJob.set(job.id, seeded);
+    }
   }
 
   // ---------------------------------------------------------------------
-  // Applications (unique seeker+job pairs)
+  // Applications (unique seeker+job pairs) + answers to screening questions
   // ---------------------------------------------------------------------
-  console.log("Creating applications...");
+  console.log("Creating applications and answers...");
+
+  // Drafts aren't public, so nobody should have applied to them
+  const applicableJobs = jobs.filter((j) => j.status !== "DRAFT");
+
   const usedPairs = new Set<string>();
   let created = 0;
+  let answerCount = 0;
   let attempts = 0;
   const maxAttempts = COUNTS.applications * 20;
   while (created < COUNTS.applications && attempts < maxAttempts) {
     attempts++;
     const seeker = pick(seekers);
-    const job = pick(jobs);
+    const job = pick(applicableJobs);
     const key = `${seeker.id}:${job.id}`;
     if (usedPairs.has(key)) continue;
     usedPairs.add(key);
+
+    // Required questions are always answered; optional ones ~70% of the time
+    const questions = questionsByJob.get(job.id) ?? [];
+    const answers = questions
+      .filter((q) => q.required || chance(0.7))
+      .map((q) => ({
+        questionId: q.id,
+        questionLabel: q.label,
+        questionType: q.type,
+        value: q.answer(q.options ?? undefined),
+      }));
 
     await prisma.application.create({
       data: {
@@ -468,19 +626,23 @@ async function main(): Promise<void> {
             : chance(0.5)
               ? `${faker.internet.url()}/resume.pdf`
               : null,
+        answers: answers.length > 0 ? { create: answers } : undefined,
       },
     });
     created++;
+    answerCount += answers.length;
   }
 
   console.log("\nSeed complete:");
-  console.log(`  Companies:        ${await prisma.company.count()}`);
-  console.log(`  Users:            ${await prisma.user.count()}`);
-  console.log(`  SeekerProfiles:   ${await prisma.seekerprofile.count()}`);
-  console.log(`  RecruiterProfiles:${await prisma.recruiterprofile.count()}`);
-  console.log(`  Posts:            ${await prisma.post.count()}`);
-  console.log(`  Jobs:             ${await prisma.job.count()}`);
-  console.log(`  Applications:     ${created}`);
+  console.log(`  Companies:          ${await prisma.company.count()}`);
+  console.log(`  Users:              ${await prisma.user.count()}`);
+  console.log(`  SeekerProfiles:     ${await prisma.seekerprofile.count()}`);
+  console.log(`  RecruiterProfiles:  ${await prisma.recruiterprofile.count()}`);
+  console.log(`  Posts:              ${await prisma.post.count()}`);
+  console.log(`  Jobs:               ${await prisma.job.count()}`);
+  console.log(`  Job questions:      ${questionCount}`);
+  console.log(`  Applications:       ${created}`);
+  console.log(`  Application answers:${answerCount}`);
 }
 
 main()
