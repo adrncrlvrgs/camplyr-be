@@ -398,8 +398,10 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   application: 'application',
+  applicationanswer: 'applicationanswer',
   company: 'company',
   job: 'job',
+  jobquestion: 'jobquestion',
   post: 'post',
   recruiterprofile: 'recruiterprofile',
   seekerprofile: 'seekerprofile',
@@ -419,7 +421,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "application" | "company" | "job" | "post" | "recruiterprofile" | "seekerprofile" | "user"
+    modelProps: "application" | "applicationanswer" | "company" | "job" | "jobquestion" | "post" | "recruiterprofile" | "seekerprofile" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -486,6 +488,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.applicationCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ApplicationCountAggregateOutputType> | number
+        }
+      }
+    }
+    applicationanswer: {
+      payload: Prisma.$applicationanswerPayload<ExtArgs>
+      fields: Prisma.applicationanswerFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.applicationanswerFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.applicationanswerFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>
+        }
+        findFirst: {
+          args: Prisma.applicationanswerFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.applicationanswerFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>
+        }
+        findMany: {
+          args: Prisma.applicationanswerFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>[]
+        }
+        create: {
+          args: Prisma.applicationanswerCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>
+        }
+        createMany: {
+          args: Prisma.applicationanswerCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.applicationanswerDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>
+        }
+        update: {
+          args: Prisma.applicationanswerUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>
+        }
+        deleteMany: {
+          args: Prisma.applicationanswerDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.applicationanswerUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.applicationanswerUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$applicationanswerPayload>
+        }
+        aggregate: {
+          args: Prisma.ApplicationanswerAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApplicationanswer>
+        }
+        groupBy: {
+          args: Prisma.applicationanswerGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApplicationanswerGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.applicationanswerCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApplicationanswerCountAggregateOutputType> | number
         }
       }
     }
@@ -618,6 +686,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.jobCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.JobCountAggregateOutputType> | number
+        }
+      }
+    }
+    jobquestion: {
+      payload: Prisma.$jobquestionPayload<ExtArgs>
+      fields: Prisma.jobquestionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.jobquestionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.jobquestionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>
+        }
+        findFirst: {
+          args: Prisma.jobquestionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.jobquestionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>
+        }
+        findMany: {
+          args: Prisma.jobquestionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>[]
+        }
+        create: {
+          args: Prisma.jobquestionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>
+        }
+        createMany: {
+          args: Prisma.jobquestionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.jobquestionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>
+        }
+        update: {
+          args: Prisma.jobquestionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>
+        }
+        deleteMany: {
+          args: Prisma.jobquestionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.jobquestionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.jobquestionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$jobquestionPayload>
+        }
+        aggregate: {
+          args: Prisma.JobquestionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateJobquestion>
+        }
+        groupBy: {
+          args: Prisma.jobquestionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.JobquestionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.jobquestionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.JobquestionCountAggregateOutputType> | number
         }
       }
     }
@@ -938,6 +1072,19 @@ export const ApplicationScalarFieldEnum = {
 export type ApplicationScalarFieldEnum = (typeof ApplicationScalarFieldEnum)[keyof typeof ApplicationScalarFieldEnum]
 
 
+export const ApplicationanswerScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  questionId: 'questionId',
+  questionLabel: 'questionLabel',
+  questionType: 'questionType',
+  value: 'value',
+  createdAt: 'createdAt'
+} as const
+
+export type ApplicationanswerScalarFieldEnum = (typeof ApplicationanswerScalarFieldEnum)[keyof typeof ApplicationanswerScalarFieldEnum]
+
+
 export const CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -969,6 +1116,21 @@ export const JobScalarFieldEnum = {
 } as const
 
 export type JobScalarFieldEnum = (typeof JobScalarFieldEnum)[keyof typeof JobScalarFieldEnum]
+
+
+export const JobquestionScalarFieldEnum = {
+  id: 'id',
+  jobId: 'jobId',
+  label: 'label',
+  type: 'type',
+  required: 'required',
+  options: 'options',
+  sortOrder: 'sortOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type JobquestionScalarFieldEnum = (typeof JobquestionScalarFieldEnum)[keyof typeof JobquestionScalarFieldEnum]
 
 
 export const PostScalarFieldEnum = {
@@ -1034,6 +1196,13 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
 export const NullableJsonNullValueInput = {
   DbNull: DbNull,
   JsonNull: JsonNull
@@ -1061,19 +1230,6 @@ export const applicationOrderByRelevanceFieldEnum = {
 export type applicationOrderByRelevanceFieldEnum = (typeof applicationOrderByRelevanceFieldEnum)[keyof typeof applicationOrderByRelevanceFieldEnum]
 
 
-export const companyOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  slug: 'slug',
-  logoUrl: 'logoUrl',
-  website: 'website',
-  location: 'location',
-  description: 'description'
-} as const
-
-export type companyOrderByRelevanceFieldEnum = (typeof companyOrderByRelevanceFieldEnum)[keyof typeof companyOrderByRelevanceFieldEnum]
-
-
 export const JsonNullValueFilter = {
   DbNull: DbNull,
   JsonNull: JsonNull,
@@ -1091,6 +1247,29 @@ export const QueryMode = {
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+export const applicationanswerOrderByRelevanceFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  questionId: 'questionId',
+  questionLabel: 'questionLabel'
+} as const
+
+export type applicationanswerOrderByRelevanceFieldEnum = (typeof applicationanswerOrderByRelevanceFieldEnum)[keyof typeof applicationanswerOrderByRelevanceFieldEnum]
+
+
+export const companyOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  logoUrl: 'logoUrl',
+  website: 'website',
+  location: 'location',
+  description: 'description'
+} as const
+
+export type companyOrderByRelevanceFieldEnum = (typeof companyOrderByRelevanceFieldEnum)[keyof typeof companyOrderByRelevanceFieldEnum]
+
+
 export const jobOrderByRelevanceFieldEnum = {
   id: 'id',
   companyId: 'companyId',
@@ -1100,6 +1279,15 @@ export const jobOrderByRelevanceFieldEnum = {
 } as const
 
 export type jobOrderByRelevanceFieldEnum = (typeof jobOrderByRelevanceFieldEnum)[keyof typeof jobOrderByRelevanceFieldEnum]
+
+
+export const jobquestionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  jobId: 'jobId',
+  label: 'label'
+} as const
+
+export type jobquestionOrderByRelevanceFieldEnum = (typeof jobquestionOrderByRelevanceFieldEnum)[keyof typeof jobquestionOrderByRelevanceFieldEnum]
 
 
 export const postOrderByRelevanceFieldEnum = {
@@ -1174,6 +1362,27 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 
 
 /**
+ * Reference to a field of type 'question_type'
+ */
+export type Enumquestion_typeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'question_type'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -1191,20 +1400,6 @@ export type Enumjob_statusFieldRefInput<$PrismaModel> = FieldRefInputType<$Prism
  * Reference to a field of type 'job_type'
  */
 export type Enumjob_typeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'job_type'>
-    
-
-
-/**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-/**
- * Reference to a field of type 'QueryMode'
- */
-export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -1380,8 +1575,10 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   application?: Prisma.applicationOmit
+  applicationanswer?: Prisma.applicationanswerOmit
   company?: Prisma.companyOmit
   job?: Prisma.jobOmit
+  jobquestion?: Prisma.jobquestionOmit
   post?: Prisma.postOmit
   recruiterprofile?: Prisma.recruiterprofileOmit
   seekerprofile?: Prisma.seekerprofileOmit

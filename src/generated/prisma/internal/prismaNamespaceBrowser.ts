@@ -52,8 +52,10 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   application: 'application',
+  applicationanswer: 'applicationanswer',
   company: 'company',
   job: 'job',
+  jobquestion: 'jobquestion',
   post: 'post',
   recruiterprofile: 'recruiterprofile',
   seekerprofile: 'seekerprofile',
@@ -90,6 +92,19 @@ export const ApplicationScalarFieldEnum = {
 export type ApplicationScalarFieldEnum = (typeof ApplicationScalarFieldEnum)[keyof typeof ApplicationScalarFieldEnum]
 
 
+export const ApplicationanswerScalarFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  questionId: 'questionId',
+  questionLabel: 'questionLabel',
+  questionType: 'questionType',
+  value: 'value',
+  createdAt: 'createdAt'
+} as const
+
+export type ApplicationanswerScalarFieldEnum = (typeof ApplicationanswerScalarFieldEnum)[keyof typeof ApplicationanswerScalarFieldEnum]
+
+
 export const CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -121,6 +136,21 @@ export const JobScalarFieldEnum = {
 } as const
 
 export type JobScalarFieldEnum = (typeof JobScalarFieldEnum)[keyof typeof JobScalarFieldEnum]
+
+
+export const JobquestionScalarFieldEnum = {
+  id: 'id',
+  jobId: 'jobId',
+  label: 'label',
+  type: 'type',
+  required: 'required',
+  options: 'options',
+  sortOrder: 'sortOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type JobquestionScalarFieldEnum = (typeof JobquestionScalarFieldEnum)[keyof typeof JobquestionScalarFieldEnum]
 
 
 export const PostScalarFieldEnum = {
@@ -186,6 +216,13 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
 export const NullableJsonNullValueInput = {
   DbNull: DbNull,
   JsonNull: JsonNull
@@ -213,19 +250,6 @@ export const applicationOrderByRelevanceFieldEnum = {
 export type applicationOrderByRelevanceFieldEnum = (typeof applicationOrderByRelevanceFieldEnum)[keyof typeof applicationOrderByRelevanceFieldEnum]
 
 
-export const companyOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  slug: 'slug',
-  logoUrl: 'logoUrl',
-  website: 'website',
-  location: 'location',
-  description: 'description'
-} as const
-
-export type companyOrderByRelevanceFieldEnum = (typeof companyOrderByRelevanceFieldEnum)[keyof typeof companyOrderByRelevanceFieldEnum]
-
-
 export const JsonNullValueFilter = {
   DbNull: DbNull,
   JsonNull: JsonNull,
@@ -243,6 +267,29 @@ export const QueryMode = {
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+export const applicationanswerOrderByRelevanceFieldEnum = {
+  id: 'id',
+  applicationId: 'applicationId',
+  questionId: 'questionId',
+  questionLabel: 'questionLabel'
+} as const
+
+export type applicationanswerOrderByRelevanceFieldEnum = (typeof applicationanswerOrderByRelevanceFieldEnum)[keyof typeof applicationanswerOrderByRelevanceFieldEnum]
+
+
+export const companyOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  logoUrl: 'logoUrl',
+  website: 'website',
+  location: 'location',
+  description: 'description'
+} as const
+
+export type companyOrderByRelevanceFieldEnum = (typeof companyOrderByRelevanceFieldEnum)[keyof typeof companyOrderByRelevanceFieldEnum]
+
+
 export const jobOrderByRelevanceFieldEnum = {
   id: 'id',
   companyId: 'companyId',
@@ -252,6 +299,15 @@ export const jobOrderByRelevanceFieldEnum = {
 } as const
 
 export type jobOrderByRelevanceFieldEnum = (typeof jobOrderByRelevanceFieldEnum)[keyof typeof jobOrderByRelevanceFieldEnum]
+
+
+export const jobquestionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  jobId: 'jobId',
+  label: 'label'
+} as const
+
+export type jobquestionOrderByRelevanceFieldEnum = (typeof jobquestionOrderByRelevanceFieldEnum)[keyof typeof jobquestionOrderByRelevanceFieldEnum]
 
 
 export const postOrderByRelevanceFieldEnum = {

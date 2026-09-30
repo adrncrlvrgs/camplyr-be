@@ -511,10 +511,6 @@ export type userUpdateOneRequiredWithoutSeekerprofileNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.userUpdateToOneWithWhereWithoutSeekerprofileInput, Prisma.userUpdateWithoutSeekerprofileInput>, Prisma.userUncheckedUpdateWithoutSeekerprofileInput>
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type NullableEnumuser_roleFieldUpdateOperationsInput = {
   set?: $Enums.user_role | null
 }

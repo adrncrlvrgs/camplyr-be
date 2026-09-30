@@ -47,3 +47,16 @@ export const job_type = {
 } as const
 
 export type job_type = (typeof job_type)[keyof typeof job_type]
+
+
+export const question_type = {
+  SHORT_TEXT: 'SHORT_TEXT',
+  LONG_TEXT: 'LONG_TEXT',
+  SINGLE_CHOICE: 'SINGLE_CHOICE',
+  MULTI_CHOICE: 'MULTI_CHOICE',
+  YES_NO: 'YES_NO',
+  NUMBER: 'NUMBER',
+  DATE: 'DATE'
+} as const
+
+export type question_type = (typeof question_type)[keyof typeof question_type]

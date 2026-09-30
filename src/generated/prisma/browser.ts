@@ -23,6 +23,11 @@ export * from './enums';
  */
 export type application = Prisma.applicationModel
 /**
+ * Model applicationanswer
+ * 
+ */
+export type applicationanswer = Prisma.applicationanswerModel
+/**
  * Model company
  * 
  */
@@ -32,6 +37,11 @@ export type company = Prisma.companyModel
  * 
  */
 export type job = Prisma.jobModel
+/**
+ * Model jobquestion
+ * 
+ */
+export type jobquestion = Prisma.jobquestionModel
 /**
  * Model post
  * 
