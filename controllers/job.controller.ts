@@ -1,30 +1,41 @@
 import { Request, Response } from "express";
-import { CreateJobInput } from "../utils/validation/schema.validation";
+import {
+  CreateJobInput,
+  jobSchema,
+} from "../utils/validation/schema.validation";
 import { jobService } from "../services/job.service";
 
 export async function createJob(req: Request, res: Response) {
   try {
     const userId = req.user?.id;
-
+ 
     if (!userId) {
-      res.status(401).json({
-        message: "Unauthorized",
-      });
-
+      res.status(401).json({ message: "Unauthorized" });
       return;
     }
-
-    const data = req.body as CreateJobInput;
-    const addJob = await jobService.createJob(userId, data);
-    res.status(200).json({
+ 
+    const data = jobSchema.safeParse(req.body);
+    console.log(data.data)
+    if (!data.success) {
+      res.status(400).json({
+        message: "Invalid job data",
+        errors: data.error.flatten(),
+      });
+      return;
+    }
+ 
+    // The service resolves the recruiter's company from userId.
+    const job = await jobService.createJob(userId, data.data);
+ 
+    res.status(201).json({
       message: "Job created",
-      postData: addJob,
+      data: job,
     });
+    return;
   } catch (error) {
     res.status(500).json({
-      message: "Failed to add job",
+      message: "Failed to create job",
     });
-
     return;
   }
 }
