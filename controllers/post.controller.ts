@@ -4,7 +4,6 @@ import {
   paginationQuerySchema,
 } from "../utils/validation/schema.validation";
 import { postService } from "../services/post.service";
-import { error } from "console";
 
 export async function createPost(req: Request, res: Response) {
   try {
@@ -41,12 +40,13 @@ export async function getAllPost(req: Request, res: Response) {
     const parsed = paginationQuerySchema.safeParse(req.query);
 
     if (!parsed.success) {
-      return res.status(400).json({
+     res.status(400).json({
         error: "Invalid pagination params",
       });
+      return;
     }
     const result = await postService.getAllPost(parsed.data);
-    return res.status(200).json({
+    res.status(200).json({
       message: "Posts retrieve successful",
       data: result,
     });
